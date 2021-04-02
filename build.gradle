@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+javafx {
+    version = "15.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+group = 'org.CarLounge.fis'
+version = '0.1.0-SNAPSHOT'
+description = 'CarLounge - our app is designed as a solution to both people who are seeking a private means of transport' +
+        ' for a relatively short period of time and to those who are willing to put their vehicles at other`s people disposal.'
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+dependencies {
+    implementation 'org.openjfx:javafx-controls:15.0.1'
+    implementation 'org.openjfx:javafx-fxml:15.0.1'
+    implementation 'org.dizitart:nitrite:3.4.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+}
+
+mainClassName = 'org.CarLounge.fis.Main'
