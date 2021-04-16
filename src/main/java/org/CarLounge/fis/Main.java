@@ -35,16 +35,6 @@ public class Main extends Application {
             applicationHomePath.toFile().mkdirs();
     }
 
-    @FXML
-    Button goToRegister;
-
-    public void switchToRegister(MouseEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-        Stage window= (Stage)goToRegister.getScene().getWindow();
-        window.setScene(new Scene(root));
-    }
-
-
     public static void main(String[] args) {
         launch(args);
     }
