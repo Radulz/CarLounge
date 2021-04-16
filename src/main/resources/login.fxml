@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.LogInController">
+   <children>
+      <Label alignment="CENTER" layoutX="117.0" layoutY="37.0" text="CarLounge" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="56.0" layoutY="121.0" text="Username">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="59.0" layoutY="161.0" text="Password">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userField" layoutX="155.0" layoutY="121.0" />
+      <PasswordField fx:id="passwordField" layoutX="155.0" layoutY="161.0" />
+      <Button fx:id="logintoacc" layoutX="144.0" layoutY="244.0" mnemonicParsing="false" onMouseClicked="#switchToHomeScene" prefHeight="25.0" prefWidth="72.0" text="Log in" />
+      <Button fx:id="goToRegister" layoutX="144.0" layoutY="285.0" mnemonicParsing="false" onMouseClicked="#switchToRegister" prefHeight="25.0" prefWidth="72.0" text="Register" />
+   </children>
+</AnchorPane>
