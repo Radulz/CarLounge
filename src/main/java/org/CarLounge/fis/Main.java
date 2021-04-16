@@ -1,6 +1,7 @@
 package org.CarLounge.fis;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,8 +9,12 @@ import javafx.stage.Stage;
 import org.CarLounge.fis.services.FileSystemService;
 import org.CarLounge.fis.services.UserService;
 
+//import java.awt.*;
+//import java.awt.event.MouseEvent;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 
 public class Main extends Application {
 
@@ -17,9 +22,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         initDirectory();
         UserService.initDatabase();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-        primaryStage.setTitle("Registration Example");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+        /*Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));*/
+        primaryStage.setTitle("CarLounge");
+        primaryStage.setScene(new Scene(root, 400, 360));
         primaryStage.show();
     }
 
@@ -27,6 +33,15 @@ public class Main extends Application {
         Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
         if (!Files.exists(applicationHomePath))
             applicationHomePath.toFile().mkdirs();
+    }
+
+    @FXML
+    Button goToRegister;
+
+    public void switchToRegister(MouseEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+        Stage window= (Stage)goToRegister.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
 
 
