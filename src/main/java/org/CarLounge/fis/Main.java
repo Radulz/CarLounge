@@ -20,10 +20,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        initDirectory();
-        UserService.initDatabase();
+        //initDirectory();
+        //UserService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-        /*Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));*/
         primaryStage.setTitle("CarLounge");
         primaryStage.setScene(new Scene(root, 400, 360));
         primaryStage.show();

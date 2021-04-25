@@ -37,7 +37,7 @@ public class LogInController {
     private StackPane mainContainer;
 
     public void switchToRegister(MouseEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("home.fxml"));
         Scene scene = goToRegister.getScene();
         root.translateXProperty().set(scene.getWidth());
 
