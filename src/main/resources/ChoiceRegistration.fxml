@@ -4,22 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ChoiceRegistrationController">
+<StackPane fx:id="mainChoiceContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ChoiceRegistrationController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="421.0" style="-fx-background-color: #acb4cc;">
+      <AnchorPane fx:id="choiceContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="421.0" style="-fx-background-color: #acb4cc;">
          <children>
             <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" text="How do you want to use the app?">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="client" layoutX="52.0" layoutY="188.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="125.0" text="Client">
+            <Button fx:id="goToClientR" layoutX="52.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#switchToClientR" prefHeight="36.0" prefWidth="125.0" text="Client">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="provider" layoutX="240.0" layoutY="188.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="125.0" text="Provider">
+            <Button fx:id="goToProviderR" layoutX="240.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#switchToProviderR" prefHeight="36.0" prefWidth="125.0" text="Provider">
                <font>
                   <Font size="14.0" />
                </font>
@@ -29,7 +28,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="goBack" layoutX="14.0" layoutY="232.0" text="&lt;Back" />
+            <Hyperlink fx:id="goBackToLogin" layoutX="14.0" layoutY="232.0" onMouseClicked="#switchBackToLogin" text="&lt;Back" />
          </children>
       </AnchorPane>
    </children>

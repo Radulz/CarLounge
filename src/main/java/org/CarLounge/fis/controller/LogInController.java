@@ -25,10 +25,10 @@ import javafx.util.Duration;
 
 public class LogInController {
     @FXML
-    private Button goToRegister;
+    private Button goToChoice;
 
     @FXML
-    private Button logintoacc;
+    private Button logInToAcc;
 
     @FXML
     private AnchorPane logInContainer;
@@ -36,9 +36,9 @@ public class LogInController {
     @FXML
     private StackPane mainContainer;
 
-    public void switchToRegister(MouseEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("home.fxml"));
-        Scene scene = goToRegister.getScene();
+    public void switchToChoice(MouseEvent event) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ChoiceRegistration.fxml"));
+        /*Scene scene = goToChoice.getScene();
         root.translateXProperty().set(scene.getWidth());
 
         mainContainer.getChildren().add(root);
@@ -48,15 +48,15 @@ public class LogInController {
         KeyFrame KF = new KeyFrame(Duration.seconds(0.6), KV);
         timeline.getKeyFrames().add(KF);
         timeline.setOnFinished(t -> { mainContainer.getChildren().remove(logInContainer); });
-        timeline.play();
+        timeline.play();*/
 
-        //Stage window= (Stage)goToRegister.getScene().getWindow();
-        //window.setScene(new Scene(root));
+        Stage window= (Stage)goToChoice.getScene().getWindow();
+        window.setScene(new Scene(root));
     }
 
     public void switchToHomeScene(MouseEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("home.fxml"));
-        Stage window = (Stage)logintoacc.getScene().getWindow();
+        Stage window = (Stage)logInToAcc.getScene().getWindow();
         window.setScene(new Scene(root));
     }
 

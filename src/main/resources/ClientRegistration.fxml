@@ -88,7 +88,7 @@
                        <Font size="13.0" />
                    </font>
                </Label>
-            <Hyperlink layoutX="12.0" layoutY="535.0" text="&lt;Back" />
+            <Hyperlink fx:id="goBackToChoice" layoutX="12.0" layoutY="535.0" onMouseClicked="#switchBackToChoice" text="&lt;Back" />
            </children>
        </AnchorPane>
    </children>

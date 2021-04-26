@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ProviderRegistrationController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="421.0" style="-fx-background-color: #87ceeb;">
@@ -39,7 +38,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Button layoutX="36.0" layoutY="365.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="128.0" style="-fx-background-color: #4bb6d6;" text="Individual">
+            <Button fx:id="goToIndividual" layoutX="36.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#switchToIndividual" prefHeight="36.0" prefWidth="128.0" style="-fx-background-color: #4bb6d6;" text="Individual">
                <font>
                   <Font size="15.0" />
                </font>
@@ -64,7 +63,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button layoutX="255.0" layoutY="365.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="128.0" style="-fx-background-color: #4bb6d6;" text="Legal Person">
+            <Button fx:id="goToLegal" layoutX="255.0" layoutY="365.0" mnemonicParsing="false" onMouseClicked="#switchToLegal" prefHeight="36.0" prefWidth="128.0" style="-fx-background-color: #4bb6d6;" text="Legal Person">
                <font>
                   <Font size="15.0" />
                </font>
@@ -79,7 +78,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Hyperlink layoutX="14.0" layoutY="420.0" text="&lt;Back" />
+            <Hyperlink fx:id="goBackToChoice" layoutX="14.0" layoutY="420.0" onMouseClicked="#switchBackToChoice" text="&lt;Back" />
          </children>
       </AnchorPane>
    </children>
