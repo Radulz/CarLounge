@@ -14,11 +14,11 @@ import static org.CarLounge.fis.services.FileSystemService.getPathToFile;
 
 public class UserService {
 
-    private static ObjectRepository<User> userRepository;
+    /*private static ObjectRepository<User> userRepository;
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("registration-example.db").toFile())
+                .filePath(getPathToFile("CarLoungeUsers.db").toFile())
                 .openOrCreate("test", "test");
 
         userRepository = database.getRepository(User.class);
@@ -55,5 +55,5 @@ public class UserService {
             throw new IllegalStateException("SHA-512 does not exist!");
         }
         return md;
-    }
+    }*/
 }

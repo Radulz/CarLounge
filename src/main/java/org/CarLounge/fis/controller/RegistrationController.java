@@ -9,7 +9,7 @@ import org.CarLounge.fis.exceptions.UsernameAlreadyExistsException;
 import org.CarLounge.fis.services.UserService;
 
 public class RegistrationController {
-
+    /*
     @FXML
     private Text registrationMessage;
     @FXML
@@ -33,4 +33,5 @@ public class RegistrationController {
             registrationMessage.setText(e.getMessage());
         }
     }
+    */
 }

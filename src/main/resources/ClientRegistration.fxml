@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ClientRegistrationController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="421.0" style="-fx-background-color: #87ceeb;">
+           <children>
+               <Label alignment="CENTER" layoutX="104.0" layoutY="14.0" text="Client Registration">
+                   <font>
+                       <Font name="System Bold" size="25.0" />
+                   </font>
+               </Label>
+               <Label layoutX="14.0" layoutY="78.0" text="Username">
+                   <font>
+                       <Font size="16.0" />
+                   </font>
+               </Label>
+               <Label layoutX="14.0" layoutY="127.0" text="First/Last Name">
+                   <font>
+                       <Font size="16.0" />
+                   </font>
+               </Label>
+               <Label layoutX="15.0" layoutY="177.0" text="Birth Date">
+                   <font>
+                       <Font size="16.0" />
+                   </font>
+               </Label>
+               <Label layoutX="17.0" layoutY="227.0" text="Password">
+                   <font>
+                       <Font size="16.0" />
+                   </font>
+               </Label>
+               <Label layoutX="13.0" layoutY="348.0" text="Confirm Password">
+                   <font>
+                       <Font size="16.0" />
+                   </font>
+               </Label>
+               <Label layoutX="15.0" layoutY="397.0" text="ID Card">
+                   <font>
+                       <Font size="16.0" />
+                   </font>
+               </Label>
+               <Label layoutX="13.0" layoutY="460.0" text="Driver License">
+                   <font>
+                       <Font size="16.0" />
+                   </font>
+               </Label>
+               <TextField layoutX="164.0" layoutY="78.0" prefHeight="25.0" prefWidth="219.0" promptText="Usually e-mail" />
+               <TextField layoutX="164.0" layoutY="127.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Radu" />
+               <TextField layoutX="284.0" layoutY="127.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Mladin" />
+               <PasswordField layoutX="164.0" layoutY="227.0" prefHeight="25.0" prefWidth="219.0" />
+               <PasswordField layoutX="164.0" layoutY="348.0" prefHeight="25.0" prefWidth="219.0" />
+               <DatePicker layoutX="164.0" layoutY="177.0" prefHeight="25.0" prefWidth="219.0" />
+               <Label alignment="CENTER" layoutX="195.0" layoutY="259.0" text="*Password must contain at least:&#10;*One upper case letter&#10;*One lower case letter&#10;*A number&#10;*8 characters" textAlignment="CENTER">
+                   <font>
+                       <Font size="11.0" />
+                   </font>
+               </Label>
+               <Button layoutX="15.0" layoutY="422.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Attach image" />
+               <Button layoutX="14.0" layoutY="485.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Attach image" />
+               <Button layoutX="171.0" layoutY="510.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">
+                   <font>
+                       <Font size="15.0" />
+                   </font>
+                   <cursor>
+                       <Cursor fx:constant="HAND" />
+                   </cursor>
+                   <effect>
+                       <DropShadow height="25.0" radius="12.0" width="25.0">
+                           <input>
+                               <InnerShadow />
+                           </input>
+                       </DropShadow>
+                   </effect>
+               </Button>
+               <Label fx:id="idPhotoPath" layoutX="164.0" layoutY="401.0">
+                   <font>
+                       <Font size="13.0" />
+                   </font>
+               </Label>
+               <Label fx:id="dlPhotoPath" layoutX="164.0" layoutY="464.0">
+                   <font>
+                       <Font size="13.0" />
+                   </font>
+               </Label>
+            <Hyperlink fx:id="goBackToChoice" layoutX="12.0" layoutY="535.0" onMouseClicked="#switchBackToChoice" text="&lt;Back" />
+           </children>
+       </AnchorPane>
+   </children>
+</StackPane>
