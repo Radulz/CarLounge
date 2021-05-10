@@ -40,7 +40,7 @@ public class ChoiceRegistrationController {
     private StackPane mainChoiceContainer;
 
     public void switchBackToLogin(MouseEvent event) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
         Stage window= (Stage)goBackToLogin.getScene().getWindow();
         window.setScene(new Scene(root));
     }

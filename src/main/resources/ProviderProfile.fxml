@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="211.0" prefWidth="238.0" style="-fx-background-color: yellow;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ProviderProfile">
+    <children>
+        <Label alignment="CENTER" layoutX="74.0" layoutY="97.0" prefHeight="17.0" prefWidth="91.0" text="ProviderProfile"> </Label>
+    </children>
+</Pane>

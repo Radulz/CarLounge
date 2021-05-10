@@ -1,0 +1,4 @@
+.btn_avatar {-fx-background-image: url("Images/2.jpg")}
+.btn_avatar:hover {-fx-background-image: url("Images/1.jpg")}
+.btn_avatar {-fx-background-size: cover}
+

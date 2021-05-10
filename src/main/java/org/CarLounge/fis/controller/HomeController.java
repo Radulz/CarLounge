@@ -14,10 +14,10 @@ import javafx.stage.Stage;
 public class HomeController {
     @FXML
     Button logoutfromacc;
-    public void backToLogin(MouseEvent event) throws Exception{
+    //public void backToLogin(MouseEvent event) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
-        Stage window = (Stage)logoutfromacc.getScene().getWindow();
-        window.setScene(new Scene(root));
-    }
+   //     Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
+    //    Stage window = (Stage)logoutfromacc.getScene().getWindow();
+    //    window.setScene(new Scene(root));
+   // }
 }

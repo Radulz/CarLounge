@@ -2,12 +2,17 @@ package org.CarLounge.fis.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.Border;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
+import com.jfoenix.controls.JFXButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -23,18 +28,27 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 
-public class LogInController {
+public class LogInController implements Initializable {
     @FXML
-    private Button goToChoice;
+    private JFXButton goToChoice;
 
     @FXML
-    private Button logInToAcc;
+    private JFXButton logInToAcc;
 
     @FXML
-    private AnchorPane logInContainer;
+    private BorderPane logInContainer;
 
     @FXML
-    private StackPane mainContainer;
+    private ImageView exit;
+
+    /*@FXML
+    private StackPane mainContainer;*/
+
+    public void initialize(URL location, ResourceBundle resources) {
+        exit.setOnMouseClicked(event -> {
+            System.exit(0);
+        });
+    }
 
     public void switchToChoice(MouseEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ChoiceRegistration.fxml"));
@@ -55,9 +69,11 @@ public class LogInController {
     }
 
     public void switchToHomeScene(MouseEvent event) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("home.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeClient.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeProvider.fxml"));
         Stage window = (Stage)logInToAcc.getScene().getWindow();
         window.setScene(new Scene(root));
     }
+
 
 }
