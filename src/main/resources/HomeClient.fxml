@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ClientMenuController">
+    <children>
+        <AnchorPane prefHeight="46.0" prefWidth="200.0" style="-fx-background-color: #002d40;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <ImageView fx:id="exit" fitHeight="24.0" fitWidth="24.0" layoutX="774.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/exit.png" />
+                    </image>
+                </ImageView>
+                <ImageView fx:id="menu" fitHeight="46.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/menu.png" />
+                    </image>
+                </ImageView>
+            </children></AnchorPane>
+        <AnchorPane layoutY="46.0" prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="1.0" prefHeight="199.0" prefWidth="44.0" spacing="10.0" AnchorPane.topAnchor="20.0">
+                    <children>
+                        <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Images/home1.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Images/menu1.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Images/user.jpg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Images/settings1.jpg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                            <image>
+                                <Image url="@Images/logout1.jpg" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="pane1" layoutX="227.0" layoutY="382.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <AnchorPane prefHeight="454.0" prefWidth="44.0" style="-fx-background-color: White;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+            <children>
+                <VBox alignment="TOP_CENTER" layoutX="1.0" prefHeight="199.0" prefWidth="44.0" spacing="10.0" AnchorPane.topAnchor="20.0">
+                    <children>
+                        <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Images/home1.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Images/menu1.png" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Images/user.jpg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@Images/settings1.jpg" />
+                            </image>
+                        </ImageView>
+                        <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                            <image>
+                                <Image url="@Images/logout1.jpg" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="pane2" prefHeight="454.0" prefWidth="178.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0">
+            <children>
+                <VBox layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+                    <children>
+                        <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#home" prefHeight="38.0" prefWidth="179.0" text="Home">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#cars" prefHeight="38.0" prefWidth="179.0" text="Rent-a-car">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#ClientProfile" prefHeight="38.0" prefWidth="179.0" text="My Profile">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#AppSettings" prefHeight="38.0" prefWidth="179.0" text="Settings">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Log Out">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="218.0" layoutY="46.0" prefHeight="454.0" prefWidth="582.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="46.0">
+            <StackPane fx:id="contentArea" prefHeight="454.0" prefWidth="582.0" />
+        </AnchorPane>
+    </children>
+</AnchorPane>

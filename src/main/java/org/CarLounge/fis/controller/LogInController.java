@@ -69,6 +69,7 @@ public class LogInController implements Initializable {
     }
 
     public void switchToHomeScene(MouseEvent event) throws Exception{
+        //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeClient.fxml"));
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeProvider.fxml"));
         Stage window = (Stage)logInToAcc.getScene().getWindow();
         window.setScene(new Scene(root));

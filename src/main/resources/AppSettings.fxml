@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane prefHeight="211.0" prefWidth="238.0" style="-fx-background-color: Red;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.AppSettings">
+    <children>
+
+        <Label alignment="CENTER" layoutX="78.0" layoutY="94.0" prefHeight="24.0" prefWidth="82.0" text="AppSettings">
+        </Label>
+
+    </children>
+</Pane>

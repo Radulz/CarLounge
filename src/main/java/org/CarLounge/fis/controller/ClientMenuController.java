@@ -12,12 +12,16 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 
+import javax.validation.constraints.Null;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class ProviderMenuController implements Initializable {
+public class ClientMenuController implements Initializable {
     @FXML
     private ImageView exit, menu;
 
@@ -32,6 +36,16 @@ public class ProviderMenuController implements Initializable {
         exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
+
+        /*try {
+            Parent fxml = FXMLLoader.load(getClass().getResource("home.fxml"));
+            contentArea.getChildren().removeAll();
+            contentArea.getChildren().setAll(fxml);
+        } catch (IOException ex) {
+            Logger.getLogger(ClientMenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+
+
 
         pane1.setVisible(false);
 
@@ -74,26 +88,20 @@ public class ProviderMenuController implements Initializable {
         });
     }
 
-    public void home(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+    public void home(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
         Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("home.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
 
-    public void NewListing(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("NewListing.fxml"));
+    public void cars(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
+        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("cars.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
 
-    public void MyListings(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("MyListings.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
-    }
-
-    public void ProviderProfile(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ProviderProfile.fxml"));
+    public void ClientProfile(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
+        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ClientProfile.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
