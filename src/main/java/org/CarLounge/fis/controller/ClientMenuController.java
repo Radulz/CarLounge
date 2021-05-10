@@ -1,20 +1,23 @@
 package org.CarLounge.fis.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
 import javax.validation.constraints.Null;
 import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -30,6 +33,9 @@ public class ClientMenuController implements Initializable {
 
     @FXML
     private StackPane contentArea;
+
+    @FXML
+    private JFXButton logOutOfAcc;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -112,4 +118,9 @@ public class ClientMenuController implements Initializable {
         contentArea.getChildren().setAll(fxml);
     }
 
+    public void switchToLogIn(MouseEvent event) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
+        Stage window = (Stage)logOutOfAcc.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
 }

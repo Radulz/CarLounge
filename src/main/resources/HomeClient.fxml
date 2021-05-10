@@ -111,7 +111,7 @@
                                 <Font size="16.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="179.0" text="Log Out">
+                        <JFXButton fx:id="logOutOfAcc" alignment="BASELINE_LEFT" onMouseClicked="#switchToLogIn" prefHeight="38.0" prefWidth="179.0" text="Log Out">
                             <font>
                                 <Font size="16.0" />
                             </font>

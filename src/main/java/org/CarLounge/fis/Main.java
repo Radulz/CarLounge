@@ -26,7 +26,7 @@ public class Main extends Application {
         //UserService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
         //primaryStage.setTitle("CarLounge");
-        //primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
 
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
