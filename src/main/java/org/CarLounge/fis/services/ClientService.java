@@ -14,6 +14,7 @@ import java.util.Objects;
 
 import org.CarLounge.fis.exceptions.*;
 import org.CarLounge.fis.model.Client;
+import org.CarLounge.fis.model.Provider;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
@@ -143,6 +144,10 @@ public class ClientService {
     public static void checkUserDoesNotAlreadyExist(String email) throws UsernameAlreadyExistsException {
         for (Client client : ClientRepository.find()) {
             if (Objects.equals(email, client.getEmail()))
+                throw new UsernameAlreadyExistsException(email);
+        }
+        for (Provider provider : LegalPersonProviderService.getProviderRepository().find()) {
+            if (Objects.equals(email, provider.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
         }
     }

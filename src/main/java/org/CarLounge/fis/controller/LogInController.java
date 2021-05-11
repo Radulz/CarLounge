@@ -8,24 +8,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import javafx.scene.control.Button;
 import com.jfoenix.controls.JFXButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.animation.Interpolator;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.util.Duration;
+
 import org.CarLounge.fis.exceptions.AccountDoesNotExist;
 import org.CarLounge.fis.exceptions.CredentialsEnteredAreIncorrect;
 import org.CarLounge.fis.model.Client;
@@ -88,7 +79,7 @@ public class LogInController implements Initializable {
         }
     }
 
-    public static String checkExistance(String user, String pass) throws AccountDoesNotExist {
+    public static String checkExistence(String user, String pass) throws AccountDoesNotExist {
 
         String accountClass = "";
         for(Client client: ClientService.getClientRepository().find()) {
@@ -121,7 +112,7 @@ public class LogInController implements Initializable {
         String accountClass = "";
 
         try {
-            accountClass=checkExistance(accountEmail, accountPasswordEncoded);
+            accountClass= checkExistence(accountEmail, accountPasswordEncoded);
             if (accountClass.equals("Client")) {
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeClient.fxml"));
                 Stage window = (Stage) logInToAcc.getScene().getWindow();

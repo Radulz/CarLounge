@@ -1,6 +1,7 @@
 package org.CarLounge.fis.services;
 
 import org.CarLounge.fis.exceptions.*;
+import org.CarLounge.fis.model.Client;
 import org.CarLounge.fis.model.Provider;
 
 import java.nio.charset.StandardCharsets;
@@ -62,6 +63,10 @@ public class IndividualProviderService extends ProviderService {
     public static void checkUserDoesNotAlreadyExist(String email) throws UsernameAlreadyExistsException {
         for (Provider provider : ProviderRepository.find()) {
             if (Objects.equals(email, provider.getEmail()))
+                throw new UsernameAlreadyExistsException(email);
+        }
+        for (Client client : ClientService.getClientRepository().find()) {
+            if (Objects.equals(email, client.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
         }
     }
