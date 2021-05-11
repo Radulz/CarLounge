@@ -8,14 +8,37 @@
 
 <StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.IndividualPRegistrationController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="421.0" style="-fx-background-color: #87ceeb;">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="421.0" style="-fx-background-color: #87ceeb;">
          <children>
             <Label alignment="CENTER" layoutX="152.0" layoutY="14.0" text="Individual">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="78.0" text="First/Last Name">
+            <Label layoutX="14.0" layoutY="78.0" text="Email">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="245.0" text="Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="22.0" layoutY="350.0" text="Confirm Password">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="email" layoutX="164.0" layoutY="78.0" prefHeight="25.0" prefWidth="219.0" promptText="e.g. E-mail@provder.com" />
+            <PasswordField fx:id="password" layoutX="161.0" layoutY="245.0" prefHeight="25.0" prefWidth="219.0" />
+            <PasswordField fx:id="confirmPassword" layoutX="161.0" layoutY="350.0" prefHeight="25.0" prefWidth="219.0" />
+            <Label alignment="CENTER" layoutX="192.0" layoutY="270.0" text="*Password must contain at least:&#10;*One upper case letter&#10;*One lower case letter&#10;*A number&#10;*8 characters" textAlignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="143.0" text="First/Last Name">
                <font>
                   <Font size="16.0" />
                </font>
@@ -30,27 +53,20 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="goBackToProviderR" layoutX="14.0" layoutY="352.0" onMouseClicked="#switchBackToProviderR" text="&lt;Back" />
-            <TextField layoutX="164.0" layoutY="78.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Radu" />
-            <TextField layoutX="284.0" layoutY="78.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Mladin" />
-            <Label layoutX="20.0" layoutY="136.0" text="Birth Date">
+            <Hyperlink fx:id="goBackToProviderR" layoutX="14.0" layoutY="502.0" onMouseClicked="#switchBackToProviderR" text="&lt;Back" />
+            <TextField fx:id="firstname" layoutX="161.0" layoutY="143.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Radu" />
+            <TextField fx:id="lastname" layoutX="281.0" layoutY="143.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Mladin" />
+            <Label layoutX="17.0" layoutY="196.0" text="Birth Date">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <DatePicker layoutX="164.0" layoutY="136.0" prefHeight="25.0" prefWidth="219.0" />
-            <Label layoutX="20.0" layoutY="205.0" text="ID Card">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="20.0" layoutY="230.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="89.0" text="Attach image" />
             <Label fx:id="individualPhotoPath" layoutX="162.0" layoutY="208.0">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Button fx:id="individualSubmit" layoutX="171.0" layoutY="290.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">
+            <Button fx:id="Submit" layoutX="171.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">
                <font>
                   <Font size="15.0" />
                </font>
@@ -65,6 +81,9 @@
                   </DropShadow>
                </effect>
             </Button>
+            <TextField fx:id="birthDate" layoutX="161.0" layoutY="196.0" prefHeight="25.0" prefWidth="219.0" promptText="Date Format MM/dd/yyyy" />
+            <Text fx:id="registrationMessage" layoutX="4.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="414.0" />
+            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="4.0" layoutY="420.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="414.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </children>

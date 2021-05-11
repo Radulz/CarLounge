@@ -1,6 +1,6 @@
 package org.CarLounge.fis.services;
 
-import org.CarLounge.fis.exceptions.UsernameAlreadyExistsException;
+import org.CarLounge.fis.exceptions.*;
 import org.CarLounge.fis.model.Provider;
 import org.dizitart.no2.Nitrite;
 
@@ -16,16 +16,50 @@ import java.time.LocalDateTime;
 
 public class LegalPersonProviderService extends ProviderService{
 
-    public static Date getTodayDate(String date) {
-        try{
-            return new SimpleDateFormat("MM-dd-yyyy").parse(date);
-        } catch(ParseException e){
-            return null;
+    public static String getTodayDate() {
+        DateTimeFormatter dtf=DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDateTime now = LocalDateTime.now();
+        return dtf.format(now);
+    }
+    private static void checkFields(String email, String password, String companyName, String address, String phone, String taxRegNo, String confirmPassword) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, CompanyNameIsMissing, AddressIsMissing, PhoneNumberIsMissing, InvalidPhoneNumber, TaxRegNoIsMissing{
+        if(email == ""){
+            throw new EmailFieldIsEmpty();
+        }
+        else if(!checkEmail(email)){
+            throw new TextIsNotAValidEmail();
+        }
+        else if(password == ""){
+            throw new PasswordFieldIsEmpty();
+        }
+        else if(!checkPassword(password)){
+            throw new PasswordDoesNotContainTheRequiredCharacters();
+        }
+        else if(confirmPassword == ""){
+            throw new ConfirmPasswordFieldIsEmpty();
+        }
+        else if(!password.equals(confirmPassword)){
+            throw new PasswordsDoesNotMatch();
+        }
+        else if(companyName == ""){
+            throw new CompanyNameIsMissing();
+        }
+        else if(address == ""){
+            throw new AddressIsMissing();
+        }
+        else if(phone == ""){
+            throw new PhoneNumberIsMissing();
+        }
+        else if(!isValidPhoneNumber(phone)){
+            throw new InvalidPhoneNumber();
+        }
+        else if(taxRegNo == ""){
+            throw new TaxRegNoIsMissing();
         }
     }
-    public static void addProvider(String email, String password, String companyname, String adress, String phone, String taxregno) throws UsernameAlreadyExistsException, Exception {
+    public static void addProvider(String email, String password, String companyName, String address, String phone, String taxRegNo, String confirmPassword) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, CompanyNameIsMissing, AddressIsMissing, PhoneNumberIsMissing, InvalidPhoneNumber, TaxRegNoIsMissing {
+        checkFields(email, password, companyName, address, phone, taxRegNo, confirmPassword);
         checkUserDoesNotAlreadyExist(email);
-        Provider p= new Provider(email, encodePassword(email, password), "LegalPerson", "LegalPerson", getTodayDate("05-11-2021") , companyname, adress, phone, taxregno);
+        Provider p= new Provider(email, encodePassword(email, password), "LegalPerson", "LegalPerson", getTodayDate() , companyName, address, phone, taxRegNo);
         ProviderRepository.insert(p);
     }
 

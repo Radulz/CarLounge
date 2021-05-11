@@ -1,5 +1,6 @@
 package org.CarLounge.fis.model;
 
+import java.time.chrono.Chronology;
 import java.util.Date;
 import java.util.Objects;
 
@@ -9,9 +10,9 @@ public class Client {
     private String password;
     private String firstname;
     private String lastname;
-    private Date birthdate;
+    private String birthdate;
 
-    public Client(String email, String password, String firstname, String lastname, Date birthdate){
+    public Client(String email, String password, String firstname, String lastname, String birthdate){
         this.email=email;
         this.password=password;
         this.firstname=firstname;
@@ -44,11 +45,11 @@ public class Client {
         this.email = email;
     }
 
-    public Date getBdate() {
+    public String getBdate() {
         return birthdate;
     }
 
-    public void setBdate(Date bdate) {
+    public void setBdate(String bdate) {
         this.birthdate = bdate;
     }
 

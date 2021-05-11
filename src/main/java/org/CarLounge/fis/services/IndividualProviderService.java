@@ -1,19 +1,60 @@
-import org.CarLounge.fis.exceptions.UsernameAlreadyExistsException;
+package org.CarLounge.fis.services;
+
+import org.CarLounge.fis.exceptions.*;
 import org.CarLounge.fis.model.Provider;
-import org.CarLounge.fis.services.ProviderService;
-import org.dizitart.no2.Nitrite;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
 public class IndividualProviderService extends ProviderService {
 
-    public static void addProvider(String email, String password, String fname, String lname, Date bdate) throws UsernameAlreadyExistsException {
+    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate {
+        if(email == ""){
+            throw new EmailFieldIsEmpty();
+        }
+        else if(!checkEmail(email)){
+            throw new TextIsNotAValidEmail();
+        }
+        else if(fName == ""){
+            throw new FirstNameFieldIsEmpty();
+        }
+        else if(lName == ""){
+            throw new LastNameFieldIsEmpty();
+        }
+        else if(bDate == ""){
+            throw new BirthDateFieldIsEmpty();
+        }
+        else if(!isValid(bDate)){
+            throw new BirthDateIsNotADate();
+        }
+        else if(!checkDate(bDate)){
+            throw new MinimumAgeIsRequired();
+        }
+        else if(password == ""){
+            throw new PasswordFieldIsEmpty();
+        }
+        else if(!checkPassword(password)){
+            throw new PasswordDoesNotContainTheRequiredCharacters();
+        }
+        else if(confirmPassword == ""){
+            throw new ConfirmPasswordFieldIsEmpty();
+        }
+        else if(!password.equals(confirmPassword)){
+            throw new PasswordsDoesNotMatch();
+        }
+    }
+
+    public static void addProvider(String email, String password, String fName, String lName, String bDate, String confirmPassword) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate {
+        checkFields(email, password, fName, lName, bDate, confirmPassword);
         checkUserDoesNotAlreadyExist(email);
-        Provider p= new Provider(email, encodePassword(email, password), fname, lname, bdate, "IndividualPerson", "IndividualPerson", "IndividualPerson", "IndividualPerson");
+        Provider p= new Provider(email, encodePassword(email, password), fName, lName, bDate, "IndividualPerson", "IndividualPerson", "IndividualPerson", "IndividualPerson");
         ProviderRepository.insert(p);
     }
 

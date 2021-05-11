@@ -8,22 +8,22 @@ public class Provider {
     private String password;
     private String firstname;
     private String lastname;
-    private Date bdate;
-    private String companyname;
-    private String adress;
+    private String bDate;
+    private String companyName;
+    private String address;
     private String phone;
-    private String taxregno;
+    private String taxRegNo;
 
-    public Provider(String email, String password, String firstname, String lastname, Date bdate, String companyname, String adress, String phone, String taxregno) {
+    public Provider(String email, String password, String firstname, String lastname, String bDate, String companyName, String address, String phone, String taxRegNo) {
         this.email = email;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.bdate = bdate;
-        this.companyname = companyname;
-        this.adress = adress;
+        this.bDate = bDate;
+        this.companyName = companyName;
+        this.address = address;
         this.phone = phone;
-        this.taxregno = taxregno;
+        this.taxRegNo = taxRegNo;
     }
 
     public Provider() { }
@@ -44,16 +44,16 @@ public class Provider {
         return lastname;
     }
 
-    public Date getBdate() {
-        return bdate;
+    public String getBDate() {
+        return bDate;
     }
 
     public String getCompanyname() {
-        return companyname;
+        return companyName;
     }
 
     public String getAdress() {
-        return adress;
+        return address;
     }
 
     public String getPhone() {
@@ -61,7 +61,7 @@ public class Provider {
     }
 
     public String getTaxregno() {
-        return taxregno;
+        return taxRegNo;
     }
 
     public void setEmail(String email) {
@@ -80,24 +80,24 @@ public class Provider {
         this.lastname = lastname;
     }
 
-    public void setBdate(Date bdate) {
-        this.bdate = bdate;
+    public void setBdate(String bDate) {
+        this.bDate = bDate;
     }
 
-    public void setCompanyname(String companyname) {
-        this.companyname = companyname;
+    public void setCompanyname(String companyName) {
+        this.companyName = companyName;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAdress(String address) {
+        this.address = address;
     }
 
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public void setTaxregno(String taxregno) {
-        this.taxregno = taxregno;
+    public void setTaxregno(String taxRegNo) {
+        this.taxRegNo = taxRegNo;
     }
 
     @Override
@@ -107,11 +107,11 @@ public class Provider {
                 ", password='" + password + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", bdate=" + bdate +
-                ", companyname='" + companyname + '\'' +
-                ", adress='" + adress + '\'' +
+                ", bdate=" + bDate +
+                ", companyname='" + companyName + '\'' +
+                ", adress='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", taxregno='" + taxregno + '\'' +
+                ", taxregno='" + taxRegNo + '\'' +
                 '}';
     }
 
@@ -125,6 +125,6 @@ public class Provider {
 
     @Override
     public int hashCode() {
-        return Objects.hash(email, password, firstname, lastname, bdate, companyname, adress, phone, taxregno);
+        return Objects.hash(email, password, firstname, lastname, bDate, companyName, address, phone, taxRegNo);
     }
 }

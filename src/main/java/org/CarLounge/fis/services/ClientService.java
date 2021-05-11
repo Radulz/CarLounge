@@ -3,6 +3,7 @@ package org.CarLounge.fis.services;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.chrono.Chronology;
 import java.util.Date;
 import java.util.Objects;
 
@@ -23,7 +24,7 @@ public class ClientService {
         ClientRepository = database.getRepository(Client.class);
     }
 
-    public static void addClient(String email, String password, String fname, String lname, Date bdate) throws UsernameAlreadyExistsException {
+    public static void addClient(String email, String password, String fname, String lname, String bdate) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(email);
         Client c= new Client(email, encodePassword(email, password), fname, lname, bdate);
         ClientRepository.insert(c);
