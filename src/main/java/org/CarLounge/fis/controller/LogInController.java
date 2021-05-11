@@ -26,9 +26,24 @@ import javafx.animation.Timeline;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import org.CarLounge.fis.exceptions.AccountDoesNotExist;
+import org.CarLounge.fis.exceptions.CredentialsEnteredAreIncorrect;
+import org.CarLounge.fis.model.Client;
+import org.CarLounge.fis.model.Provider;
+import org.CarLounge.fis.services.ClientService;
+import org.CarLounge.fis.services.ProviderService;
 
 
 public class LogInController implements Initializable {
+    @FXML
+    public TextField email;
+
+    @FXML
+    public PasswordField password;
+
+    @FXML
+    public Text logInMessage;
+
     @FXML
     private JFXButton goToChoice;
 
@@ -41,9 +56,6 @@ public class LogInController implements Initializable {
     @FXML
     private ImageView exit;
 
-    /*@FXML
-    private StackPane mainContainer;*/
-
     public void initialize(URL location, ResourceBundle resources) {
         exit.setOnMouseClicked(event -> {
             System.exit(0);
@@ -52,28 +64,97 @@ public class LogInController implements Initializable {
 
     public void switchToChoice(MouseEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ChoiceRegistration.fxml"));
-        /*Scene scene = goToChoice.getScene();
-        root.translateXProperty().set(scene.getWidth());
-
-        mainContainer.getChildren().add(root);
-
-        Timeline timeline=new Timeline();
-        KeyValue KV=new KeyValue(root.translateXProperty(), 0, Interpolator.EASE_IN);
-        KeyFrame KF = new KeyFrame(Duration.seconds(0.6), KV);
-        timeline.getKeyFrames().add(KF);
-        timeline.setOnFinished(t -> { mainContainer.getChildren().remove(logInContainer); });
-        timeline.play();*/
-
         Stage window= (Stage)goToChoice.getScene().getWindow();
         window.setScene(new Scene(root));
     }
 
-    public void switchToHomeScene(MouseEvent event) throws Exception{
-        //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeClient.fxml"));
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeProvider.fxml"));
-        Stage window = (Stage)logInToAcc.getScene().getWindow();
-        window.setScene(new Scene(root));
+    public void checkClientUser(String user, String pass) throws CredentialsEnteredAreIncorrect {
+        for(Client client: ClientService.getClientRepository().find()) {
+            if (user.equals(client.getEmail())) {
+                if (!pass.equals(client.getPassword())) {
+                    throw new CredentialsEnteredAreIncorrect();
+                }
+            }
+        }
     }
 
+    public void checkProviderUser(String user, String pass) throws CredentialsEnteredAreIncorrect {
+        for(Provider provider: ProviderService.getProviderRepository().find()){
+            if(user.equals(provider.getEmail())){
+                if(!pass.equals(provider.getPassword())){
+                    throw new CredentialsEnteredAreIncorrect();
+                }
+            }
+        }
+    }
 
+    public static String checkExistance(String user, String pass) throws AccountDoesNotExist {
+
+        String accountClass = "";
+        for(Client client: ClientService.getClientRepository().find()) {
+            if (user.equals(client.getEmail())) {
+                if (pass.equals(client.getPassword())) {
+                    accountClass = "Client";
+                }
+            }
+        }
+        for(Provider provider: ProviderService.getProviderRepository().find()){
+            if(user.equals(provider.getEmail())){
+                if(pass.equals(provider.getPassword())){
+                    accountClass = "Provider";
+                }
+            }
+        }
+        if(accountClass == "") {
+            throw new AccountDoesNotExist();
+        }
+        else {
+            return accountClass;
+        }
+
+    }
+
+    public void logIn(MouseEvent mouseEvent) throws Exception {
+        String accountEmail = email.getText();
+        String accountPassword = password.getText();
+        String accountPasswordEncoded = ClientService.encodePassword(accountEmail, accountPassword);
+        String accountClass = "";
+
+        try {
+            accountClass=checkExistance(accountEmail, accountPasswordEncoded);
+            if (accountClass.equals("Client")) {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeClient.fxml"));
+                Stage window = (Stage) logInToAcc.getScene().getWindow();
+                window.setScene(new Scene(root));
+            } else if (accountClass.equals("Provider")) {
+                Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeProvider.fxml"));
+                Stage window = (Stage) logInToAcc.getScene().getWindow();
+                window.setScene(new Scene(root));
+            }
+        }
+        catch(AccountDoesNotExist e){
+
+            try{
+                checkClientUser(accountEmail, accountPasswordEncoded);
+            }
+            catch(CredentialsEnteredAreIncorrect e1){
+                logInMessage.setText(e1.getMessage());
+                return;
+            }
+            try{
+                checkProviderUser(accountEmail, accountPasswordEncoded);
+            }
+            catch(CredentialsEnteredAreIncorrect e1){
+                logInMessage.setText(e1.getMessage());
+                return;
+            }
+
+            logInMessage.setText(e.getMessage());
+        }
+
+        /*Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeClient.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeProvider.fxml"));
+        Stage window = (Stage)logInToAcc.getScene().getWindow();
+        window.setScene(new Scene(root));*/
+    }
 }

@@ -167,4 +167,8 @@ public class ClientService {
         return new String(hashedPassword, StandardCharsets.UTF_8)
                 .replace("\"", ""); //to be able to save in JSON format
     }
+
+    public static ObjectRepository<Client> getClientRepository(){
+        return ClientRepository;
+    }
 }
