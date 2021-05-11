@@ -67,7 +67,7 @@ public class ClientService {
 
     private static boolean checkDate(String s) {
 
-        String aux[] = s.split("/");
+        String[] aux = s.split("/");
 
         int m = Integer.parseInt(aux[0]);
         int d = Integer.parseInt(aux[1]);

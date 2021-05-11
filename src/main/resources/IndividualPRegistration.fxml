@@ -43,27 +43,12 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="idPhotoPath" layoutX="164.0" layoutY="401.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="dlPhotoPath" layoutX="164.0" layoutY="464.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
             <Hyperlink fx:id="goBackToProviderR" layoutX="14.0" layoutY="502.0" onMouseClicked="#switchBackToProviderR" text="&lt;Back" />
             <TextField fx:id="firstname" layoutX="161.0" layoutY="143.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Radu" />
             <TextField fx:id="lastname" layoutX="281.0" layoutY="143.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Mladin" />
             <Label layoutX="17.0" layoutY="196.0" text="Birth Date">
                <font>
                   <Font size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="individualPhotoPath" layoutX="162.0" layoutY="208.0">
-               <font>
-                  <Font size="13.0" />
                </font>
             </Label>
             <Button fx:id="Submit" layoutX="171.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">

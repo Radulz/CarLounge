@@ -43,16 +43,6 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="idPhotoPath" layoutX="164.0" layoutY="401.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="dlPhotoPath" layoutX="164.0" layoutY="464.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
             <Hyperlink fx:id="goBackToProviderR" layoutX="13.0" layoutY="526.0" onMouseClicked="#switchBackToProviderR" text="&lt;Back" />
             <TextField fx:id="companyName" layoutX="164.0" layoutY="270.0" prefHeight="25.0" prefWidth="219.0" promptText="E.g. Shelby Limited" />
             <Label alignment="CENTER" layoutX="17.0" layoutY="316.0" text="Address">
@@ -63,11 +53,6 @@
             <Label layoutX="17.0" layoutY="364.0" text="Phone Number">
                <font>
                   <Font size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="individualPhotoPath" layoutX="162.0" layoutY="208.0">
-               <font>
-                  <Font size="13.0" />
                </font>
             </Label>
             <Button fx:id="Submit" layoutX="170.0" layoutY="502.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">

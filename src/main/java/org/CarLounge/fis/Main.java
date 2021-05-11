@@ -11,7 +11,6 @@ import com.jfoenix.controls.JFXButton;
 import org.CarLounge.fis.services.ClientService;
 import org.CarLounge.fis.services.FileSystemService;
 import org.CarLounge.fis.services.ProviderService;
-import org.CarLounge.fis.services.UserService;
 
 //import java.awt.*;
 //import java.awt.event.MouseEvent;

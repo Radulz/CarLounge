@@ -65,16 +65,6 @@
                        </DropShadow>
                    </effect>
                </Button>
-               <Label fx:id="idPhotoPath" layoutX="164.0" layoutY="401.0">
-                   <font>
-                       <Font size="13.0" />
-                   </font>
-               </Label>
-               <Label fx:id="dlPhotoPath" layoutX="164.0" layoutY="464.0">
-                   <font>
-                       <Font size="13.0" />
-                   </font>
-               </Label>
             <Hyperlink fx:id="goBackToChoice" layoutX="14.0" layoutY="483.0" onMouseClicked="#switchBackToChoice" text="&lt;Back" />
             <Text fx:id="registrationMessage" layoutX="11.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="400.0" />
             <TextField fx:id="birthDate" layoutX="164.0" layoutY="177.0" prefHeight="25.0" prefWidth="219.0" promptText="Date Format MM/dd/yyyy" />
