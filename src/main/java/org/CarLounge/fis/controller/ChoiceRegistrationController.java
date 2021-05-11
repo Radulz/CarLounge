@@ -33,12 +33,6 @@ public class ChoiceRegistrationController {
     @FXML
     private Button goToProviderR;
 
-    @FXML
-    private AnchorPane choiceContainer;
-
-    @FXML
-    private StackPane mainChoiceContainer;
-
     public void switchBackToLogin(MouseEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
         Stage window= (Stage)goBackToLogin.getScene().getWindow();

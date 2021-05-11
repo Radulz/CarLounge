@@ -8,46 +8,54 @@
 
 <StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.LegalPersonRegistrationController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="421.0" style="-fx-background-color: #87ceeb;">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="563.0" prefWidth="421.0" style="-fx-background-color: #87ceeb;">
          <children>
             <Label alignment="CENTER" layoutX="139.0" layoutY="14.0" text="Legal Person">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Label layoutX="14.0" layoutY="78.0" text="Company Name">
+            <Label layoutX="21.0" layoutY="78.0" text="Email">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="idPhotoPath" layoutX="164.0" layoutY="401.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Label fx:id="dlPhotoPath" layoutX="164.0" layoutY="464.0">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-            <Hyperlink fx:id="goBackToProviderR" layoutX="14.0" layoutY="352.0" onMouseClicked="#switchBackToProviderR" text="&lt;Back" />
-            <TextField layoutX="164.0" layoutY="78.0" prefHeight="25.0" prefWidth="219.0" promptText="E.g. Shelby Limited" />
-            <Label alignment="CENTER" layoutX="15.0" layoutY="120.0" text="Adress">
+            <Label layoutX="19.0" layoutY="117.0" text="Password">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="17.0" layoutY="197.0" text="Phone Number">
+            <Label layoutX="15.0" layoutY="227.0" text="Confirm Password">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="individualPhotoPath" layoutX="162.0" layoutY="208.0">
+            <TextField fx:id="email" layoutX="164.0" layoutY="78.0" prefHeight="25.0" prefWidth="219.0" promptText="e.g. E-mail@provder.com" />
+            <PasswordField fx:id="password" layoutX="164.0" layoutY="117.0" prefHeight="25.0" prefWidth="219.0" />
+            <PasswordField fx:id="confirmPassword" layoutX="164.0" layoutY="227.0" prefHeight="25.0" prefWidth="219.0" />
+            <Label alignment="CENTER" layoutX="195.0" layoutY="142.0" text="*Password must contain at least:&#10;*One upper case letter&#10;*One lower case letter&#10;*A number&#10;*8 characters" textAlignment="CENTER">
                <font>
-                  <Font size="13.0" />
+                  <Font size="11.0" />
                </font>
             </Label>
-            <Button fx:id="individualSubmit" layoutX="171.0" layoutY="309.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">
+            <Label layoutX="14.0" layoutY="270.0" text="Company Name">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="goBackToProviderR" layoutX="13.0" layoutY="526.0" onMouseClicked="#switchBackToProviderR" text="&lt;Back" />
+            <TextField fx:id="companyName" layoutX="164.0" layoutY="270.0" prefHeight="25.0" prefWidth="219.0" promptText="E.g. Shelby Limited" />
+            <Label alignment="CENTER" layoutX="17.0" layoutY="316.0" text="Address">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="17.0" layoutY="364.0" text="Phone Number">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="Submit" layoutX="170.0" layoutY="502.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">
                <font>
                   <Font size="15.0" />
                </font>
@@ -62,20 +70,16 @@
                   </DropShadow>
                </effect>
             </Button>
-            <TextField layoutX="164.0" layoutY="120.0" prefHeight="25.0" prefWidth="219.0" />
-            <Label alignment="CENTER" layoutX="15.0" layoutY="159.0" text="Adress line 2">
+            <TextField fx:id="address" layoutX="164.0" layoutY="316.0" prefHeight="25.0" prefWidth="219.0" />
+            <TextField fx:id="phoneNo" layoutX="164.0" layoutY="364.0" prefHeight="25.0" prefWidth="219.0" />
+            <Label layoutX="16.0" layoutY="408.0" text="Tax Registration Number">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="164.0" layoutY="159.0" prefHeight="25.0" prefWidth="219.0" promptText="*Optional" />
-            <TextField layoutX="164.0" layoutY="197.0" prefHeight="25.0" prefWidth="219.0" />
-            <Label layoutX="17.0" layoutY="237.0" text="Tax Registration Number">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField layoutX="207.0" layoutY="237.0" prefHeight="25.0" prefWidth="176.0" />
+            <TextField fx:id="taxRegNo" layoutX="211.0" layoutY="408.0" prefHeight="25.0" prefWidth="176.0" />
+            <Text fx:id="registrationMessage" layoutX="22.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="376.13671875" />
+            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="22.0" layoutY="453.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="376.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </children>

@@ -8,8 +8,9 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import com.jfoenix.controls.JFXButton;
+import org.CarLounge.fis.services.ClientService;
 import org.CarLounge.fis.services.FileSystemService;
-import org.CarLounge.fis.services.UserService;
+import org.CarLounge.fis.services.ProviderService;
 
 //import java.awt.*;
 //import java.awt.event.MouseEvent;
@@ -22,10 +23,11 @@ public class Main extends Application {
     double x, y = 0;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //initDirectory();
-        //UserService.initDatabase();
+        initDirectory();
+        ClientService.initDatabase();
+        ProviderService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
-        //primaryStage.setTitle("CarLounge");
+        primaryStage.setTitle("CarLounge");
         primaryStage.initStyle(StageStyle.UNDECORATED);
 
         root.setOnMousePressed(event -> {
