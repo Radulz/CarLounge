@@ -21,7 +21,7 @@ public class ProviderService {
 
         ProviderRepository = database.getRepository(Provider.class);
     }
-    public static boolean checkDate(String s) {
+    protected static boolean checkDate(String s) {
 
         String aux[] = s.split("/");
 
@@ -40,7 +40,7 @@ public class ProviderService {
         return years > 17;
     }
 
-    public static boolean isValid(String dateStr) {
+    protected static boolean isValid(String dateStr) {
         DateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         sdf.setLenient(false);
         try {
@@ -51,7 +51,7 @@ public class ProviderService {
         return true;
     }
 
-    public static boolean checkEmail(String email){
+    protected static boolean checkEmail(String email){
         String [] acceptedMails = {"@yahoo.com", "@yahoo.co.uk", "@yahoo.ro", "@gmail.com", "@student.upt.ro", "@cs.upt.ro"};
         for(String sir : acceptedMails){
             if(email.endsWith(sir))
@@ -60,7 +60,7 @@ public class ProviderService {
         return false;
     }
 
-    public static boolean checkPassword(String password){
+    protected static boolean checkPassword(String password){
 
         char ch;
         boolean capitalLetter = false;
@@ -87,7 +87,7 @@ public class ProviderService {
         }
         return false;
     }
-    public static boolean isValidPhoneNumber(String phone){
+    protected static boolean isValidPhoneNumber(String phone){
         char ch;
 
         if(phone.length()<10) {

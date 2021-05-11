@@ -19,7 +19,7 @@ import javafx.animation.Timeline;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import org.CarLounge.fis.exceptions.UsernameAlreadyExistsException;
+import org.CarLounge.fis.exceptions.*;
 import org.CarLounge.fis.services.ClientService;
 
 public class ClientRegistrationController {
@@ -52,9 +52,42 @@ public class ClientRegistrationController {
 
     public void sendReg(MouseEvent mouseEvent) {
         try{
-            ClientService.addClient(email.getText(), ClientService.encodePassword(email.getText(), password.getText()), firstname.getText(), lastname.getText(), birthDate.getText());
+            ClientService.addClient(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText());
             registrationMessage.setText("Account created successfully!");
             logIn.setText("Login now!");
+        }
+        catch(EmailFieldIsEmpty e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(TextIsNotAValidEmail e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(FirstNameFieldIsEmpty e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(LastNameFieldIsEmpty e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(BirthDateFieldIsEmpty e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(BirthDateIsNotADate e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(MinimumAgeIsRequired e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(PasswordFieldIsEmpty e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(PasswordDoesNotContainTheRequiredCharacters e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(ConfirmPasswordFieldIsEmpty e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(PasswordsDoesNotMatch e){
+            registrationMessage.setText(e.getMessage());
         }
         catch(UsernameAlreadyExistsException e){
             registrationMessage.setText(e.getMessage());
