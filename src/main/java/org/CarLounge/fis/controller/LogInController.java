@@ -18,6 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import org.CarLounge.fis.exceptions.AccountDoesNotExist;
+import org.CarLounge.fis.exceptions.CredentialsAreMissing;
 import org.CarLounge.fis.exceptions.CredentialsEnteredAreIncorrect;
 import org.CarLounge.fis.model.Client;
 import org.CarLounge.fis.model.Provider;
@@ -59,7 +60,7 @@ public class LogInController implements Initializable {
         window.setScene(new Scene(root));
     }
 
-    public void checkClientUser(String user, String pass) throws CredentialsEnteredAreIncorrect {
+    public static void checkClientUser(String user, String pass) throws CredentialsEnteredAreIncorrect {
         for(Client client: ClientService.getClientRepository().find()) {
             if (user.equals(client.getEmail())) {
                 if (!pass.equals(client.getPassword())) {
@@ -69,13 +70,19 @@ public class LogInController implements Initializable {
         }
     }
 
-    public void checkProviderUser(String user, String pass) throws CredentialsEnteredAreIncorrect {
+    public static void checkProviderUser(String user, String pass) throws CredentialsEnteredAreIncorrect {
         for(Provider provider: ProviderService.getProviderRepository().find()){
             if(user.equals(provider.getEmail())){
                 if(!pass.equals(provider.getPassword())){
                     throw new CredentialsEnteredAreIncorrect();
                 }
             }
+        }
+    }
+
+    public static void checkCredentials(String user, String pass) throws CredentialsAreMissing{
+        if(user == "" || pass == ""){
+            throw new CredentialsAreMissing();
         }
     }
 
@@ -105,11 +112,20 @@ public class LogInController implements Initializable {
 
     }
 
+
     public void logIn(MouseEvent mouseEvent) throws Exception {
         String accountEmail = email.getText();
         String accountPassword = password.getText();
         String accountPasswordEncoded = ClientService.encodePassword(accountEmail, accountPassword);
         String accountClass = "";
+
+        try{
+            checkCredentials(accountEmail, accountPassword);
+        }
+        catch(CredentialsAreMissing e){
+            logInMessage.setText(e.getMessage());
+            return;
+        }
 
         try {
             accountClass= checkExistence(accountEmail, accountPasswordEncoded);
