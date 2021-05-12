@@ -1,5 +1,7 @@
 package org.CarLounge.fis.model;
 
+import java.util.List;
+
 public class Listing {
     private String clientEmail;
     private String providerEmail;
@@ -10,12 +12,12 @@ public class Listing {
     private int mileage;
     private int cmc;
     private String fuel;
-    private String notes;
+    private String price;
 
     private boolean active=false;
     private boolean completed=false;
 
-    public Listing(String clientEmail, String providerEmail, String make, String model, int year, int mileage, int cmc, String fuel, String notes) {
+    public Listing(String clientEmail, String providerEmail, String make, String model, int year, int mileage, int cmc, String fuel, String price) {
         this.clientEmail=clientEmail;
         this.providerEmail=providerEmail;
         this.make = make;
@@ -24,8 +26,10 @@ public class Listing {
         this.mileage = mileage;
         this.cmc=cmc;
         this.fuel=fuel;
-        this.notes=notes;
+        this.price=price;
     }
+
+    public Listing() {}
 
     public String getProviderEmail(){
         return providerEmail;
@@ -75,8 +79,8 @@ public class Listing {
         return fuel;
     }
 
-    public String getNotes() {
-        return notes;
+    public String getPrice() {
+        return price;
     }
 
     public boolean getActive() {
@@ -107,8 +111,8 @@ public class Listing {
         this.fuel = fuel;
     }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public void setActive(boolean active) {

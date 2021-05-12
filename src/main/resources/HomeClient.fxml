@@ -96,7 +96,7 @@
                                 <Font size="16.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#cars" prefHeight="38.0" prefWidth="179.0" text="Rent-a-car">
+                        <JFXButton fx:id="cars" alignment="BASELINE_LEFT" onMouseClicked="#cars" prefHeight="38.0" prefWidth="179.0" text="Rent-a-car">
                             <font>
                                 <Font size="16.0" />
                             </font>

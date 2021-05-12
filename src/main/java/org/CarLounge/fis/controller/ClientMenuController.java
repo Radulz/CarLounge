@@ -6,6 +6,7 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
@@ -16,13 +17,10 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 
-import javax.validation.constraints.Null;
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collection;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class ClientMenuController implements Initializable {
     @FXML
@@ -35,7 +33,7 @@ public class ClientMenuController implements Initializable {
     private StackPane contentArea;
 
     @FXML
-    private JFXButton logOutOfAcc;
+    private JFXButton logOutOfAcc, cars;
 
     private static String username;
 
@@ -114,9 +112,32 @@ public class ClientMenuController implements Initializable {
     }
 
     public void cars(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("cars.fxml"));
+        /*Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("cars.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("cars.fxml"));
+
+        CarsController controller = new CarsController();
+        controller.setCarList();*/
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("cars.fxml"));
+        Parent parent = loader.load();
+        //Scene scene = new Scene(parent);
+        CarsController controller = loader.getController();
+        controller.setCarList();
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(parent);
+
+
+        /*Stage stage = (Stage) (cars.getScene().getWindow());
+        stage.setTitle("Rent-a-car");
+        stage.setScene(scene);
+        stage.show();*/
+
+
     }
 
     public void ClientProfile(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
