@@ -116,10 +116,6 @@ public class Provider {
         return feedback;
     }
 
-    public void setFeddbackValue(int feedbackValue) {
-        this.feedbackValue = feedbackValue;
-    }
-
 
     public void setFeedback(double feedbackValue) {
         this.feedbackValue+=feedbackValue;

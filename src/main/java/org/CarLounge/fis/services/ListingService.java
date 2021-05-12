@@ -61,7 +61,12 @@ public class ListingService {
 
     public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String notes) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, NotesAreMissing {
         checkFields(make, model, year, mileage, cmc, fuel, notes);
-        Listing l = new Listing("-", providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, notes);
+        Listing l = new Listing(clientEmail, providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, notes);
+        l.setActive(true);
         ListingRepository.insert(l);
+    }
+
+    public static ObjectRepository<Listing> getListingRepository(){
+        return ListingRepository;
     }
 }

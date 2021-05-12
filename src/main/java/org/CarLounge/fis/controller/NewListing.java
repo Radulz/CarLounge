@@ -48,8 +48,8 @@ public class NewListing {
 
         LogInController user = new LogInController();
         try{
-            ListingService.addListing("-", user.getUsername(), make.getText(), model.getText(), year.getText(), mileage.getText(), cmc.getText(), fuel.getText(),notes.getText() );
-            listingText.setText("Listing added successfully!");
+            ListingService.addListing("-", ProviderMenuController.getUsername(), make.getText(), model.getText(), year.getText(), mileage.getText(), cmc.getText(), fuel.getText(),notes.getText());
+            listingText.setText("Listing added successfully under email: " + ProviderMenuController.getUsername());
         }
         catch(MakeIsMissing e){
             listingText.setText(e.getMessage());

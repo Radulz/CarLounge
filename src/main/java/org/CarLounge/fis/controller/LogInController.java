@@ -144,10 +144,12 @@ public class LogInController implements Initializable {
         try {
             accountClass= checkExistence(accountEmail, accountPasswordEncoded);
             if (accountClass.equals("Client")) {
+                ClientMenuController.setUsername(accountEmail);
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeClient.fxml"));
                 Stage window = (Stage) logInToAcc.getScene().getWindow();
                 window.setScene(new Scene(root));
             } else if (accountClass.equals("Provider")) {
+                ProviderMenuController.setUsername(accountEmail);
                 Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("HomeProvider.fxml"));
                 Stage window = (Stage) logInToAcc.getScene().getWindow();
                 window.setScene(new Scene(root));

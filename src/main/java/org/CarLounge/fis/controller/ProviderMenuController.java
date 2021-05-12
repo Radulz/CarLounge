@@ -34,6 +34,20 @@ public class ProviderMenuController implements Initializable {
     @FXML
     private JFXButton logOutOfAcc;
 
+    private static String username;
+
+    public ProviderMenuController(){
+
+    }
+
+    public static void setUsername(String username) {
+        ProviderMenuController.username = username;
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         exit.setOnMouseClicked(event -> {

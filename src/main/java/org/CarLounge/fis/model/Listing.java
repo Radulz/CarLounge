@@ -43,7 +43,7 @@ public class Listing {
         this.providerEmail = providerEmail;
     }
 
-    public boolean isCompleted() {
+    public boolean getCompleted() {
         return completed;
     }
 
@@ -79,7 +79,7 @@ public class Listing {
         return notes;
     }
 
-    public boolean isActive() {
+    public boolean getActive() {
         return active;
     }
 
