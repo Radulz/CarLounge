@@ -13,7 +13,7 @@ import org.CarLounge.fis.services.ListingService;
 
 import static java.lang.Integer.parseInt;
 
-public class NewListing {
+public class NewListingController {
     @FXML
     public TextField make;
     @FXML

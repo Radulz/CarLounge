@@ -108,10 +108,15 @@ public class ProviderMenuController implements Initializable {
     }
 
     public void MyListings(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("MyListings.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("MyListings.fxml"));
+        Parent parent = loader.load();
+        MyListingsController controller = loader.getController();
+        controller.setCarList();
         contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        contentArea.getChildren().setAll(parent);
     }
+
 
     public void ProviderProfile(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
         Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ProviderProfile.fxml"));
@@ -120,7 +125,7 @@ public class ProviderMenuController implements Initializable {
     }
 
     public void AppSettings(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("AppSettings.fxml"));
+        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ActiveListing.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }

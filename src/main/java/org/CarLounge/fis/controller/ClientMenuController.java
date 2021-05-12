@@ -112,31 +112,13 @@ public class ClientMenuController implements Initializable {
     }
 
     public void cars(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        /*Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("cars.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getClassLoader().getResource("cars.fxml"));
-
-        CarsController controller = new CarsController();
-        controller.setCarList();*/
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("cars.fxml"));
         Parent parent = loader.load();
-        //Scene scene = new Scene(parent);
         CarsController controller = loader.getController();
         controller.setCarList();
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(parent);
-
-
-        /*Stage stage = (Stage) (cars.getScene().getWindow());
-        stage.setTitle("Rent-a-car");
-        stage.setScene(scene);
-        stage.show();*/
-
 
     }
 
@@ -146,8 +128,8 @@ public class ClientMenuController implements Initializable {
         contentArea.getChildren().setAll(fxml);
     }
 
-    public void AppSettings(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("AppSettings.fxml"));
+    public void ActiveListing(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
+        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ActiveListing.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }

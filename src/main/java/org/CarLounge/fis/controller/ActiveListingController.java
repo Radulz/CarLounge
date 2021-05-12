@@ -1,4 +1,4 @@
 package org.CarLounge.fis.controller;
 
-public class AppSettings {
+public class ActiveListingController {
 }
