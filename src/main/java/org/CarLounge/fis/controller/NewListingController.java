@@ -20,7 +20,7 @@ import java.io.IOException;
 
 import static java.lang.Integer.parseInt;
 
-public class NewListing {
+public class NewListingController {
     @FXML
     public TextField make;
     @FXML
