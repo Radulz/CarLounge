@@ -1,10 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane prefHeight="211.0" prefWidth="238.0" style="-fx-background-color: cyan;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.NewListing">
-    <children>
-        <Label alignment="CENTER" layoutX="84.0" layoutY="97.0" prefHeight="17.0" prefWidth="71.0" text="NewListing"> </Label>
-    </children>
-</Pane>
+
+<StackPane fx:id="contentArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.NewListing">
+   <children>
+      <BorderPane prefHeight="454.0" prefWidth="583.0" style="-fx-background-color: #D1E4F9; -fx-border-color: #D1E4F9;">
+         <top>
+            <Pane prefHeight="32.0" prefWidth="581.0" style="-fx-background-color: #D1E4F9;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="14.0" layoutY="7.0" text="New Listing">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <FlowPane hgap="5.0" layoutX="559.0" layoutY="10.0" prefHeight="17.0" prefWidth="17.0" />
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="38.0" layoutY="42.0" text="Make" />
+                  <TextField layoutX="77.0" layoutY="38.0" prefHeight="25.0" prefWidth="93.0" />
+                  <Label layoutX="35.0" layoutY="243.0" text="Notes" />
+                  <TextArea layoutX="90.0" layoutY="177.0" prefHeight="149.0" prefWidth="440.0" wrapText="true" />
+                  <JFXButton buttonType="RAISED" layoutX="489.0" layoutY="381.0" onMouseClicked="#addCar" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #D1E4F9;" text="Add" />
+                  <JFXButton fx:id="switchToHome" buttonType="RAISED" layoutX="14.0" layoutY="381.0" onMouseClicked="#home" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #D1E4F9;" text="Cancel" />
+                  <Label layoutX="219.0" layoutY="42.0" text="Model" />
+                  <TextField layoutX="270.0" layoutY="38.0" prefHeight="25.0" prefWidth="93.0" />
+                  <Label layoutX="406.0" layoutY="42.0" text="Year" />
+                  <TextField layoutX="443.0" layoutY="38.0" prefHeight="25.0" prefWidth="93.0" />
+                  <Label layoutX="32.0" layoutY="109.0" text="Mileage" />
+                  <TextField layoutX="77.0" layoutY="105.0" prefHeight="25.0" prefWidth="93.0" />
+                  <Label layoutX="200.0" layoutY="109.0" text="Cub. Capacity" />
+                  <Label layoutX="407.0" layoutY="109.0" text="Fuel" />
+                  <TextField layoutX="282.0" layoutY="105.0" prefHeight="25.0" prefWidth="69.0" />
+                  <TextField layoutX="443.0" layoutY="105.0" prefHeight="25.0" prefWidth="93.0" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>
