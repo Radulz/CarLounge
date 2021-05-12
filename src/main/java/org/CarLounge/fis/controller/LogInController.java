@@ -27,6 +27,7 @@ import org.CarLounge.fis.services.ProviderService;
 
 
 public class LogInController implements Initializable {
+    private String username;
     @FXML
     public TextField email;
 
@@ -48,10 +49,22 @@ public class LogInController implements Initializable {
     @FXML
     private ImageView exit;
 
+    public LogInController() {
+
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
         exit.setOnMouseClicked(event -> {
             System.exit(0);
         });
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public TextField getEmail() {
+        return email;
     }
 
     public void switchToChoice(MouseEvent event) throws Exception {
@@ -118,6 +131,7 @@ public class LogInController implements Initializable {
         String accountPassword = password.getText();
         String accountPasswordEncoded = ClientService.encodePassword(accountEmail, accountPassword);
         String accountClass = "";
+        this.username=accountEmail;
 
         try{
             checkCredentials(accountEmail, accountPassword);
@@ -164,4 +178,5 @@ public class LogInController implements Initializable {
         Stage window = (Stage)logInToAcc.getScene().getWindow();
         window.setScene(new Scene(root));*/
     }
+
 }
