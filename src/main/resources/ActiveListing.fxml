@@ -63,7 +63,7 @@
             </Pane>
          </center>
          <bottom>
-            <ListView prefHeight="194.0" prefWidth="581.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="carList" prefHeight="194.0" prefWidth="581.0" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
    </children>
