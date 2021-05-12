@@ -10,6 +10,7 @@ import javafx.stage.StageStyle;
 import com.jfoenix.controls.JFXButton;
 import org.CarLounge.fis.services.ClientService;
 import org.CarLounge.fis.services.FileSystemService;
+import org.CarLounge.fis.services.ListingService;
 import org.CarLounge.fis.services.ProviderService;
 
 //import java.awt.*;
@@ -26,6 +27,7 @@ public class Main extends Application {
         initDirectory();
         ClientService.initDatabase();
         ProviderService.initDatabase();
+        ListingService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
         primaryStage.setTitle("CarLounge");
         primaryStage.initStyle(StageStyle.UNDECORATED);

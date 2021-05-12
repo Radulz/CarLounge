@@ -14,6 +14,10 @@ public class Provider {
     private String phone;
     private String taxRegNo;
 
+    private double feedbackValue=0;
+    private int feedbackCounter=0;
+    private double feedback=0;
+
     public Provider(String email, String password, String firstname, String lastname, String bDate, String companyName, String address, String phone, String taxRegNo) {
         this.email = email;
         this.password = password;
@@ -98,6 +102,25 @@ public class Provider {
 
     public void setTaxregno(String taxRegNo) {
         this.taxRegNo = taxRegNo;
+    }
+
+    public double getFeddbackValue() {
+        return feedbackValue;
+    }
+
+    public int getFeedbackCounter() {
+        return feedbackCounter;
+    }
+
+    public double getFeedback() {
+        return feedback;
+    }
+
+
+    public void setFeedback(double feedbackValue) {
+        this.feedbackValue+=feedbackValue;
+        this.feedbackCounter++;
+        this.feedback = feedbackValue / feedbackCounter;
     }
 
     @Override

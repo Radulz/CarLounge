@@ -37,6 +37,19 @@ public class ClientMenuController implements Initializable {
     @FXML
     private JFXButton logOutOfAcc;
 
+    private static String username;
+
+    public ClientMenuController() {
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
+    public static void setUsername(String username) {
+        ClientMenuController.username = username;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         exit.setOnMouseClicked(event -> {
