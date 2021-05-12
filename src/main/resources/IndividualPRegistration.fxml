@@ -25,7 +25,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="22.0" layoutY="394.0" text="Confirm Password">
+            <Label layoutX="15.0" layoutY="394.0" text="Confirm Password">
                <font>
                   <Font size="16.0" />
                </font>
