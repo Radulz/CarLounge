@@ -126,12 +126,17 @@ public class ClientMenuController implements Initializable {
         Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ClientProfile.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
+
     }
 
     public void ActiveListing(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ActiveListing.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getClassLoader().getResource("ActiveListing.fxml"));
+        Parent parent = loader.load();
+        ActiveListingController controller = loader.getController();
+        controller.setCarList();
         contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
+        contentArea.getChildren().setAll(parent);
     }
 
     public void switchToLogIn(MouseEvent event) throws Exception{
