@@ -14,6 +14,7 @@ import java.util.Objects;
 
 import org.CarLounge.fis.exceptions.*;
 import org.CarLounge.fis.model.Client;
+import org.CarLounge.fis.model.Provider;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
@@ -145,6 +146,10 @@ public class ClientService {
             if (Objects.equals(email, client.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
         }
+        for (Provider provider : LegalPersonProviderService.getProviderRepository().find()) {
+            if (Objects.equals(email, provider.getEmail()))
+                throw new UsernameAlreadyExistsException(email);
+        }
     }
 
     public static MessageDigest getMessageDigest() {
@@ -166,5 +171,9 @@ public class ClientService {
         // This is the way a password should be encoded when checking the credentials
         return new String(hashedPassword, StandardCharsets.UTF_8)
                 .replace("\"", ""); //to be able to save in JSON format
+    }
+
+    public static ObjectRepository<Client> getClientRepository(){
+        return ClientRepository;
     }
 }

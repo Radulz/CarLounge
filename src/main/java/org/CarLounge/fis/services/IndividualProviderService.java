@@ -1,6 +1,7 @@
 package org.CarLounge.fis.services;
 
 import org.CarLounge.fis.exceptions.*;
+import org.CarLounge.fis.model.Client;
 import org.CarLounge.fis.model.Provider;
 
 import java.nio.charset.StandardCharsets;
@@ -15,7 +16,7 @@ import java.util.Objects;
 
 public class IndividualProviderService extends ProviderService {
 
-    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate {
+    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber {
         if(email == ""){
             throw new EmailFieldIsEmpty();
         }
@@ -37,6 +38,12 @@ public class IndividualProviderService extends ProviderService {
         else if(!checkDate(bDate)){
             throw new MinimumAgeIsRequired();
         }
+        else if(phoneNo == ""){
+            throw new PhoneNumberIsMissing();
+        }
+        else if(!isValidPhoneNumber(phoneNo)){
+            throw new InvalidPhoneNumber();
+        }
         else if(password == ""){
             throw new PasswordFieldIsEmpty();
         }
@@ -51,10 +58,10 @@ public class IndividualProviderService extends ProviderService {
         }
     }
 
-    public static void addProvider(String email, String password, String fName, String lName, String bDate, String confirmPassword) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate {
-        checkFields(email, password, fName, lName, bDate, confirmPassword);
+    public static void addProvider(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber {
+        checkFields(email, password, fName, lName, bDate, confirmPassword, phoneNo);
         checkUserDoesNotAlreadyExist(email);
-        Provider p= new Provider(email, encodePassword(email, password), fName, lName, bDate, "IndividualPerson", "IndividualPerson", "IndividualPerson", "IndividualPerson");
+        Provider p= new Provider(email, encodePassword(email, password), fName, lName, bDate, "IndividualPerson", "IndividualPerson", phoneNo, "IndividualPerson");
         ProviderRepository.insert(p);
     }
 
@@ -62,6 +69,10 @@ public class IndividualProviderService extends ProviderService {
     public static void checkUserDoesNotAlreadyExist(String email) throws UsernameAlreadyExistsException {
         for (Provider provider : ProviderRepository.find()) {
             if (Objects.equals(email, provider.getEmail()))
+                throw new UsernameAlreadyExistsException(email);
+        }
+        for (Client client : ClientService.getClientRepository().find()) {
+            if (Objects.equals(email, client.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
         }
     }

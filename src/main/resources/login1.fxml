@@ -30,13 +30,13 @@
    <right>
       <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="logInToAcc" buttonType="RAISED" layoutX="170.0" layoutY="301.0" onMouseClicked="#switchToHomeScene" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="LOG IN" textFill="WHITE">
+            <JFXButton fx:id="logInToAcc" buttonType="RAISED" layoutX="170.0" layoutY="301.0" onMouseClicked="#logIn" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="LOG IN" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
-            <TextField fx:id="userField" layoutX="70.0" layoutY="157.0" promptText="Email" />
-            <PasswordField fx:id="passwordField" layoutX="70.0" layoutY="215.0" promptText="Password" />
+            <TextField fx:id="email" layoutX="70.0" layoutY="157.0" promptText="Email" />
+            <PasswordField fx:id="password" layoutX="70.0" layoutY="215.0" promptText="Password" />
             <ImageView fx:id="exit" fitHeight="24.0" fitWidth="22.0" layoutX="276.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/exit.png" />
@@ -44,7 +44,7 @@
             </ImageView>
             <ImageView fitHeight="116.0" fitWidth="253.0" layoutX="41.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Images/Logo_blue.PNG" />
+                  <Image url="@Images/Logo_blue.png" />
                </image>
             </ImageView>
             <JFXButton fx:id="goToChoice" buttonType="RAISED" layoutX="34.0" layoutY="301.0" onMouseClicked="#switchToChoice" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="SIGN UP" textFill="WHITE">
@@ -52,6 +52,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </JFXButton>
+            <Text fx:id="logInMessage" fill="#fc0000" layoutX="34.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="231.13671875" />
          </children>
       </Pane>
    </right>

@@ -103,4 +103,8 @@ public class ProviderService {
 
         return true;
     }
+
+    public static ObjectRepository<Provider> getProviderRepository(){
+        return ProviderRepository;
+    }
 }
