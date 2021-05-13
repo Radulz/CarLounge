@@ -11,7 +11,7 @@ public class ListingService {
 
     public static ObjectRepository<Listing> ListingRepository;
 
-    private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing {
+    private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price, String noPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists {
         if(make == ""){
             throw new MakeIsMissing();
         }
@@ -36,10 +36,39 @@ public class ListingService {
         else if(fuel == ""){
             throw new FuelIsMissing();
         }
+        else if(noPlate == ""){
+            throw new NumberPlateIsMissing();
+        }
+        else if(!isValidNoPlate(noPlate)){
+            throw new NumberPlateIsNotValid();
+        }
+        else if(!checkActiveListing(noPlate)){
+            throw new ActiveListingAlreadyExists(noPlate);
+        }
         else if(price == ""){
             throw new PriceIsMissing();
         }
 
+    }
+
+    private static boolean checkActiveListing(String noPlate){
+        for(Listing l : ListingRepository.find()){
+            if(noPlate.equals(l.getNumberPlate())){
+                if(l.getActive()){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private static boolean isValidNoPlate(String noPlate){
+
+        if(noPlate.length() < 7 || noPlate.length() > 8) {
+            return false;
+        }
+
+        return true;
     }
 
     private static boolean mileageValidation(String mileage){
@@ -59,9 +88,9 @@ public class ListingService {
         ListingRepository = database.getRepository(Listing.class);
     }
 
-    public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing {
-        checkFields(make, model, year, mileage, cmc, fuel, price);
-        Listing l = new Listing(clientEmail, providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, price);
+    public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price, String numberPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists {
+        checkFields(make, model, year, mileage, cmc, fuel, price, numberPlate);
+        Listing l = new Listing(clientEmail, providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, price, numberPlate);
         l.setActive(true);
         ListingRepository.insert(l);
     }

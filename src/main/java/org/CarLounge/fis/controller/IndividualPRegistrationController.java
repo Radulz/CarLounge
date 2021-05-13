@@ -49,6 +49,8 @@ public class IndividualPRegistrationController implements Initializable {
     @FXML
     public TextField phoneNo;
     @FXML
+    public TextField cnp;
+    @FXML
     private Hyperlink goBackToProviderR;
     @FXML
     private ImageView exit;
@@ -68,7 +70,7 @@ public class IndividualPRegistrationController implements Initializable {
 
     public void sendReg(MouseEvent mouseEvent) {
         try{
-            IndividualProviderService.addProvider(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText(), phoneNo.getText());
+            IndividualProviderService.addProvider(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText(), phoneNo.getText(), cnp.getText());
             registrationMessage.setText("Account created successfully!");
             logIn.setText("Login now!");
         }
@@ -97,6 +99,12 @@ public class IndividualPRegistrationController implements Initializable {
             registrationMessage.setText(e.getMessage());
         }
         catch(InvalidPhoneNumber e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(CnpIsMissing e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch (CnpIsNotValid e){
             registrationMessage.setText(e.getMessage());
         }
         catch(PasswordFieldIsEmpty e){

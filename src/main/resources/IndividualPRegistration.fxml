@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.IndividualPRegistrationController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="421.0" style="-fx-background-color: #D1E4F9;">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="421.0" style="-fx-background-color: #87ceeb;">
          <children>
-            <Label alignment="CENTER" layoutX="153.0" layoutY="14.0" text="Individual">
+            <Label alignment="CENTER" layoutX="152.0" layoutY="14.0" text="Individual">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -22,20 +20,20 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="19.0" layoutY="289.0" text="Password">
+            <Label layoutX="19.0" layoutY="326.0" text="Password">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="15.0" layoutY="394.0" text="Confirm Password">
+            <Label layoutX="15.0" layoutY="439.0" text="Confirm Password">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="email" layoutX="164.0" layoutY="78.0" prefHeight="25.0" prefWidth="219.0" promptText="e.g. E-mail@provder.com" />
-            <PasswordField fx:id="password" layoutX="161.0" layoutY="289.0" prefHeight="25.0" prefWidth="219.0" />
-            <PasswordField fx:id="confirmPassword" layoutX="161.0" layoutY="394.0" prefHeight="25.0" prefWidth="219.0" />
-            <Label alignment="CENTER" layoutX="192.0" layoutY="314.0" text="*Password must contain at least:&#10;*One upper case letter&#10;*One lower case letter&#10;*A number&#10;*8 characters" textAlignment="CENTER">
+            <TextField fx:id="email" layoutX="161.0" layoutY="78.0" prefHeight="25.0" prefWidth="219.0" promptText="e.g. E-mail@provder.com" />
+            <PasswordField fx:id="password" layoutX="161.0" layoutY="326.0" prefHeight="25.0" prefWidth="219.0" />
+            <PasswordField fx:id="confirmPassword" layoutX="161.0" layoutY="439.0" prefHeight="25.0" prefWidth="219.0" />
+            <Label alignment="CENTER" layoutX="195.0" layoutY="359.0" text="*Password must contain at least:&#10;*One upper case letter&#10;*One lower case letter&#10;*A number&#10;*8 characters" textAlignment="CENTER">
                <font>
                   <Font size="11.0" />
                </font>
@@ -45,7 +43,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="goBackToProviderR" layoutX="14.0" layoutY="502.0" onMouseClicked="#switchBackToProviderR" text="&lt;Back" />
+            <Hyperlink fx:id="goBackToProviderR" layoutX="13.0" layoutY="542.0" onMouseClicked="#switchBackToProviderR" text="&lt;Back" />
             <TextField fx:id="firstname" layoutX="162.0" layoutY="131.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Radu" />
             <TextField fx:id="lastname" layoutX="281.0" layoutY="131.0" prefHeight="25.0" prefWidth="99.0" promptText="E.g. Mladin" />
             <Label layoutX="17.0" layoutY="184.0" text="Birth Date">
@@ -53,13 +51,13 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="17.0" layoutY="238.0" text="Phone Number">
+            <Label layoutX="17.0" layoutY="232.0" text="Phone Number">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="phoneNo" layoutX="161.0" layoutY="238.0" prefHeight="25.0" prefWidth="219.0" />
-            <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="161.0" layoutY="462.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Submit">
+            <TextField fx:id="phoneNo" layoutX="161.0" layoutY="232.0" prefHeight="25.0" prefWidth="219.0" />
+            <Button fx:id="Submit" layoutX="171.0" layoutY="524.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">
                <font>
                   <Font size="15.0" />
                </font>
@@ -73,18 +71,16 @@
                      </input>
                   </DropShadow>
                </effect>
-            </JFXButton>
+            </Button>
+            <Label layoutX="15.0" layoutY="277.0" text="Personal Identification Number">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
             <TextField fx:id="birthDate" layoutX="161.0" layoutY="184.0" prefHeight="25.0" prefWidth="219.0" promptText="Date Format MM/dd/yyyy" />
-            <Text fx:id="registrationMessage" layoutX="4.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="414.0" />
-            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="4.0" layoutY="450.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="414.0" textAlignment="CENTER">
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor></Hyperlink>
-            <ImageView fx:id="exit" fitHeight="24.0" fitWidth="24.0" layoutX="395.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/exit.png" />
-               </image>
-            </ImageView>
+            <Text fx:id="registrationMessage" layoutX="4.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="414.0" />
+            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="4.0" layoutY="495.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="414.0" textAlignment="CENTER" />
+            <TextField fx:id="cnp" layoutX="243.0" layoutY="277.0" prefHeight="25.0" prefWidth="136.0" promptText="13 digits" />
          </children>
       </AnchorPane>
    </children>

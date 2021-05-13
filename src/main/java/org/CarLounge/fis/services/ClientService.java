@@ -30,7 +30,7 @@ public class ClientService {
         ClientRepository = database.getRepository(Client.class);
     }
 
-    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword) throws PasswordsDoesNotMatch, ConfirmPasswordFieldIsEmpty, PasswordDoesNotContainTheRequiredCharacters, PasswordFieldIsEmpty, MinimumAgeIsRequired, BirthDateIsNotADate, BirthDateFieldIsEmpty, LastNameFieldIsEmpty, FirstNameFieldIsEmpty, TextIsNotAValidEmail, EmailFieldIsEmpty {
+    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws PasswordsDoesNotMatch, ConfirmPasswordFieldIsEmpty, PasswordDoesNotContainTheRequiredCharacters, PasswordFieldIsEmpty, MinimumAgeIsRequired, BirthDateIsNotADate, BirthDateFieldIsEmpty, LastNameFieldIsEmpty, FirstNameFieldIsEmpty, TextIsNotAValidEmail, EmailFieldIsEmpty, CnpIsMissing, CnpIsNotValid {
         if(email == ""){
             throw new EmailFieldIsEmpty();
         }
@@ -52,6 +52,12 @@ public class ClientService {
         else if(!checkDate(bDate)){
             throw new MinimumAgeIsRequired();
         }
+        else if(cnp == ""){
+            throw new CnpIsMissing();
+        }
+        else if(!isCNPValid(cnp)){
+            throw  new CnpIsNotValid();
+        }
         else if(password == ""){
             throw new PasswordFieldIsEmpty();
         }
@@ -64,6 +70,23 @@ public class ClientService {
         else if(!password.equals(confirmPassword)){
             throw new PasswordsDoesNotMatch();
         }
+    }
+
+    private static boolean isCNPValid(String cnp){
+        char ch;
+
+        if(cnp.length()<13) {
+            return false;
+        }
+
+        for(int i=0; i<cnp.length();i++){
+            ch=cnp.charAt(i);
+            if(!Character.isDigit(ch)){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private static boolean checkDate(String s) {
@@ -133,10 +156,10 @@ public class ClientService {
         return false;
     }
 
-    public static void addClient(String email, String password, String fName, String lName, String bDate, String confirmPassword) throws UsernameAlreadyExistsException, PasswordDoesNotContainTheRequiredCharacters, EmailFieldIsEmpty, LastNameFieldIsEmpty, PasswordFieldIsEmpty, BirthDateFieldIsEmpty, FirstNameFieldIsEmpty, MinimumAgeIsRequired, PasswordsDoesNotMatch, TextIsNotAValidEmail, ConfirmPasswordFieldIsEmpty, BirthDateIsNotADate {
-        checkFields(email, password, fName, lName, bDate, confirmPassword);
+    public static void addClient(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws UsernameAlreadyExistsException, PasswordDoesNotContainTheRequiredCharacters, EmailFieldIsEmpty, LastNameFieldIsEmpty, PasswordFieldIsEmpty, BirthDateFieldIsEmpty, FirstNameFieldIsEmpty, MinimumAgeIsRequired, PasswordsDoesNotMatch, TextIsNotAValidEmail, ConfirmPasswordFieldIsEmpty, BirthDateIsNotADate, CnpIsMissing, CnpIsNotValid {
+        checkFields(email, password, fName, lName, bDate, confirmPassword, cnp);
         checkUserDoesNotAlreadyExist(email);
-        Client c= new Client(email, encodePassword(email, password), fName, lName, bDate);
+        Client c= new Client(email, encodePassword(email, password), fName, lName, bDate, cnp);
         ClientRepository.insert(c);
     }
 
