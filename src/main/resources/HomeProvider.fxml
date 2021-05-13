@@ -44,11 +44,6 @@
                         <Image url="@Images/user.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/settings1.jpg" />
-                     </image>
-                  </ImageView>
                   <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                      <image>
                         <Image url="@Images/logout1.jpg" />
@@ -83,11 +78,6 @@
                         <Image url="@Images/user.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/settings1.jpg" />
-                     </image>
-                  </ImageView>
                   <ImageView fitHeight="46.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
                      <image>
                         <Image url="@Images/logout1.jpg" />
@@ -117,11 +107,6 @@
                      </font>
                   </JFXButton>
                   <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#ProviderProfile" prefHeight="38.0" prefWidth="179.0" text="My Profile">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#AppSettings" prefHeight="38.0" prefWidth="179.0" text="Settings">
                      <font>
                         <Font size="16.0" />
                      </font>
