@@ -1,9 +1,12 @@
 package org.CarLounge.fis.model;
 
+import org.dizitart.no2.objects.Id;
+
 import java.util.Date;
 import java.util.Objects;
 
 public class Provider {
+    @Id
     private String email;
     private String password;
     private String firstname;
@@ -129,7 +132,7 @@ public class Provider {
     public void setFeedback(double feedbackValue) {
         this.feedbackValue+=feedbackValue;
         this.feedbackCounter++;
-        this.feedback = feedbackValue / feedbackCounter;
+        this.feedback = this.feedbackValue / feedbackCounter;
     }
 
     @Override

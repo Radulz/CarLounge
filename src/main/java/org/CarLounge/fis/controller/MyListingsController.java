@@ -9,7 +9,7 @@ import org.dizitart.no2.objects.ObjectRepository;
 public class MyListingsController {
 
     @FXML
-    public ListView carList;
+    public ListView<String> carList = new ListView<>();
 
     public MyListingsController() {}
 
@@ -19,8 +19,18 @@ public class MyListingsController {
 
         for(Listing listing: ListingService.ListingRepository.find()) {
             if (username.equals(listing.getProviderEmail())) {
-                s = listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice();
-                carList.getItems().add(s);
+                if (listing.getActive() && !listing.getCompleted()) {
+                    s = "#ACTIVE ->" + listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice();
+                    carList.getItems().add(s);
+                }
+                else if(!listing.getActive() && !listing.getCompleted()){
+                    s = "#IN_PROGRESS ->" + listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice();
+                    carList.getItems().add(s);
+                }
+                else if(listing.getCompleted()){
+                    s = "#COMPLETED ->" + listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice();
+                    carList.getItems().add(s);
+                }
             }
         }
     }
