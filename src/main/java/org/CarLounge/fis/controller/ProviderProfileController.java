@@ -40,10 +40,11 @@ public class ProviderProfileController implements Initializable {
     public TextField feedbackScore;
     @FXML
     public JFXButton deleteAccount;
+    @FXML
+    public TextField cnp;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        LogInController user = new LogInController();
         String username = ProviderMenuController.getUsername();
         int cr = 0, ar = 0;
         boolean sw = false;
@@ -51,14 +52,15 @@ public class ProviderProfileController implements Initializable {
         for (Provider p : ProviderService.getProviderRepository().find()) {
             if (username.equals(p.getEmail())) {
                 email.setText(p.getEmail());
-                fName.setText(p.getFirstname());
-                lName.setText(p.getFirstname());
+                fName.setText(p.getFirstName());
+                lName.setText(p.getLastName());
                 phoneNo.setText(p.getPhone());
                 bDate.setText(p.getBDate());
-                company.setText(p.getCompanyname());
-                address.setText(p.getAdress());
-                taxRegNo.setText(p.getTaxregno());
+                company.setText(p.getCompanyName());
+                address.setText(p.getAddress());
+                taxRegNo.setText(p.getTaxRegNo());
                 feedbackScore.setText(String.format("%.2f", p.getFeedback()));
+                cnp.setText(p.getCnp());
                 provider = p;
                 sw = true;
             }

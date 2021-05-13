@@ -2,10 +2,12 @@ package org.CarLounge.fis.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -23,7 +25,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
-public class ChoiceRegistrationController {
+public class ChoiceRegistrationController implements Initializable {
     @FXML
     private Hyperlink goBackToLogin;
 
@@ -32,6 +34,15 @@ public class ChoiceRegistrationController {
 
     @FXML
     private Button goToProviderR;
+
+    @FXML
+    private ImageView exit;
+
+    public void initialize(URL location, ResourceBundle resources) {
+        exit.setOnMouseClicked(event -> {
+            System.exit(0);
+        });
+    }
 
     public void switchBackToLogin(MouseEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));

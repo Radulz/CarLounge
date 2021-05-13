@@ -1,34 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
-<StackPane fx:id="mainChoiceContainer" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ChoiceRegistrationController">
+<StackPane fx:id="mainChoiceContainer" focusTraversable="true" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ChoiceRegistrationController">
    <children>
-      <AnchorPane fx:id="choiceContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="421.0" style="-fx-background-color: #acb4cc;">
+      <AnchorPane fx:id="choiceContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="224.0" prefWidth="417.0" style="-fx-background-color: #D1E4F9;">
          <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" text="How do you want to use the app?">
+            <Label alignment="CENTER" layoutX="15.0" layoutY="22.0" text="How do you want to use the app?">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <Button fx:id="goToClientR" layoutX="52.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#switchToClientR" prefHeight="36.0" prefWidth="125.0" text="Client">
+            <JFXButton fx:id="goToClientR" buttonType="RAISED" layoutX="56.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#switchToClientR" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Client">
                <font>
                   <Font size="14.0" />
                </font>
-            </Button>
-            <Button fx:id="goToProviderR" layoutX="240.0" layoutY="188.0" mnemonicParsing="false" onMouseClicked="#switchToProviderR" prefHeight="36.0" prefWidth="125.0" text="Provider">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="goToProviderR" buttonType="RAISED" layoutX="268.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#switchToProviderR" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Provider">
                <font>
                   <Font size="14.0" />
                </font>
-            </Button>
-            <Label layoutX="14.0" layoutY="75.0" text="After choosing one of the options avaliable&#10;below, you will be redirected to the proper&#10;register window.">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Label layoutX="18.0" layoutY="66.0" prefHeight="92.0" prefWidth="381.0" text="After choosing one of the options avaliable&#10;below, you will be redirected to the proper&#10;register window." textAlignment="CENTER">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="goBackToLogin" layoutX="14.0" layoutY="232.0" onMouseClicked="#switchBackToLogin" text="&lt;Back" />
+            <Hyperlink fx:id="goBackToLogin" layoutX="1.0" layoutY="197.0" onMouseClicked="#switchBackToLogin" text="&lt;Back" />
+            <ImageView fx:id="exit" fitHeight="24.0" fitWidth="22.0" layoutX="395.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/exit.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

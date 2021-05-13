@@ -16,7 +16,7 @@ import java.util.Objects;
 
 public class IndividualProviderService extends ProviderService {
 
-    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber {
+    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo, String cnp) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber, CnpIsNotValid, CnpIsMissing {
         if(email == ""){
             throw new EmailFieldIsEmpty();
         }
@@ -44,6 +44,13 @@ public class IndividualProviderService extends ProviderService {
         else if(!isValidPhoneNumber(phoneNo)){
             throw new InvalidPhoneNumber();
         }
+        else if(cnp == ""){
+            throw new CnpIsMissing();
+        }
+        else if(!isCNPValid(cnp)){
+            throw new CnpIsNotValid();
+
+        }
         else if(password == ""){
             throw new PasswordFieldIsEmpty();
         }
@@ -58,10 +65,10 @@ public class IndividualProviderService extends ProviderService {
         }
     }
 
-    public static void addProvider(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber {
-        checkFields(email, password, fName, lName, bDate, confirmPassword, phoneNo);
+    public static void addProvider(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo, String cnp) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber, CnpIsMissing, CnpIsNotValid {
+        checkFields(email, password, fName, lName, bDate, confirmPassword, phoneNo, cnp);
         checkUserDoesNotAlreadyExist(email);
-        Provider p= new Provider(email, encodePassword(email, password), fName, lName, bDate, "IndividualPerson", "IndividualPerson", phoneNo, "IndividualPerson");
+        Provider p= new Provider(email, encodePassword(email, password), fName, lName, bDate, "IndividualPerson", "IndividualPerson", phoneNo, "IndividualPerson", cnp);
         ProviderRepository.insert(p);
     }
 

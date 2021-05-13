@@ -2,9 +2,11 @@ package org.CarLounge.fis.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -21,8 +23,9 @@ import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 import org.CarLounge.fis.exceptions.*;
 import org.CarLounge.fis.services.ClientService;
+import javafx.scene.image.ImageView;
 
-public class ClientRegistrationController {
+public class ClientRegistrationController implements  Initializable{
     @FXML
     public TextField email;
     @FXML
@@ -42,7 +45,17 @@ public class ClientRegistrationController {
     @FXML
     public PasswordField confirmPassword;
     @FXML
+    public TextField cnp;
+    @FXML
     private Hyperlink goBackToChoice;
+    @FXML
+    private ImageView exit;
+
+    public void initialize(URL location, ResourceBundle resources) {
+        exit.setOnMouseClicked(event -> {
+            System.exit(0);
+        });
+    }
 
     public void switchBackToChoice(MouseEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ChoiceRegistration.fxml"));
@@ -52,7 +65,7 @@ public class ClientRegistrationController {
 
     public void sendReg(MouseEvent mouseEvent) {
         try{
-            ClientService.addClient(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText());
+            ClientService.addClient(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText(), cnp.getText());
             registrationMessage.setText("Account created successfully!");
             logIn.setText("Login now!");
         }
@@ -77,6 +90,12 @@ public class ClientRegistrationController {
         catch(MinimumAgeIsRequired e){
             registrationMessage.setText(e.getMessage());
         }
+        catch(CnpIsMissing e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(CnpIsNotValid e){
+            registrationMessage.setText(e.getMessage());
+        }
         catch(PasswordFieldIsEmpty e){
             registrationMessage.setText(e.getMessage());
         }
@@ -90,6 +109,7 @@ public class ClientRegistrationController {
             registrationMessage.setText(e.getMessage());
         }
         catch(UsernameAlreadyExistsException e){
+
             registrationMessage.setText(e.getMessage());
             logIn.setText("Login now!");
         }

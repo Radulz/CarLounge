@@ -11,13 +11,15 @@ public class Client {
     private String firstname;
     private String lastname;
     private String birthdate;
+    private String CNP;
 
-    public Client(String email, String password, String firstname, String lastname, String birthdate){
+    public Client(String email, String password, String firstname, String lastname, String birthdate, String CNP){
         this.email=email;
         this.password=password;
         this.firstname=firstname;
         this.lastname=lastname;
         this.birthdate=birthdate;
+        this.CNP=CNP;
     }
     public Client() { }
 
@@ -25,8 +27,24 @@ public class Client {
         return "Client{" +
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", bdate=" + birthdate +
+                ", bDate=" + birthdate +
                 '}';
+    }
+
+    public String getBirthdate() {
+        return birthdate;
+    }
+
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
+
+    public String getCNP() {
+        return CNP;
+    }
+
+    public void setCNP(String CNP) {
+        this.CNP = CNP;
     }
 
     public String getPassword() {
@@ -43,14 +61,6 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getBdate() {
-        return birthdate;
-    }
-
-    public void setBdate(String bdate) {
-        this.birthdate = bdate;
     }
 
     public void setFirstname(String firstname) {

@@ -35,6 +35,7 @@ public class ProviderMenuController implements Initializable {
     private JFXButton logOutOfAcc;
 
     private static String username;
+    private static String phone;
 
     public ProviderMenuController(){
 
@@ -46,6 +47,14 @@ public class ProviderMenuController implements Initializable {
 
     public static String getUsername() {
         return username;
+    }
+
+    public static String getPhone() {
+        return phone;
+    }
+
+    public static void setPhone(String phone) {
+        ProviderMenuController.phone = phone;
     }
 
     @Override

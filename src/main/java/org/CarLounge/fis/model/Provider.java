@@ -1,9 +1,12 @@
 package org.CarLounge.fis.model;
 
+import org.dizitart.no2.objects.Id;
+
 import java.util.Date;
 import java.util.Objects;
 
 public class Provider {
+    @Id
     private String email;
     private String password;
     private String firstname;
@@ -13,12 +16,13 @@ public class Provider {
     private String address;
     private String phone;
     private String taxRegNo;
+    private String cnp;
 
     private double feedbackValue=0;
     private int feedbackCounter=0;
     private double feedback=0;
 
-    public Provider(String email, String password, String firstname, String lastname, String bDate, String companyName, String address, String phone, String taxRegNo) {
+    public Provider(String email, String password, String firstname, String lastname, String bDate, String companyName, String address, String phone, String taxRegNo, String cnp) {
         this.email = email;
         this.password = password;
         this.firstname = firstname;
@@ -28,6 +32,7 @@ public class Provider {
         this.address = address;
         this.phone = phone;
         this.taxRegNo = taxRegNo;
+        this.cnp=cnp;
     }
 
     public Provider() { }
@@ -40,11 +45,11 @@ public class Provider {
         return password;
     }
 
-    public String getFirstname() {
+    public String getFirstName() {
         return firstname;
     }
 
-    public String getLastname() {
+    public String getLastName() {
         return lastname;
     }
 
@@ -52,11 +57,11 @@ public class Provider {
         return bDate;
     }
 
-    public String getCompanyname() {
+    public String getCompanyName() {
         return companyName;
     }
 
-    public String getAdress() {
+    public String getAddress() {
         return address;
     }
 
@@ -64,7 +69,7 @@ public class Provider {
         return phone;
     }
 
-    public String getTaxregno() {
+    public String getTaxRegNo() {
         return taxRegNo;
     }
 
@@ -76,11 +81,11 @@ public class Provider {
         this.password = password;
     }
 
-    public void setFirstname(String firstname) {
+    public void setFirstName(String firstname) {
         this.firstname = firstname;
     }
 
-    public void setLastname(String lastname) {
+    public void setLastName(String lastname) {
         this.lastname = lastname;
     }
 
@@ -100,11 +105,11 @@ public class Provider {
         this.phone = phone;
     }
 
-    public void setTaxregno(String taxRegNo) {
+    public void setTaxRegNo(String taxRegNo) {
         this.taxRegNo = taxRegNo;
     }
 
-    public double getFeddbackValue() {
+    public double getFeedbackValue() {
         return feedbackValue;
     }
 
@@ -116,11 +121,18 @@ public class Provider {
         return feedback;
     }
 
+    public String getCnp() {
+        return cnp;
+    }
+
+    public void setCnp(String cnp) {
+        this.cnp = cnp;
+    }
 
     public void setFeedback(double feedbackValue) {
         this.feedbackValue+=feedbackValue;
         this.feedbackCounter++;
-        this.feedback = feedbackValue / feedbackCounter;
+        this.feedback = this.feedbackValue / feedbackCounter;
     }
 
     @Override
@@ -128,13 +140,13 @@ public class Provider {
         return "Provider{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", bdate=" + bDate +
-                ", companyname='" + companyName + '\'' +
-                ", adress='" + address + '\'' +
+                ", firstName='" + firstname + '\'' +
+                ", lastName='" + lastname + '\'' +
+                ", bDate=" + bDate +
+                ", companyName='" + companyName + '\'' +
+                ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
-                ", taxregno='" + taxRegNo + '\'' +
+                ", taxRegNo='" + taxRegNo + '\'' +
                 '}';
     }
 

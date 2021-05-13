@@ -2,8 +2,11 @@ package org.CarLounge.fis.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
@@ -24,7 +27,7 @@ import org.CarLounge.fis.services.ClientService;
 import org.CarLounge.fis.services.IndividualProviderService;
 import org.CarLounge.fis.services.LegalPersonProviderService;
 
-public class IndividualPRegistrationController {
+public class IndividualPRegistrationController implements Initializable {
     @FXML
     public TextField email;
     @FXML
@@ -46,7 +49,17 @@ public class IndividualPRegistrationController {
     @FXML
     public TextField phoneNo;
     @FXML
+    public TextField cnp;
+    @FXML
     private Hyperlink goBackToProviderR;
+    @FXML
+    private ImageView exit;
+
+    public void initialize(URL location, ResourceBundle resources) {
+        exit.setOnMouseClicked(event -> {
+            System.exit(0);
+        });
+    }
 
     public void switchBackToProviderR(MouseEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ProviderRegistration.fxml"));
@@ -57,7 +70,7 @@ public class IndividualPRegistrationController {
 
     public void sendReg(MouseEvent mouseEvent) {
         try{
-            IndividualProviderService.addProvider(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText(), phoneNo.getText());
+            IndividualProviderService.addProvider(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText(), phoneNo.getText(), cnp.getText());
             registrationMessage.setText("Account created successfully!");
             logIn.setText("Login now!");
         }
@@ -86,6 +99,12 @@ public class IndividualPRegistrationController {
             registrationMessage.setText(e.getMessage());
         }
         catch(InvalidPhoneNumber e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(CnpIsMissing e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch (CnpIsNotValid e){
             registrationMessage.setText(e.getMessage());
         }
         catch(PasswordFieldIsEmpty e){

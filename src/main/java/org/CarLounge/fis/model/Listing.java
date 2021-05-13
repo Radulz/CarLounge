@@ -1,10 +1,14 @@
 package org.CarLounge.fis.model;
 
+import org.dizitart.no2.objects.Id;
+
 import java.util.List;
 
 public class Listing {
     private String clientEmail;
+
     private String providerEmail;
+    private String providerPhone;
 
     private String make;
     private String model;
@@ -13,11 +17,13 @@ public class Listing {
     private int cmc;
     private String fuel;
     private String price;
+    @Id
+    private String numberPlate;
 
     private boolean active=false;
     private boolean completed=false;
 
-    public Listing(String clientEmail, String providerEmail, String make, String model, int year, int mileage, int cmc, String fuel, String price) {
+    public Listing(String clientEmail, String providerEmail, String make, String model, int year, int mileage, int cmc, String fuel, String price, String numberPlate) {
         this.clientEmail=clientEmail;
         this.providerEmail=providerEmail;
         this.make = make;
@@ -27,10 +33,27 @@ public class Listing {
         this.cmc=cmc;
         this.fuel=fuel;
         this.price=price;
+        this.numberPlate=numberPlate;
     }
 
 
     public Listing(){ }
+
+    public String getProviderPhone() {
+        return providerPhone;
+    }
+
+    public void setProviderPhone(String providerPhone) {
+        this.providerPhone = providerPhone;
+    }
+
+    public String getNumberPlate() {
+        return numberPlate;
+    }
+
+    public void setNumberPlate(String numberPlate) {
+        this.numberPlate = numberPlate;
+    }
 
     public String getProviderEmail(){
         return providerEmail;

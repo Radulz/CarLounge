@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit;
 
 public class ProviderService {
 
-    protected static ObjectRepository<Provider> ProviderRepository;
+    public static ObjectRepository<Provider> ProviderRepository;
 
     public static void initDatabase(){
         Nitrite database = Nitrite.builder()
@@ -96,6 +96,22 @@ public class ProviderService {
 
         for(int i=0; i<phone.length();i++){
             ch=phone.charAt(i);
+            if(!Character.isDigit(ch)){
+                return false;
+            }
+        }
+
+        return true;
+    }
+    protected static boolean isCNPValid(String cnp){
+        char ch;
+
+        if(cnp.length()<13) {
+            return false;
+        }
+
+        for(int i=0; i<cnp.length();i++){
+            ch=cnp.charAt(i);
             if(!Character.isDigit(ch)){
                 return false;
             }

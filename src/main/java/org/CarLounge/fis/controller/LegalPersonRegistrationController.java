@@ -2,9 +2,11 @@ package org.CarLounge.fis.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -23,7 +25,7 @@ import org.CarLounge.fis.exceptions.*;
 import org.CarLounge.fis.services.ClientService;
 import org.CarLounge.fis.services.LegalPersonProviderService;
 
-public class LegalPersonRegistrationController {
+public class LegalPersonRegistrationController implements Initializable {
     @FXML
     public Button Submit;
     @FXML
@@ -48,6 +50,14 @@ public class LegalPersonRegistrationController {
     public Text registrationMessage;
     @FXML
     private Hyperlink goBackToProviderR;
+    @FXML
+    private ImageView exit;
+
+    public void initialize(URL location, ResourceBundle resources) {
+        exit.setOnMouseClicked(event -> {
+            System.exit(0);
+        });
+    }
 
     public void switchBackToProviderR(MouseEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ProviderRegistration.fxml"));

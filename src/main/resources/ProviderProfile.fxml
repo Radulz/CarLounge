@@ -63,24 +63,24 @@
                      </font>
                   </Label>
                   <TextField fx:id="bDate" editable="false" layoutX="365.0" layoutY="100.0" prefHeight="25.0" prefWidth="93.0" />
-                  <Label layoutX="186.0" layoutY="205.0" prefHeight="20.0" prefWidth="69.0" text="Company">
+                  <Label layoutX="168.0" layoutY="270.0" prefHeight="20.0" prefWidth="69.0" text="Company">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="company" editable="false" layoutX="185.0" layoutY="230.0" prefHeight="25.0" prefWidth="93.0" />
-                  <TextField fx:id="address" editable="false" layoutX="365.0" layoutY="230.0" prefHeight="25.0" prefWidth="93.0" />
-                  <Label layoutX="365.0" layoutY="205.0" prefHeight="20.0" prefWidth="69.0" text="Address">
+                  <TextField fx:id="company" editable="false" layoutX="168.0" layoutY="295.0" prefHeight="25.0" prefWidth="93.0" />
+                  <TextField fx:id="address" editable="false" layoutX="423.0" layoutY="295.0" prefHeight="25.0" prefWidth="93.0" />
+                  <Label layoutX="424.0" layoutY="270.0" prefHeight="20.0" prefWidth="69.0" text="Address">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="261.0" layoutY="270.0" prefHeight="20.0" prefWidth="129.0" text="Tax registration no.">
+                  <Label layoutX="276.0" layoutY="270.0" prefHeight="20.0" prefWidth="122.0" text="Tax registration no.">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="taxRegNo" editable="false" layoutX="275.0" layoutY="295.0" prefHeight="25.0" prefWidth="93.0" />
+                  <TextField fx:id="taxRegNo" editable="false" layoutX="291.0" layoutY="295.0" prefHeight="25.0" prefWidth="93.0" />
                   <Label layoutX="21.0" layoutY="140.0" prefHeight="20.0" prefWidth="110.0" text="Ongoing rentals">
                      <font>
                         <Font size="14.0" />
@@ -104,6 +104,12 @@
                         <Font size="14.0" />
                      </font>
                   </JFXButton>
+                  <Label layoutX="225.0" layoutY="205.0" text="Personal Identification Number">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cnp" alignment="CENTER" editable="false" layoutX="238.0" layoutY="230.0" prefHeight="25.0" prefWidth="167.0" />
                     </children>
                 </Pane>
             </center>

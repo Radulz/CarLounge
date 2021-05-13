@@ -28,6 +28,7 @@ import org.CarLounge.fis.services.ProviderService;
 
 public class LogInController implements Initializable {
     private String username;
+    private String phone;
     @FXML
     public TextField email;
 
