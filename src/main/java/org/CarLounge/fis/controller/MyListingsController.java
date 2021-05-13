@@ -11,16 +11,17 @@ public class MyListingsController {
     @FXML
     public ListView carList;
 
-    public static ObjectRepository <Listing> ListingRepository;
-
     public MyListingsController() {}
 
     public void setCarList() {
         String s;
+        String username=ProviderMenuController.getUsername();
 
         for(Listing listing: ListingService.ListingRepository.find()) {
-            s = listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice();
-            carList.getItems().add(s);
+            if (username.equals(listing.getProviderEmail())) {
+                s = listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice();
+                carList.getItems().add(s);
+            }
         }
     }
 

@@ -45,7 +45,6 @@ public class ProviderProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        LogInController user = new LogInController();
         String username = ProviderMenuController.getUsername();
         int cr = 0, ar = 0;
         boolean sw = false;
