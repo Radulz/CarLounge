@@ -76,7 +76,7 @@ public class ActiveListingController implements Initializable {
     }
 
     public void completeListing(MouseEvent mouseEvent) {
-        /*double value = 0;
+        double value = 0;
 
         if(rb1.isSelected()){
             value = 1;
@@ -104,15 +104,15 @@ public class ActiveListingController implements Initializable {
         }
         else if(!activeListingField.getText().equals("")){
             completeText.setText("You can't submit a feedback if you don't have an active rental!");
-        }*/
+        }
 
         completeListing.setCompleted(true);
         ListingService.ListingRepository.update(completeListing);
-       /* if(value == 0){
+        if(value == 0){
             completeText.setText("Listing marked as completed successfully!");
         }
         else{
             completeText.setText("Listing marked as completed successfully! Thank you for your feedback!");
-        }*/
+        }
     }
 }
