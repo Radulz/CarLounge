@@ -102,6 +102,14 @@ public class ProviderProfileController implements Initializable {
     }
 
     public void deleteAccount(MouseEvent mouseEvent) throws IOException {
+
+        for(Listing l: ListingService.getListingRepository().find()) {
+            if(l.getProviderEmail().equals(ProviderMenuController.getUsername())) {
+                if(l.getCompleted() || l.getActive())
+                ListingService.getListingRepository().remove(l);
+            }
+        }
+
         for(Listing l: ListingService.getListingRepository().find()) {
             if(l.getProviderEmail().equals(ProviderMenuController.getUsername())) {
                 try{
@@ -115,12 +123,6 @@ public class ProviderProfileController implements Initializable {
                 ListingService.getListingRepository().remove(l);
             }
         }
-
-        /*for(Listing l: ListingService.getListingRepository().find()) {
-            if(l.getProviderEmail().equals(ProviderMenuController.getUsername())) {
-                ListingService.getListingRepository().remove(l);
-            }
-        }*/
 
         for(Provider p: ProviderService.getProviderRepository().find()) {
             if(p.getEmail().equals(ProviderMenuController.getUsername())) {
