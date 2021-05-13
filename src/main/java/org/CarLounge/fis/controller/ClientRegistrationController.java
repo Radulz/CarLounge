@@ -42,6 +42,8 @@ public class ClientRegistrationController {
     @FXML
     public PasswordField confirmPassword;
     @FXML
+    public TextField cnp;
+    @FXML
     private Hyperlink goBackToChoice;
 
     public void switchBackToChoice(MouseEvent event) throws Exception{
@@ -52,7 +54,7 @@ public class ClientRegistrationController {
 
     public void sendReg(MouseEvent mouseEvent) {
         try{
-            ClientService.addClient(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText());
+            ClientService.addClient(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText(), cnp.getText());
             registrationMessage.setText("Account created successfully!");
             logIn.setText("Login now!");
         }
@@ -75,6 +77,12 @@ public class ClientRegistrationController {
             registrationMessage.setText(e.getMessage());
         }
         catch(MinimumAgeIsRequired e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(CnpIsMissing e){
+            registrationMessage.setText(e.getMessage());
+        }
+        catch(CnpIsNotValid e){
             registrationMessage.setText(e.getMessage());
         }
         catch(PasswordFieldIsEmpty e){

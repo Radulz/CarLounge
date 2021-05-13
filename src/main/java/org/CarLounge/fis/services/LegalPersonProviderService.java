@@ -60,7 +60,7 @@ public class LegalPersonProviderService extends ProviderService{
     public static void addProvider(String email, String password, String companyName, String address, String phone, String taxRegNo, String confirmPassword) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, CompanyNameIsMissing, AddressIsMissing, PhoneNumberIsMissing, InvalidPhoneNumber, TaxRegNoIsMissing {
         checkFields(email, password, companyName, address, phone, taxRegNo, confirmPassword);
         checkUserDoesNotAlreadyExist(email);
-        Provider p= new Provider(email, encodePassword(email, password), "LegalPerson", "LegalPerson", getTodayDate() , companyName, address, phone, taxRegNo);
+        Provider p= new Provider(email, encodePassword(email, password), "LegalPerson", "LegalPerson", getTodayDate(), companyName, address, phone, taxRegNo, "LegalPerson");
         ProviderRepository.insert(p);
     }
 

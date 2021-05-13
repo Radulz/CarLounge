@@ -103,6 +103,22 @@ public class ProviderService {
 
         return true;
     }
+    protected static boolean isCNPValid(String cnp){
+        char ch;
+
+        if(cnp.length()<13) {
+            return false;
+        }
+
+        for(int i=0; i<cnp.length();i++){
+            ch=cnp.charAt(i);
+            if(!Character.isDigit(ch)){
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     public static ObjectRepository<Provider> getProviderRepository(){
         return ProviderRepository;
