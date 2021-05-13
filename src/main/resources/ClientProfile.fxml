@@ -63,7 +63,7 @@
                             </font>
                         </Label>
                         <TextField editable="false" layoutX="34.0" layoutY="165.0" prefHeight="25.0" prefWidth="86.0" />
-                        <JFXButton fx:id="deleteAccount" buttonType="RAISED" layoutX="17.0" layoutY="364.0" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Delete account">
+                        <JFXButton fx:id="delete" buttonType="RAISED" layoutX="17.0" layoutY="364.0" onMouseClicked="#deleteAccount" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Delete account">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -73,6 +73,7 @@
                         <Font size="14.0" />
                      </font></Label>
                   <TextField fx:id="cnp" editable="false" layoutX="239.0" layoutY="165.0" prefHeight="25.0" prefWidth="167.0" />
+                  <Text fx:id="deleteAccountMessage" fill="RED" layoutX="6.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="140.13671875" />
                     </children>
                 </Pane>
             </center>

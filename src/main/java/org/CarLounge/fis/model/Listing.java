@@ -1,5 +1,7 @@
 package org.CarLounge.fis.model;
 
+import org.dizitart.no2.objects.Id;
+
 import java.util.List;
 
 public class Listing {
@@ -13,6 +15,7 @@ public class Listing {
     private int cmc;
     private String fuel;
     private String price;
+    @Id
     private String numberPlate;
 
     private boolean active=false;

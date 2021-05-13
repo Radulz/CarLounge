@@ -1,11 +1,13 @@
 package org.CarLounge.fis.model;
 
+import org.dizitart.no2.objects.Id;
+
 import java.time.chrono.Chronology;
 import java.util.Date;
 import java.util.Objects;
 
 public class Client {
-
+    @Id
     private String email;
     private String password;
     private String firstname;
