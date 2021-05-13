@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -108,6 +109,7 @@ public class ClientRegistrationController implements  Initializable{
             registrationMessage.setText(e.getMessage());
         }
         catch(UsernameAlreadyExistsException e){
+
             registrationMessage.setText(e.getMessage());
             logIn.setText("Login now!");
         }
