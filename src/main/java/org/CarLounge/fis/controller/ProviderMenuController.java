@@ -124,11 +124,6 @@ public class ProviderMenuController implements Initializable {
         contentArea.getChildren().setAll(fxml);
     }
 
-    public void AppSettings(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
-        Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ActiveListing.fxml"));
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(fxml);
-    }
 
     public void switchToLogIn(MouseEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));

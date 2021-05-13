@@ -91,5 +91,7 @@ public class Client {
     public int hashCode() {
         return Objects.hash(email, password, firstname, lastname, birthdate);
     }
+
+
 }
 
