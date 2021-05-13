@@ -9,9 +9,9 @@ import static java.lang.Integer.parseInt;
 
 public class ListingService {
 
-    private static ObjectRepository<Listing> ListingRepository;
+    public static ObjectRepository<Listing> ListingRepository;
 
-    private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String notes) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, NotesAreMissing{
+    private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing {
         if(make == ""){
             throw new MakeIsMissing();
         }
@@ -36,8 +36,8 @@ public class ListingService {
         else if(fuel == ""){
             throw new FuelIsMissing();
         }
-        else if(notes == ""){
-            throw new NotesAreMissing();
+        else if(price == ""){
+            throw new PriceIsMissing();
         }
 
     }
@@ -59,9 +59,9 @@ public class ListingService {
         ListingRepository = database.getRepository(Listing.class);
     }
 
-    public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String notes) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, NotesAreMissing {
-        checkFields(make, model, year, mileage, cmc, fuel, notes);
-        Listing l = new Listing(clientEmail, providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, notes);
+    public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing {
+        checkFields(make, model, year, mileage, cmc, fuel, price);
+        Listing l = new Listing(clientEmail, providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, price);
         l.setActive(true);
         ListingRepository.insert(l);
     }
