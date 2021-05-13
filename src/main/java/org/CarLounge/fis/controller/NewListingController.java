@@ -31,6 +31,8 @@ public class NewListingController {
     @FXML
     public TextField price;
     @FXML
+    public TextField noPlate;
+    @FXML
     private JFXButton switchToHome;
     @FXML
     private StackPane contentArea;
@@ -41,7 +43,7 @@ public class NewListingController {
 
         LogInController user = new LogInController();
         try{
-            ListingService.addListing("-", ProviderMenuController.getUsername(), make.getText(), model.getText(), year.getText(), mileage.getText(), cmc.getText(), fuel.getText(),price.getText());
+            ListingService.addListing("-", ProviderMenuController.getUsername(), make.getText(), model.getText(), year.getText(), mileage.getText(), cmc.getText(), fuel.getText(),price.getText(), noPlate.getText());
             listingText.setText("Listing added successfully under email: " + ProviderMenuController.getUsername());
         }
         catch(MakeIsMissing e){
@@ -66,6 +68,15 @@ public class NewListingController {
             listingText.setText(e.getMessage());
         }
         catch(FuelIsMissing e){
+            listingText.setText(e.getMessage());
+        }
+        catch(NumberPlateIsMissing e){
+            listingText.setText(e.getMessage());
+        }
+        catch(NumberPlateIsNotValid e){
+            listingText.setText(e.getMessage());
+        }
+        catch(ActiveListingAlreadyExists e){
             listingText.setText(e.getMessage());
         }
         catch(PriceIsMissing e){
