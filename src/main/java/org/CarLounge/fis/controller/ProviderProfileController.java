@@ -45,9 +45,11 @@ public class ProviderProfileController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         LogInController user = new LogInController();
         String username = ProviderMenuController.getUsername();
-        int cr=0, ar=0;
-        for(Provider p : ProviderService.getProviderRepository().find()){
-            if(username.equals(p.getEmail())){
+        int cr = 0, ar = 0;
+        boolean sw = false;
+        Provider provider = new Provider();
+        for (Provider p : ProviderService.getProviderRepository().find()) {
+            if (username.equals(p.getEmail())) {
                 email.setText(p.getEmail());
                 fName.setText(p.getFirstname());
                 lName.setText(p.getFirstname());
@@ -56,20 +58,25 @@ public class ProviderProfileController implements Initializable {
                 company.setText(p.getCompanyname());
                 address.setText(p.getAdress());
                 taxRegNo.setText(p.getTaxregno());
-                feedbackScore.setText(String.valueOf(p.getFeedback()));
-                /*for(Listing l : ListingService.getListingRepository().find()){
-                    if(p.getEmail().equals(l.getProviderEmail())) {
-                        if (l.getCompleted()) {
-                            cr++;
-                        }
-                        if (l.getActive()) {
-                            ar++;
-                        }
+                feedbackScore.setText(String.format("%.2f", p.getFeedback()));
+                provider = p;
+                sw = true;
+            }
+        }
+        if (sw) {
+            for (Listing l : ListingService.getListingRepository().find()) {
+                if (provider.getEmail().equals(l.getProviderEmail())) {
+                    if (l.getCompleted()) {
+                        cr++;
+                    }
+                    if (l.getActive()) {
+                        ar++;
                     }
                 }
-                inactiveListings.setText("" + cr);
-                activeListings.setText("" + ar);*/
             }
+            inactiveListings.setText("" + cr);
+            activeListings.setText("" + ar);
         }
     }
 }
+

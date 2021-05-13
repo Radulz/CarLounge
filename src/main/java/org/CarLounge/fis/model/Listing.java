@@ -27,6 +27,8 @@ public class Listing {
         this.notes=notes;
     }
 
+    public Listing(){ }
+
     public String getProviderEmail(){
         return providerEmail;
     }
