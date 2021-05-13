@@ -29,7 +29,8 @@ public class Listing {
         this.price=price;
     }
 
-    public Listing() {}
+
+    public Listing(){ }
 
     public String getProviderEmail(){
         return providerEmail;
