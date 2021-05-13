@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane prefHeight="454.0" prefWidth="583.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.CarsController">
+<StackPane prefHeight="454.0" prefWidth="583.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.CarsController">
    <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
             <top>
                 <Pane prefHeight="32.0" prefWidth="581.0" style="-fx-background-color: #D1E4F9;" BorderPane.alignment="CENTER">
                     <children>
-                        <Label layoutX="14.0" layoutY="7.0" text="Rent-a-car">
+                        <Label layoutX="14.0" layoutY="7.0" text="Available cars">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font></Label>
@@ -30,7 +25,7 @@
          <right>
             <JFXButton buttonType="RAISED" prefHeight="33.0" prefWidth="147.0" style="-fx-background-color: #D1E4F9;" text="Rent it!" BorderPane.alignment="CENTER">
                <graphic>
-                  <TextField alignment="CENTER" prefHeight="25.0" prefWidth="72.0" promptText="AR15LLL" />
+                  <TextField alignment="CENTER" prefHeight="25.0" prefWidth="82.0" promptText="E.g. AR15LLL" />
                </graphic>
             </JFXButton>
          </right>

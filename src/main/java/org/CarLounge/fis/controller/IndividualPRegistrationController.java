@@ -2,8 +2,11 @@ package org.CarLounge.fis.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.scene.input.MouseEvent;
@@ -24,7 +27,7 @@ import org.CarLounge.fis.services.ClientService;
 import org.CarLounge.fis.services.IndividualProviderService;
 import org.CarLounge.fis.services.LegalPersonProviderService;
 
-public class IndividualPRegistrationController {
+public class IndividualPRegistrationController implements Initializable {
     @FXML
     public TextField email;
     @FXML
@@ -47,6 +50,14 @@ public class IndividualPRegistrationController {
     public TextField phoneNo;
     @FXML
     private Hyperlink goBackToProviderR;
+    @FXML
+    private ImageView exit;
+
+    public void initialize(URL location, ResourceBundle resources) {
+        exit.setOnMouseClicked(event -> {
+            System.exit(0);
+        });
+    }
 
     public void switchBackToProviderR(MouseEvent event) throws Exception{
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ProviderRegistration.fxml"));

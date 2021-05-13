@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
 <StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.IndividualPRegistrationController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="421.0" style="-fx-background-color: #87ceeb;">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="421.0" style="-fx-background-color: #D1E4F9;">
          <children>
-            <Label alignment="CENTER" layoutX="152.0" layoutY="14.0" text="Individual">
+            <Label alignment="CENTER" layoutX="153.0" layoutY="14.0" text="Individual">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -57,7 +59,7 @@
                </font>
             </Label>
             <TextField fx:id="phoneNo" layoutX="161.0" layoutY="238.0" prefHeight="25.0" prefWidth="219.0" />
-            <Button fx:id="Submit" layoutX="171.0" layoutY="484.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="36.0" prefWidth="80.0" style="-fx-background-color: #4bb6d6;" text="Submit">
+            <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="161.0" layoutY="462.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Submit">
                <font>
                   <Font size="15.0" />
                </font>
@@ -71,10 +73,18 @@
                      </input>
                   </DropShadow>
                </effect>
-            </Button>
+            </JFXButton>
             <TextField fx:id="birthDate" layoutX="161.0" layoutY="184.0" prefHeight="25.0" prefWidth="219.0" promptText="Date Format MM/dd/yyyy" />
             <Text fx:id="registrationMessage" layoutX="4.0" layoutY="446.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="414.0" />
-            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="4.0" layoutY="450.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="414.0" textAlignment="CENTER" />
+            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="4.0" layoutY="450.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="414.0" textAlignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor></Hyperlink>
+            <ImageView fx:id="exit" fitHeight="24.0" fitWidth="24.0" layoutX="395.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Images/exit.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>
