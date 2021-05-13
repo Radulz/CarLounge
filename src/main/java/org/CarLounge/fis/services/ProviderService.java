@@ -12,7 +12,7 @@ import java.time.temporal.ChronoUnit;
 
 public class ProviderService {
 
-    protected static ObjectRepository<Provider> ProviderRepository;
+    public static ObjectRepository<Provider> ProviderRepository;
 
     public static void initDatabase(){
         Nitrite database = Nitrite.builder()

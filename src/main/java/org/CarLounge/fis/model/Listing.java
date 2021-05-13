@@ -6,7 +6,9 @@ import java.util.List;
 
 public class Listing {
     private String clientEmail;
+
     private String providerEmail;
+    private String providerPhone;
 
     private String make;
     private String model;
@@ -36,6 +38,14 @@ public class Listing {
 
 
     public Listing(){ }
+
+    public String getProviderPhone() {
+        return providerPhone;
+    }
+
+    public void setProviderPhone(String providerPhone) {
+        this.providerPhone = providerPhone;
+    }
 
     public String getNumberPlate() {
         return numberPlate;

@@ -132,7 +132,7 @@ public class Provider {
     public void setFeedback(double feedbackValue) {
         this.feedbackValue+=feedbackValue;
         this.feedbackCounter++;
-        this.feedback = feedbackValue / feedbackCounter;
+        this.feedback = this.feedbackValue / feedbackCounter;
     }
 
     @Override
