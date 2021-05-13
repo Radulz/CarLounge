@@ -2,6 +2,7 @@ package org.CarLounge.fis.services;
 
 import org.CarLounge.fis.exceptions.*;
 import org.CarLounge.fis.model.Listing;
+import org.CarLounge.fis.model.Provider;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
@@ -92,6 +93,11 @@ public class ListingService {
         checkFields(make, model, year, mileage, cmc, fuel, price, numberPlate);
         Listing l = new Listing(clientEmail, providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, price, numberPlate);
         l.setActive(true);
+        for(Provider p : ProviderService.ProviderRepository.find()){
+            if(p.getEmail().equals(providerEmail)){
+                l.setProviderPhone(p.getPhone());
+            }
+        }
         ListingRepository.insert(l);
     }
 

@@ -23,11 +23,17 @@
             <ListView fx:id="carList" prefHeight="200.0" prefWidth="560.0" BorderPane.alignment="CENTER" />
          </center>
          <right>
-            <JFXButton buttonType="RAISED" prefHeight="33.0" prefWidth="147.0" style="-fx-background-color: #D1E4F9;" text="Rent it!" BorderPane.alignment="CENTER">
-               <graphic>
-                  <TextField alignment="CENTER" prefHeight="25.0" prefWidth="82.0" promptText="E.g. AR15LLL" />
-               </graphic>
-            </JFXButton>
+            <AnchorPane prefHeight="414.0" prefWidth="155.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="rent" buttonType="RAISED" layoutX="4.0" layoutY="195.0" onMouseClicked="#rentACar" prefHeight="33.0" prefWidth="147.0" style="-fx-background-color: #D1E4F9;" text="Rent it!">
+                     <graphic>
+                        <TextField fx:id="noPlate" alignment="CENTER" prefHeight="25.0" prefWidth="82.0" promptText="E.g. AR15LLL" />
+                     </graphic>
+                  </JFXButton>
+                  <Text fx:id="rentalMessage" layoutX="3.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="149.06640625" />
+                  <Text fx:id="contactDetails" layoutX="2.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="151.06640625" />
+               </children>
+            </AnchorPane>
          </right>
         </BorderPane>
    </children>

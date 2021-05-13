@@ -109,7 +109,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="cnp" editable="false" layoutX="238.0" layoutY="230.0" prefHeight="25.0" prefWidth="167.0" />
+                  <TextField fx:id="cnp" alignment="CENTER" editable="false" layoutX="238.0" layoutY="230.0" prefHeight="25.0" prefWidth="167.0" />
                     </children>
                 </Pane>
             </center>

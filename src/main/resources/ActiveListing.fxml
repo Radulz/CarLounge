@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<StackPane fx:id="contentArea" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ActiveListingController">
+<StackPane fx:id="contentArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ActiveListingController">
    <children>
       <BorderPane prefHeight="454.0" prefWidth="583.0" style="-fx-background-color: #D1E4F9; -fx-border-color: #D1E4F9;">
          <top>
@@ -27,7 +22,7 @@
          <center>
             <Pane prefHeight="200.0" prefWidth="553.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="218.0" layoutY="46.0" prefHeight="33.0" prefWidth="145.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Mark as completed">
+                  <JFXButton fx:id="completeRental" buttonType="RAISED" layoutX="218.0" layoutY="46.0" prefHeight="33.0" prefWidth="145.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Mark as completed">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -41,23 +36,23 @@
                         </Label>
                      </children>
                   </Pane>
-                  <JFXButton buttonType="RAISED" layoutX="423.0" layoutY="135.0" prefHeight="33.0" prefWidth="145.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Submit feedback">
+                  <JFXButton fx:id="submitFeedback" buttonType="RAISED" layoutX="423.0" layoutY="135.0" prefHeight="33.0" prefWidth="145.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Submit feedback">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </JFXButton>
-                  <TextField alignment="CENTER" editable="false" layoutX="24.0" layoutY="10.0" prefHeight="29.0" prefWidth="536.0" />
-                  <TextField alignment="CENTER" layoutX="24.0" layoutY="139.0" prefHeight="29.0" prefWidth="382.0" />
+                  <TextField fx:id="activeListingField" alignment="CENTER" editable="false" layoutX="24.0" layoutY="10.0" prefHeight="29.0" prefWidth="536.0" />
+                  <TextField fx:id="feedbackText" alignment="CENTER" layoutX="24.0" layoutY="139.0" prefHeight="29.0" prefWidth="382.0" />
                   <Label contentDisplay="CENTER" layoutX="23.0" layoutY="95.0" prefHeight="17.0" prefWidth="123.0" text="Choose your rating:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <RadioButton layoutX="164.0" layoutY="97.0" mnemonicParsing="false" text="1" />
-                  <RadioButton layoutX="215.0" layoutY="97.0" mnemonicParsing="false" text="2" />
-                  <RadioButton layoutX="265.0" layoutY="97.0" mnemonicParsing="false" text="3" />
-                  <RadioButton layoutX="315.0" layoutY="97.0" mnemonicParsing="false" text="4" />
-                  <RadioButton layoutX="365.0" layoutY="97.0" mnemonicParsing="false" text="5" />
+                  <RadioButton fx:id="rb1" layoutX="164.0" layoutY="97.0" mnemonicParsing="false" text="1" />
+                  <RadioButton fx:id="rb2" layoutX="215.0" layoutY="97.0" mnemonicParsing="false" text="2" />
+                  <RadioButton fx:id="rb3" layoutX="265.0" layoutY="97.0" mnemonicParsing="false" text="3" />
+                  <RadioButton fx:id="rb4" layoutX="315.0" layoutY="97.0" mnemonicParsing="false" text="4" />
+                  <RadioButton fx:id="rb5" layoutX="365.0" layoutY="97.0" mnemonicParsing="false" text="5" />
                   <Label layoutX="436.0" layoutY="79.0" prefHeight="53.0" prefWidth="118.0" text="1 - Very disappointed&#10;5 - Very satisfied" />
                </children>
             </Pane>
