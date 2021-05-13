@@ -14,7 +14,9 @@ import org.CarLounge.fis.exceptions.NumberPlateExistence;
 import org.CarLounge.fis.exceptions.NumberPlateIsMissing;
 import org.CarLounge.fis.exceptions.NumberPlateIsNotValid;
 import org.CarLounge.fis.model.Listing;
+import org.CarLounge.fis.model.Provider;
 import org.CarLounge.fis.services.ListingService;
+import org.CarLounge.fis.services.ProviderService;
 import org.dizitart.no2.objects.ObjectRepository;
 
 import javax.validation.constraints.AssertFalse;
@@ -41,10 +43,21 @@ public class CarsController {
 
     public void setCarList() {
         String s;
+        String ratingMessage="";
         assignCars();
         for(Listing listing: ListingService.ListingRepository.find()) {
             if (listing.getActive()) {
-                s = listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice();
+                for(Provider p : ProviderService.ProviderRepository.find()){
+                    if(p.getEmail().equals(listing.getProviderEmail())){
+                        if(p.getFeedback()==0){
+                            ratingMessage="Unrated.";
+                        }
+                        else {
+                            ratingMessage=""+p.getFeedback();
+                        }
+                    }
+                }
+                s = listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice() + " Rating: " + ratingMessage;
                 carList.getItems().add(s);
             }
         }
