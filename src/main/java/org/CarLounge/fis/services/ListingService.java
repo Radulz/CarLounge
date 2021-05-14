@@ -12,7 +12,7 @@ public class ListingService {
 
     public static ObjectRepository<Listing> ListingRepository;
 
-    private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price, String noPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber {
+    private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price, String noPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber, CmcNotValid, FuelIsNotAccepted {
         if(make == ""){
             throw new MakeIsMissing();
         }
@@ -34,8 +34,14 @@ public class ListingService {
         else if(cmc == ""){
             throw new CubicIsMissing();
         }
+        else if(!isValidCmc(cmc)){
+            throw new CmcNotValid();
+        }
         else if(fuel == ""){
             throw new FuelIsMissing();
+        }
+        else if(!checkFuel(fuel)){
+            throw new FuelIsNotAccepted();
         }
         else if(noPlate == ""){
             throw new NumberPlateIsMissing();
@@ -84,13 +90,40 @@ public class ListingService {
         return true;
     }
 
+    private static boolean isValidCmc(String cmc){
+        if(!isNumeric(cmc)){
+            return false;
+        }
+        int c = parseInt(cmc);
+        return c >= 100 && c <= 20000;
+    }
+
     private static boolean mileageValidation(String mileage){
+        if(!isNumeric(mileage)){
+            return false;
+        }
         int mil = parseInt(mileage);
         return mil >= 0 && mil <= 1000000;
     }
     private static boolean yearValidation(String year){
+        if(!isNumeric(year)){
+            return false;
+        }
         int y=parseInt(year);
         return y >=1900 && y <= 2021;
+    }
+
+    private static boolean checkFuel(String fuel){
+        String[] acceptedFuel = {"Petrol", "Gasoline", "Diesel", "Gas", "Electric", "Hybrid", "Ethanol", "LPG", "GPL"};
+        if(isNumeric(fuel)){
+            return false;
+        }
+        for(String sir : acceptedFuel){
+            if(sir.equals(fuel)){
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void initDatabase() {
@@ -101,7 +134,7 @@ public class ListingService {
         ListingRepository = database.getRepository(Listing.class);
     }
 
-    public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price, String numberPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber {
+    public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price, String numberPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber, CmcNotValid, FuelIsNotAccepted {
         checkFields(make, model, year, mileage, cmc, fuel, price, numberPlate);
         Listing l = new Listing(clientEmail, providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, price, numberPlate);
         l.setActive(true);

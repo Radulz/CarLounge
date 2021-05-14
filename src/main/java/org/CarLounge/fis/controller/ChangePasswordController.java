@@ -122,11 +122,11 @@ public class ChangePasswordController implements Initializable {
                     logInNow.setText("Login Now!");
                 }
             }
-            else if(CheckTaxRegNoController.getSw() != -1){
-                Provider provider = CheckTaxRegNoController.getProvider();
+            else {
+                Provider prov = CheckTaxRegNoController.getProvider();
                 encodedPass= ClientService.encodePassword(ForgotPasswordController.getUsername(), pass);
-                provider.setPassword(encodedPass);
-                ProviderService.ProviderRepository.update(provider);
+                prov.setPassword(encodedPass);
+                ProviderService.ProviderRepository.update(prov);
                 changePassMessage.setText("Password changed successfully!");
                 logInNow.setText("Login Now!");
             }
