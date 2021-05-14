@@ -33,9 +33,14 @@ public class CheckTaxRegNoController implements Initializable {
     private JFXButton next;
 
     private static Provider provider;
+    private static int sw=-1;
 
     public static Provider getProvider() {
         return provider;
+    }
+
+    public static int getSw() {
+        return sw;
     }
 
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,6 +53,7 @@ public class CheckTaxRegNoController implements Initializable {
         for(Provider p : ProviderService.ProviderRepository.find()){
             if(p.getTaxRegNo().equals(taxRegNo) && p.getEmail().equals(ForgotPasswordController.getUsername())){
                 provider = p;
+                sw=3;
                 return true;
             }
         }
