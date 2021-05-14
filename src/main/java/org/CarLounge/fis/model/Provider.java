@@ -2,7 +2,9 @@ package org.CarLounge.fis.model;
 
 import org.dizitart.no2.objects.Id;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Provider {
@@ -18,9 +20,9 @@ public class Provider {
     private String taxRegNo;
     private String cnp;
 
-    private double feedbackValue=0;
-    private int feedbackCounter=0;
     private double feedback=0;
+
+    private List<Double> feedbackMarks = new ArrayList<>();
 
     public Provider(String email, String password, String firstname, String lastname, String bDate, String companyName, String address, String phone, String taxRegNo, String cnp) {
         this.email = email;
@@ -36,6 +38,18 @@ public class Provider {
     }
 
     public Provider() { }
+
+    public List<Double> getFeedbackMarks() {
+        return feedbackMarks;
+    }
+
+    public double getSum(){
+        double sum = 0;
+        for(Double d : feedbackMarks){
+            sum+=d;
+        }
+        return sum;
+    }
 
     public String getEmail() {
         return email;
@@ -109,14 +123,6 @@ public class Provider {
         this.taxRegNo = taxRegNo;
     }
 
-    public double getFeedbackValue() {
-        return feedbackValue;
-    }
-
-    public int getFeedbackCounter() {
-        return feedbackCounter;
-    }
-
     public double getFeedback() {
         return feedback;
     }
@@ -129,10 +135,8 @@ public class Provider {
         this.cnp = cnp;
     }
 
-    public void setFeedback(double feedbackValue) {
-        this.feedbackValue+=feedbackValue;
-        this.feedbackCounter++;
-        this.feedback = this.feedbackValue / feedbackCounter;
+    public void setFeedback(double feedback) {
+        this.feedback = feedback;
     }
 
     @Override

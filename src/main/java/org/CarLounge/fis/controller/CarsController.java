@@ -53,7 +53,7 @@ public class CarsController {
                             ratingMessage="Unrated.";
                         }
                         else {
-                            ratingMessage=""+p.getFeedback();
+                            ratingMessage=String.format("%.2f", p.getFeedback());
                         }
                     }
                 }
