@@ -22,7 +22,7 @@
                   <Font name="Arial Black" size="36.0" />
                </font>
             </Label>
-            <Label layoutX="61.0" layoutY="214.0" prefHeight="44.0" prefWidth="207.0" text="Never fear, your car is here!" textFill="WHITE" wrapText="true">
+            <Label layoutX="60.0" layoutY="218.0" prefHeight="44.0" prefWidth="207.0" text="Never fear, your car is here!" textFill="WHITE" wrapText="true">
                <font>
                   <Font size="14.0" />
                </font></Label>
@@ -64,6 +64,7 @@
                </cursor>
             </JFXButton>
             <Text fx:id="logInMessage" fill="#fc0000" layoutX="34.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="231.13671875" />
+            <Hyperlink fx:id="forgotPassword" layoutX="98.0" layoutY="363.0" onMouseClicked="#switchToForgotPassword" text="Forgot password?" />
          </children>
       </Pane>
    </right>
