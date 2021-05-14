@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
+<?import java.net.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@CSS/loginCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.LogInController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.LogInController">
    <left>
       <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0504aa;" BorderPane.alignment="CENTER">
          <children>
@@ -29,9 +30,9 @@
       </Pane>
    </left>
    <right>
-      <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: white;" stylesheets="@CSS/text_fieldCSS.css" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="logInToAcc" buttonType="RAISED" layoutX="170.0" layoutY="301.0" onMouseClicked="#logIn" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="LOG IN" textFill="WHITE">
+            <JFXButton fx:id="logInToAcc" buttonType="RAISED" focusTraversable="false" layoutX="170.0" layoutY="301.0" onMouseClicked="#logIn" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="LOG IN" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -54,7 +55,7 @@
                   <Image url="@Images/Logo_blue.png" />
                </image>
             </ImageView>
-            <JFXButton fx:id="goToChoice" buttonType="RAISED" layoutX="34.0" layoutY="301.0" onMouseClicked="#switchToChoice" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="SIGN UP" textFill="WHITE">
+            <JFXButton fx:id="goToChoice" buttonType="RAISED" focusTraversable="false" layoutX="34.0" layoutY="301.0" onMouseClicked="#switchToChoice" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="SIGN UP" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -66,4 +67,8 @@
          </children>
       </Pane>
    </right>
+   <stylesheets>
+      <URL value="@CSS/loginCSS.css" />
+      <URL value="@CSS/focusCSS.css" />
+   </stylesheets>
 </BorderPane>

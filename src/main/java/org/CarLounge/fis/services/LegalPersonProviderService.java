@@ -22,7 +22,7 @@ public class LegalPersonProviderService extends ProviderService{
         LocalDateTime now = LocalDateTime.now();
         return dtf.format(now);
     }
-    private static void checkFields(String email, String password, String companyName, String address, String phone, String taxRegNo, String confirmPassword) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, CompanyNameIsMissing, AddressIsMissing, PhoneNumberIsMissing, InvalidPhoneNumber, TaxRegNoIsMissing{
+    private static void checkFields(String email, String password, String companyName, String address, String phone, String taxRegNo, String confirmPassword) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, CompanyNameIsMissing, AddressIsMissing, PhoneNumberIsMissing, InvalidPhoneNumber, TaxRegNoIsMissing, TaxRegNoAlreadyExists{
         if(email == ""){
             throw new EmailFieldIsEmpty();
         }
@@ -56,8 +56,11 @@ public class LegalPersonProviderService extends ProviderService{
         else if(taxRegNo == ""){
             throw new TaxRegNoIsMissing();
         }
+        else if(!checkTaxRegNoDoesNotAlreadyExist(taxRegNo)){
+            throw new TaxRegNoAlreadyExists(taxRegNo);
+        }
     }
-    public static void addProvider(String email, String password, String companyName, String address, String phone, String taxRegNo, String confirmPassword) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, CompanyNameIsMissing, AddressIsMissing, PhoneNumberIsMissing, InvalidPhoneNumber, TaxRegNoIsMissing {
+    public static void addProvider(String email, String password, String companyName, String address, String phone, String taxRegNo, String confirmPassword) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, CompanyNameIsMissing, AddressIsMissing, PhoneNumberIsMissing, InvalidPhoneNumber, TaxRegNoIsMissing, TaxRegNoAlreadyExists {
         checkFields(email, password, companyName, address, phone, taxRegNo, confirmPassword);
         checkUserDoesNotAlreadyExist(email);
         Provider p= new Provider(email, encodePassword(email, password), "LegalPerson", "LegalPerson", getTodayDate(), companyName, address, phone, taxRegNo, "LegalPerson");
@@ -73,6 +76,14 @@ public class LegalPersonProviderService extends ProviderService{
             if (Objects.equals(email, client.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
         }
+    }
+
+    public static boolean checkTaxRegNoDoesNotAlreadyExist(String taxRegNo) {
+        for (Provider provider : ProviderRepository.find()) {
+            if (Objects.equals(taxRegNo, provider.getTaxRegNo()))
+                return false;
+        }
+        return true;
     }
 
     public static MessageDigest getMessageDigest() {

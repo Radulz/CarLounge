@@ -39,11 +39,9 @@ public class NewListingController {
 
     public void addCar(MouseEvent mouseEvent) {
 
-        //FXMLLoader loader = new FXMLLoader(getClass().getResource("login1.fxml"));
-
         LogInController user = new LogInController();
         try{
-            ListingService.addListing("-", ProviderMenuController.getUsername(), make.getText(), model.getText(), year.getText(), mileage.getText(), cmc.getText(), fuel.getText(),price.getText(), noPlate.getText());
+            ListingService.addListing("-", ProviderMenuController.getUsername(), make.getText(), model.getText(), year.getText(), mileage.getText(), cmc.getText(), fuel.getText(), price.getText(), noPlate.getText());
             listingText.setText("Listing added successfully under email: " + ProviderMenuController.getUsername());
         }
         catch(MakeIsMissing e){
@@ -80,6 +78,9 @@ public class NewListingController {
             listingText.setText(e.getMessage());
         }
         catch(PriceIsMissing e){
+            listingText.setText(e.getMessage());
+        }
+        catch (PriceIsNotANumber e){
             listingText.setText(e.getMessage());
         }
     }

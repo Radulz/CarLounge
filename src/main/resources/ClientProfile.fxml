@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:id="contentArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ClientProfileController">
+<StackPane fx:id="contentArea" stylesheets="@CSS/focusCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ClientProfileController">
     <children>
         <BorderPane prefHeight="454.0" prefWidth="583.0" style="-fx-background-color: #D1E4F9; -fx-border-color: #D1E4F9;">
             <top>
@@ -38,32 +38,32 @@
                             <font>
                                 <Font size="14.0" />
                             </font></Label>
-                        <TextField fx:id="fName" editable="false" layoutX="185.0" layoutY="35.0" prefHeight="25.0" prefWidth="93.0" text="Rares" />
+                        <TextField fx:id="fName" editable="false" focusTraversable="false" layoutX="185.0" layoutY="35.0" prefHeight="25.0" prefWidth="93.0" style="-fx-background-radius: 50;" text="Rares" />
                         <ImageView fitHeight="156.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@Images/user.jpg" />
                             </image>
                         </ImageView>
-                        <TextField fx:id="lName" editable="false" layoutX="367.0" layoutY="35.0" prefHeight="25.0" prefWidth="93.0" text="Mladin" />
+                        <TextField fx:id="lName" editable="false" focusTraversable="false" layoutX="367.0" layoutY="35.0" prefHeight="25.0" prefWidth="93.0" style="-fx-background-radius: 50;" text="Mladin" />
                         <Label layoutX="186.0" layoutY="75.0" prefHeight="20.0" prefWidth="43.0" text="Email">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="email" alignment="BASELINE_LEFT" editable="false" layoutX="185.0" layoutY="100.0" prefHeight="25.0" prefWidth="167.0" text="rares.mladin@gmail.com" />
+                        <TextField fx:id="email" alignment="BASELINE_LEFT" editable="false" focusTraversable="false" layoutX="185.0" layoutY="100.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-radius: 50;" text="rares.mladin@gmail.com" />
                         <Label layoutX="365.0" layoutY="75.0" prefHeight="20.0" prefWidth="96.0" text="Birth date">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField fx:id="bDate" editable="false" layoutX="365.0" layoutY="100.0" prefHeight="25.0" prefWidth="93.0" />
+                        <TextField fx:id="bDate" editable="false" focusTraversable="false" layoutX="365.0" layoutY="100.0" prefHeight="25.0" prefWidth="93.0" style="-fx-background-radius: 50;" />
                         <Label layoutX="16.0" layoutY="140.0" prefHeight="20.0" prefWidth="121.0" text="Completed rentals">
                             <font>
                                 <Font size="14.0" />
                             </font>
                         </Label>
-                        <TextField editable="false" layoutX="34.0" layoutY="165.0" prefHeight="25.0" prefWidth="86.0" />
-                        <JFXButton fx:id="delete" buttonType="RAISED" layoutX="17.0" layoutY="364.0" onMouseClicked="#deleteAccount" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Delete account">
+                        <TextField fx:id="completedRentals" alignment="CENTER" editable="false" focusTraversable="false" layoutX="34.0" layoutY="165.0" prefHeight="25.0" prefWidth="86.0" style="-fx-background-radius: 50;" />
+                        <JFXButton fx:id="delete" buttonType="RAISED" focusTraversable="false" layoutX="17.0" layoutY="364.0" onMouseClicked="#deleteAccount" prefHeight="33.0" prefWidth="118.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" stylesheets="@CSS/focusCSS.css" text="Delete account">
                             <font>
                                 <Font size="14.0" />
                             </font>
@@ -72,7 +72,7 @@
                      <font>
                         <Font size="14.0" />
                      </font></Label>
-                  <TextField fx:id="cnp" editable="false" layoutX="239.0" layoutY="165.0" prefHeight="25.0" prefWidth="167.0" />
+                  <TextField fx:id="cnp" alignment="CENTER" editable="false" focusTraversable="false" layoutX="239.0" layoutY="165.0" prefHeight="25.0" prefWidth="167.0" style="-fx-background-radius: 50;" />
                   <Text fx:id="deleteAccountMessage" fill="RED" layoutX="6.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="140.13671875" />
                     </children>
                 </Pane>

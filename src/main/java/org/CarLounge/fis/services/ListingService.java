@@ -12,7 +12,7 @@ public class ListingService {
 
     public static ObjectRepository<Listing> ListingRepository;
 
-    private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price, String noPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists {
+    private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price, String noPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber {
         if(make == ""){
             throw new MakeIsMissing();
         }
@@ -49,7 +49,19 @@ public class ListingService {
         else if(price == ""){
             throw new PriceIsMissing();
         }
+        else if(!isNumeric(price)){
+            throw new PriceIsNotANumber();
+        }
 
+    }
+
+    private static boolean isNumeric(String price){
+        try {
+            int d = Integer.parseInt(price);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     private static boolean checkActiveListing(String noPlate){
@@ -89,7 +101,7 @@ public class ListingService {
         ListingRepository = database.getRepository(Listing.class);
     }
 
-    public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price, String numberPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists {
+    public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price, String numberPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber {
         checkFields(make, model, year, mileage, cmc, fuel, price, numberPlate);
         Listing l = new Listing(clientEmail, providerEmail, make, model, parseInt(year), parseInt(mileage), parseInt(cmc), fuel, price, numberPlate);
         l.setActive(true);

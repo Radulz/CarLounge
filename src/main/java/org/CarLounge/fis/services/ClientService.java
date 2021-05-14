@@ -20,7 +20,7 @@ import org.dizitart.no2.objects.ObjectRepository;
 
 public class ClientService {
 
-    private static ObjectRepository<Client> ClientRepository;
+    public static ObjectRepository<Client> ClientRepository;
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
@@ -30,7 +30,7 @@ public class ClientService {
         ClientRepository = database.getRepository(Client.class);
     }
 
-    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws PasswordsDoesNotMatch, ConfirmPasswordFieldIsEmpty, PasswordDoesNotContainTheRequiredCharacters, PasswordFieldIsEmpty, MinimumAgeIsRequired, BirthDateIsNotADate, BirthDateFieldIsEmpty, LastNameFieldIsEmpty, FirstNameFieldIsEmpty, TextIsNotAValidEmail, EmailFieldIsEmpty, CnpIsMissing, CnpIsNotValid {
+    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws PasswordsDoesNotMatch, ConfirmPasswordFieldIsEmpty, PasswordDoesNotContainTheRequiredCharacters, PasswordFieldIsEmpty, MinimumAgeIsRequired, BirthDateIsNotADate, BirthDateFieldIsEmpty, LastNameFieldIsEmpty, FirstNameFieldIsEmpty, TextIsNotAValidEmail, EmailFieldIsEmpty, CnpIsMissing, CnpIsNotValid, CnpAlreadyExists {
         if(email == ""){
             throw new EmailFieldIsEmpty();
         }
@@ -55,8 +55,11 @@ public class ClientService {
         else if(cnp == ""){
             throw new CnpIsMissing();
         }
+        else if(!checkCnpDoesNotAlreadyExist(cnp)) {
+            throw new CnpAlreadyExists(cnp);
+        }
         else if(!isCNPValid(cnp)){
-            throw  new CnpIsNotValid();
+            throw new CnpIsNotValid();
         }
         else if(password == ""){
             throw new PasswordFieldIsEmpty();
@@ -156,7 +159,7 @@ public class ClientService {
         return false;
     }
 
-    public static void addClient(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws UsernameAlreadyExistsException, PasswordDoesNotContainTheRequiredCharacters, EmailFieldIsEmpty, LastNameFieldIsEmpty, PasswordFieldIsEmpty, BirthDateFieldIsEmpty, FirstNameFieldIsEmpty, MinimumAgeIsRequired, PasswordsDoesNotMatch, TextIsNotAValidEmail, ConfirmPasswordFieldIsEmpty, BirthDateIsNotADate, CnpIsMissing, CnpIsNotValid {
+    public static void addClient(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws UsernameAlreadyExistsException, PasswordDoesNotContainTheRequiredCharacters, EmailFieldIsEmpty, LastNameFieldIsEmpty, PasswordFieldIsEmpty, BirthDateFieldIsEmpty, FirstNameFieldIsEmpty, MinimumAgeIsRequired, PasswordsDoesNotMatch, TextIsNotAValidEmail, ConfirmPasswordFieldIsEmpty, BirthDateIsNotADate, CnpIsMissing, CnpIsNotValid, CnpAlreadyExists {
         checkFields(email, password, fName, lName, bDate, confirmPassword, cnp);
         checkUserDoesNotAlreadyExist(email);
         Client c= new Client(email, encodePassword(email, password), fName, lName, bDate, cnp);
@@ -173,6 +176,19 @@ public class ClientService {
             if (Objects.equals(email, provider.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
         }
+    }
+
+    public static boolean checkCnpDoesNotAlreadyExist(String cnp) {
+        for (Client client : ClientRepository.find()) {
+            if (Objects.equals(cnp, client.getCNP()))
+                return false;
+        }
+        for (Provider provider : IndividualProviderService.getProviderRepository().find()) {
+            if (Objects.equals(cnp, provider.getCnp())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static MessageDigest getMessageDigest() {

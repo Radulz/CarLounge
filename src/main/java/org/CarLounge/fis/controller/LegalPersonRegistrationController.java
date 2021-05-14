@@ -105,6 +105,9 @@ public class LegalPersonRegistrationController implements Initializable {
         catch(TaxRegNoIsMissing e){
             registrationMessage.setText(e.getMessage());
         }
+        catch(TaxRegNoAlreadyExists e){
+            registrationMessage.setText(e.getMessage());
+        }
 
         catch(UsernameAlreadyExistsException e){
             registrationMessage.setText(e.getMessage());

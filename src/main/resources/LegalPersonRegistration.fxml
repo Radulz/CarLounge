@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.*?>
+<?import java.net.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -57,7 +58,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="156.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Submit">
+            <JFXButton fx:id="Submit" buttonType="RAISED" focusTraversable="false" layoutX="156.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Submit">
                <font>
                   <Font size="15.0" />
                </font>
@@ -81,7 +82,7 @@
             </Label>
             <TextField fx:id="taxRegNo" layoutX="206.0" layoutY="408.0" prefHeight="25.0" prefWidth="176.0" />
             <Text fx:id="registrationMessage" layoutX="22.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="376.13671875" />
-            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="22.0" layoutY="453.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="376.0" textAlignment="CENTER">
+            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="18.0" layoutY="477.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="376.0" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></Hyperlink>
@@ -91,6 +92,10 @@
                </image>
             </ImageView>
          </children>
+         <stylesheets>
+            <URL value="@CSS/text_fieldCSS.css" />
+            <URL value="@CSS/focusCSS.css" />
+         </stylesheets>
       </AnchorPane>
    </children>
 </StackPane>

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane prefHeight="454.0" prefWidth="583.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.MyListingsController">
+<StackPane prefHeight="454.0" prefWidth="583.0" stylesheets="@CSS/focusCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.MyListingsController">
     <children>
         <BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
             <top>
@@ -19,7 +19,7 @@
                 </Pane>
             </top>
             <center>
-                <ListView fx:id="carList" prefHeight="200.0" prefWidth="560.0" BorderPane.alignment="CENTER" />
+                <ListView fx:id="carList" focusTraversable="false" prefHeight="200.0" prefWidth="560.0" BorderPane.alignment="CENTER" />
             </center>
         </BorderPane>
     </children>
