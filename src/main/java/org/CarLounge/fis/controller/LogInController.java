@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -14,6 +15,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,6 +29,7 @@ import org.CarLounge.fis.services.ProviderService;
 
 
 public class LogInController implements Initializable {
+
     private String username;
     private String phone;
     @FXML
@@ -49,6 +52,9 @@ public class LogInController implements Initializable {
 
     @FXML
     private ImageView exit;
+
+    @FXML
+    public Hyperlink forgotPassword;
 
     public LogInController() {
 
@@ -182,4 +188,9 @@ public class LogInController implements Initializable {
         window.setScene(new Scene(root));*/
     }
 
+    public void switchToForgotPassword(MouseEvent mouseEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("ForgotPassword.fxml"));
+        Stage window = (Stage) logInToAcc.getScene().getWindow();
+        window.setScene(new Scene(root));
+    }
 }
