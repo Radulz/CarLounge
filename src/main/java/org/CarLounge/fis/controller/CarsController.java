@@ -130,6 +130,8 @@ public class CarsController {
             }
             rentalMessage.setText("Rental successful!");
             contactDetails.setText(String.format("Contact the provider\nfor more details\nemail: %s \nphone: %s", useremail, userphone));
+            carList.getItems().clear();
+            setCarList();
         }
         catch(NumberPlateIsMissing e){
             rentalMessage.setText(e.getMessage());

@@ -123,6 +123,8 @@ public class ActiveListingController implements Initializable {
             } else {
                 completeText.setText("Listing marked as completed successfully! Thank you for your feedback!");
             }
+            carList.getItems().clear();
+            setCarList();
         }
         catch (NoActiveRental e) {
             completeText.setText(e.getMessage());
