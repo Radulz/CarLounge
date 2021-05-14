@@ -40,7 +40,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <TextField fx:id="email" alignment="CENTER" layoutX="32.0" layoutY="191.0" prefHeight="30.0" prefWidth="238.0" promptText="Enter Identification Number" />
+                <TextField fx:id="cnp" alignment="CENTER" layoutX="32.0" layoutY="191.0" prefHeight="30.0" prefWidth="238.0" promptText="Enter Identification Number" />
                 <ImageView fx:id="exit" fitHeight="24.0" fitWidth="22.0" layoutX="276.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Images/exit.png" />
@@ -62,7 +62,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </JFXButton>
-                <Text fill="#fc0000" layoutX="34.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="231.13671875" />
+                <Text fx:id="confirmMessage" fill="#fc0000" layoutX="39.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="231.13671875" />
             <Label layoutX="53.0" layoutY="162.0" text="We need to confirm your identity">
                <font>
                   <Font size="14.0" />

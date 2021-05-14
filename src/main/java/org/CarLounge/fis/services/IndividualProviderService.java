@@ -49,7 +49,6 @@ public class IndividualProviderService extends ProviderService {
         }
         else if(!isCNPValid(cnp)){
             throw new CnpIsNotValid();
-
         }
         else if(!checkCnpDoesNotAlreadyExist(cnp)) {
             throw new CnpAlreadyExists(cnp);

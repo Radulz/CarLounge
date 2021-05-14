@@ -65,7 +65,13 @@ public class NewListingController {
         catch(CubicIsMissing e){
             listingText.setText(e.getMessage());
         }
+        catch(CmcNotValid e){
+            listingText.setText(e.getMessage());
+        }
         catch(FuelIsMissing e){
+            listingText.setText(e.getMessage());
+        }
+        catch (FuelIsNotAccepted e){
             listingText.setText(e.getMessage());
         }
         catch(NumberPlateIsMissing e){
