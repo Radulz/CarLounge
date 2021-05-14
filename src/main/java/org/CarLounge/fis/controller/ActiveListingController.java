@@ -85,6 +85,7 @@ public class ActiveListingController implements Initializable {
 
     public void completeListing(MouseEvent mouseEvent) {
         double value = 0;
+        double feedbackAvg = 0;
 
         if (rb1.isSelected()) {
             value = 1;
@@ -103,15 +104,19 @@ public class ActiveListingController implements Initializable {
             if (value != 0) {
                 for (Provider p : ProviderService.ProviderRepository.find()) {
                     if (p.getEmail().equals(providerEmail)) {
-                        p.setFeedback(value);
+                        p.getFeedbackMarks().add(value);
+                        feedbackAvg=p.getSum();
+                        p.setFeedback(feedbackAvg / p.getFeedbackMarks().size());
                         ProviderService.ProviderRepository.update(p);
                         break;
                     }
+
                 }
             }
 
             completeListing.setCompleted(true);
             ListingService.ListingRepository.update(completeListing);
+            activeListingField.setText("");
 
             if (value == 0) {
                 completeText.setText("Listing marked as completed successfully!");
