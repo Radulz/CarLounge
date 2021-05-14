@@ -53,11 +53,11 @@ public class CarsController {
                             ratingMessage="Unrated.";
                         }
                         else {
-                            ratingMessage=String.format("%.2f", p.getFeedback());
+                            ratingMessage=String.format("%.1f", p.getFeedback());
                         }
                     }
                 }
-                s = listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice() + " Rating: " + ratingMessage;
+                s = listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice() + " Provider's Rating: " + ratingMessage;
                 carList.getItems().add(s);
             }
         }
