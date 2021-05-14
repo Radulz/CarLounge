@@ -96,6 +96,9 @@ public class ClientRegistrationController implements  Initializable{
         catch(CnpIsNotValid e){
             registrationMessage.setText(e.getMessage());
         }
+        catch(CnpAlreadyExists e) {
+            registrationMessage.setText(e.getMessage());
+        }
         catch(PasswordFieldIsEmpty e){
             registrationMessage.setText(e.getMessage());
         }

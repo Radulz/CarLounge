@@ -35,8 +35,13 @@ public class ClientProfileController implements Initializable {
     public TextField fName;
     public TextField lName;
 
+    @FXML
+    public TextField completedRentals;
+
     public void initialize(URL location, ResourceBundle resources) {
         String username = ClientMenuController.getUsername();
+        int cr = 0;
+        //boolean sw = false;
         Client client = new Client();
         for (Client c : ClientService.getClientRepository().find()) {
             if (username.equals(c.getEmail())) {
@@ -46,8 +51,21 @@ public class ClientProfileController implements Initializable {
                 bDate.setText(c.getBirthdate());
                 cnp.setText(c.getCNP());
                 client = c;
+                //sw = true;
+                //if (sw) {
+                    for (Listing l : ListingService.getListingRepository().find()) {
+                        if (client.getEmail().equals(l.getClientEmail())) {
+                            if (l.getCompleted()) {
+                                cr++;
+                            }
+                        }
+                    }
+                    completedRentals.setText("" + cr);
+               // }
             }
         }
+
+
     }
 
     //Exception + check if there s an active rental.

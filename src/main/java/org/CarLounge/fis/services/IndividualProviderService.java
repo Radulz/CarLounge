@@ -16,7 +16,7 @@ import java.util.Objects;
 
 public class IndividualProviderService extends ProviderService {
 
-    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo, String cnp) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber, CnpIsNotValid, CnpIsMissing {
+    private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo, String cnp) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber, CnpIsNotValid, CnpIsMissing, CnpAlreadyExists {
         if(email == ""){
             throw new EmailFieldIsEmpty();
         }
@@ -51,6 +51,9 @@ public class IndividualProviderService extends ProviderService {
             throw new CnpIsNotValid();
 
         }
+        else if(!checkCnpDoesNotAlreadyExist(cnp)) {
+            throw new CnpAlreadyExists(cnp);
+        }
         else if(password == ""){
             throw new PasswordFieldIsEmpty();
         }
@@ -65,7 +68,7 @@ public class IndividualProviderService extends ProviderService {
         }
     }
 
-    public static void addProvider(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo, String cnp) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber, CnpIsMissing, CnpIsNotValid {
+    public static void addProvider(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo, String cnp) throws UsernameAlreadyExistsException, EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber, CnpIsMissing, CnpIsNotValid, CnpAlreadyExists {
         checkFields(email, password, fName, lName, bDate, confirmPassword, phoneNo, cnp);
         checkUserDoesNotAlreadyExist(email);
         Provider p= new Provider(email, encodePassword(email, password), fName, lName, bDate, "IndividualPerson", "IndividualPerson", phoneNo, "IndividualPerson", cnp);
@@ -82,6 +85,19 @@ public class IndividualProviderService extends ProviderService {
             if (Objects.equals(email, client.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
         }
+    }
+
+    public static boolean checkCnpDoesNotAlreadyExist(String cnp) {
+        for (Client client : ClientService.ClientRepository.find()) {
+            if (Objects.equals(cnp, client.getCNP()))
+                return false;
+        }
+        for (Provider provider : ProviderService.ProviderRepository.find()) {
+            if (Objects.equals(cnp, provider.getCnp())) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static MessageDigest getMessageDigest() {

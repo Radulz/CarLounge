@@ -69,9 +69,9 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="company" editable="false" focusTraversable="false" layoutX="168.0" layoutY="295.0" prefHeight="25.0" prefWidth="101.0" />
-                  <TextField fx:id="address" editable="false" focusTraversable="false" layoutX="423.0" layoutY="295.0" prefHeight="25.0" prefWidth="101.0" />
-                  <Label layoutX="424.0" layoutY="270.0" prefHeight="20.0" prefWidth="69.0" text="Address">
+                  <TextField fx:id="company" alignment="CENTER" editable="false" focusTraversable="false" layoutX="148.0" layoutY="295.0" prefHeight="25.0" prefWidth="110.0" />
+                  <TextField fx:id="address" alignment="CENTER" editable="false" focusTraversable="false" layoutX="412.0" layoutY="295.0" prefHeight="25.0" prefWidth="110.0" />
+                  <Label layoutX="433.0" layoutY="270.0" prefHeight="20.0" prefWidth="69.0" text="Address">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -81,7 +81,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="taxRegNo" editable="false" focusTraversable="false" layoutX="291.0" layoutY="295.0" prefHeight="25.0" prefWidth="101.0" />
+                  <TextField fx:id="taxRegNo" alignment="CENTER" editable="false" focusTraversable="false" layoutX="282.0" layoutY="295.0" prefHeight="25.0" prefWidth="110.0" />
                   <Label layoutX="22.0" layoutY="140.0" prefHeight="20.0" prefWidth="110.0" text="Ongoing rentals">
                      <font>
                         <Font size="14.0" />

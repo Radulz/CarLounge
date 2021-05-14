@@ -82,7 +82,7 @@
             </Label>
             <TextField fx:id="taxRegNo" layoutX="206.0" layoutY="408.0" prefHeight="25.0" prefWidth="176.0" />
             <Text fx:id="registrationMessage" layoutX="22.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="376.13671875" />
-            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="22.0" layoutY="453.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="376.0" textAlignment="CENTER">
+            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="18.0" layoutY="477.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="376.0" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></Hyperlink>
