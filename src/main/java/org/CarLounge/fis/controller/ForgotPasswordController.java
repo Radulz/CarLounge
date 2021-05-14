@@ -38,6 +38,14 @@ public class ForgotPasswordController implements Initializable {
     private static String username;
     private static String type;
 
+    public static String getUsername() {
+        return username;
+    }
+
+    public static String getType() {
+        return type;
+    }
+
     public void initialize(URL location, ResourceBundle resources) {
         exit.setOnMouseClicked(event -> {
             System.exit(0);
