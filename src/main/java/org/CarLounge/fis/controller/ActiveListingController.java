@@ -50,7 +50,7 @@ public class ActiveListingController implements Initializable {
         String username = ClientMenuController.getUsername();
         for(Listing listing: ListingService.ListingRepository.find()) {
             if (username.equals(listing.getClientEmail()) && listing.getCompleted()) {
-                s = listing.getProviderEmail() + ": " + listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice();
+                s = listing.getProviderEmail() + ": " + listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice() + " Euros/day";
                 carList.getItems().add(s);
             }
 
@@ -68,7 +68,7 @@ public class ActiveListingController implements Initializable {
         rb5.setToggleGroup(rb);
         for(Listing l : ListingService.ListingRepository.find()){
             if(l.getClientEmail().equals(username) && !l.getCompleted()){
-                s = l.getNumberPlate() + " " + l.getMake() + " " + l.getModel() + " " + l.getYear() + " " + l.getFuel() + " " + l.getFuel() + " " + l.getCmc() + " " + l.getMileage() + " " + l.getPrice();
+                s = l.getNumberPlate() + " " + l.getMake() + " " + l.getModel() + " " + l.getYear() + " " + l.getFuel() + " " + l.getFuel() + " " + l.getCmc() + " " + l.getMileage() + " " + l.getPrice() + " Euros/day";
                 activeListingField.setText(s);
                 completeListing = l;
                 providerEmail = l.getProviderEmail();
