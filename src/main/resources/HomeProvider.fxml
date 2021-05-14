@@ -91,27 +91,27 @@
          <children>
             <VBox layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
                <children>
-                  <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#home" prefHeight="38.0" prefWidth="179.0" text="Home">
+                  <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#home" prefHeight="38.0" prefWidth="179.0" text="Home">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#NewListing" prefHeight="38.0" prefWidth="179.0" text="New Listing">
+                  <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#NewListing" prefHeight="38.0" prefWidth="179.0" text="New Listing">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#MyListings" prefHeight="38.0" prefWidth="179.0" text="My Listings">
+                  <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#MyListings" prefHeight="38.0" prefWidth="179.0" text="My Listings">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton alignment="BASELINE_LEFT" onMouseClicked="#ProviderProfile" prefHeight="38.0" prefWidth="179.0" text="My Profile">
+                  <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#ProviderProfile" prefHeight="38.0" prefWidth="179.0" text="My Profile">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="logOutOfAcc" alignment="BASELINE_LEFT" onMouseClicked="#switchToLogIn" prefHeight="38.0" prefWidth="179.0" text="Log Out">
+                  <JFXButton fx:id="logOutOfAcc" alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#switchToLogIn" prefHeight="38.0" prefWidth="179.0" stylesheets="@CSS/focusCSS.css" text="Log Out">
                      <font>
                         <Font size="16.0" />
                      </font>

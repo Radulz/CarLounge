@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ClientRegistrationController">
+<StackPane stylesheets="@CSS/focusCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ClientRegistrationController">
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="512.0" prefWidth="421.0" style="-fx-background-color: #D1E4F9;" stylesheets="@CSS/text_fieldCSS.css">
            <children>
@@ -52,7 +52,7 @@
                        <Font size="11.0" />
                    </font>
                </Label>
-               <JFXButton fx:id="Submit" buttonType="RAISED" layoutX="161.0" layoutY="467.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Submit">
+               <JFXButton fx:id="Submit" buttonType="RAISED" focusTraversable="false" layoutX="161.0" layoutY="467.0" mnemonicParsing="false" onMouseClicked="#sendReg" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Submit">
                    <font>
                        <Font size="15.0" />
                    </font>

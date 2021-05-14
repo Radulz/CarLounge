@@ -81,7 +81,7 @@ public class ProviderProfileController implements Initializable {
                     if (l.getCompleted()) {
                         cr++;
                     }
-                    if (l.getActive()) {
+                    if (!l.getCompleted() && !l.getActive()) {
                         ar++;
                     }
                 }

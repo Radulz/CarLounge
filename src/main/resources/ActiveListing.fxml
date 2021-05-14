@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:id="contentArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ActiveListingController">
+<StackPane fx:id="contentArea" stylesheets="@CSS/focusCSS.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.ActiveListingController">
    <children>
       <BorderPane prefHeight="454.0" prefWidth="583.0" style="-fx-background-color: #D1E4F9; -fx-border-color: #D1E4F9;">
          <top>
@@ -20,9 +20,9 @@
             </Pane>
          </top>
          <center>
-            <Pane prefHeight="200.0" prefWidth="553.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="200.0" prefWidth="553.0" style="-fx-background-color: white;" stylesheets="@CSS/focusCSS.css" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton fx:id="completeRental" layoutX="219.0" layoutY="122.0" onMouseClicked="#completeListing" prefHeight="46.0" prefWidth="145.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Complete &amp; &#10;Submit Feedback" textAlignment="CENTER">
+                  <JFXButton fx:id="completeRental" focusTraversable="false" layoutX="219.0" layoutY="122.0" onMouseClicked="#completeListing" prefHeight="46.0" prefWidth="145.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50px;" text="Complete &amp; &#10;Submit Feedback" textAlignment="CENTER">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -36,24 +36,24 @@
                         </Label>
                      </children>
                   </Pane>
-                  <TextField fx:id="activeListingField" alignment="CENTER" editable="false" layoutX="23.0" layoutY="33.0" prefHeight="29.0" prefWidth="536.0" style="-fx-background-radius: 50;" />
+                  <TextField fx:id="activeListingField" alignment="CENTER" editable="false" focusTraversable="false" layoutX="23.0" layoutY="33.0" prefHeight="29.0" prefWidth="536.0" style="-fx-background-radius: 50;" />
                   <Label contentDisplay="CENTER" layoutX="23.0" layoutY="95.0" prefHeight="17.0" prefWidth="123.0" text="Choose your rating:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <RadioButton fx:id="rb1" layoutX="164.0" layoutY="97.0" mnemonicParsing="false" text="1" />
-                  <RadioButton fx:id="rb2" layoutX="215.0" layoutY="97.0" mnemonicParsing="false" text="2" />
-                  <RadioButton fx:id="rb3" layoutX="265.0" layoutY="97.0" mnemonicParsing="false" text="3" />
-                  <RadioButton fx:id="rb4" layoutX="315.0" layoutY="97.0" mnemonicParsing="false" text="4" />
-                  <RadioButton fx:id="rb5" layoutX="365.0" layoutY="97.0" mnemonicParsing="false" text="5" />
-                  <Label layoutX="436.0" layoutY="79.0" prefHeight="101.0" prefWidth="118.0" text="1 - Very disappointed&#10;2 - Disappointed&#10;3 - Fair&#10;4 - Satisfied&#10;5 - Very satisfied" />
+                  <RadioButton fx:id="rb1" focusTraversable="false" layoutX="164.0" layoutY="97.0" mnemonicParsing="false" text="1" />
+                  <RadioButton fx:id="rb2" focusTraversable="false" layoutX="215.0" layoutY="97.0" mnemonicParsing="false" text="2" />
+                  <RadioButton fx:id="rb3" focusTraversable="false" layoutX="265.0" layoutY="97.0" mnemonicParsing="false" text="3" />
+                  <RadioButton fx:id="rb4" focusTraversable="false" layoutX="315.0" layoutY="97.0" mnemonicParsing="false" text="4" />
+                  <RadioButton fx:id="rb5" focusTraversable="false" layoutX="365.0" layoutY="97.0" mnemonicParsing="false" text="5" />
+                  <Label focusTraversable="false" layoutX="436.0" layoutY="79.0" prefHeight="101.0" prefWidth="118.0" text="1 - Very disappointed&#10;2 - Disappointed&#10;3 - Fair&#10;4 - Satisfied&#10;5 - Very satisfied" />
                   <Text fx:id="completeText" layoutX="2.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="576.13671875" />
                </children>
             </Pane>
          </center>
          <bottom>
-            <ListView fx:id="carList" prefHeight="194.0" prefWidth="581.0" BorderPane.alignment="CENTER" />
+            <ListView fx:id="carList" focusTraversable="false" prefHeight="194.0" prefWidth="581.0" BorderPane.alignment="CENTER" />
          </bottom>
       </BorderPane>
    </children>

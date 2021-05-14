@@ -32,7 +32,8 @@ public class Provider {
         this.address = address;
         this.phone = phone;
         this.taxRegNo = taxRegNo;
-        this.cnp=cnp;
+        this.cnp = cnp;
+        this.feedbackCounter = 0;
     }
 
     public Provider() { }
@@ -131,8 +132,8 @@ public class Provider {
 
     public void setFeedback(double feedbackValue) {
         this.feedbackValue+=feedbackValue;
-        this.feedbackCounter++;
-        this.feedback = this.feedbackValue / feedbackCounter;
+        this.feedbackCounter = this.feedbackCounter + 1;
+        this.feedback = this.feedbackValue / this.feedbackCounter;
     }
 
     @Override

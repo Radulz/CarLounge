@@ -105,6 +105,7 @@ public class ActiveListingController implements Initializable {
                     if (p.getEmail().equals(providerEmail)) {
                         p.setFeedback(value);
                         ProviderService.ProviderRepository.update(p);
+                        break;
                     }
                 }
             }

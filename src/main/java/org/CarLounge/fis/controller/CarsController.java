@@ -57,7 +57,7 @@ public class CarsController {
                         }
                     }
                 }
-                s = listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice() + " Rating: " + ratingMessage;
+                s = listing.getNumberPlate() + " " + listing.getMake() + " " + listing.getModel() + " " + listing.getYear() + " " + listing.getFuel() + " " + listing.getCmc() + " " + listing.getMileage() + " " + listing.getPrice() + " Provider Rating: " + ratingMessage;
                 carList.getItems().add(s);
             }
         }
