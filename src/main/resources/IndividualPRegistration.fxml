@@ -81,8 +81,8 @@
                </font>
             </Label>
             <TextField fx:id="birthDate" layoutX="161.0" layoutY="184.0" prefHeight="25.0" prefWidth="219.0" promptText="Date Format MM/dd/yyyy" />
-            <Text fx:id="registrationMessage" layoutX="4.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="414.0" />
-            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="4.0" layoutY="495.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="414.0" textAlignment="CENTER">
+            <Text fx:id="registrationMessage" layoutX="5.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="414.0" />
+            <Hyperlink fx:id="logIn" alignment="CENTER" layoutX="4.0" layoutY="503.0" onMouseClicked="#goToLogIn" prefHeight="23.0" prefWidth="414.0" textAlignment="CENTER">
                <cursor>
                   <Cursor fx:constant="DEFAULT" />
                </cursor></Hyperlink>

@@ -110,7 +110,6 @@ public class CheckCNPController implements Initializable {
 
     public void switchToChangePass(MouseEvent mouseEvent) throws IOException{
 
-        String user = ForgotPasswordController.getUsername();
         String confirmCNP = cnp.getText();
         try {
             checkIdentity(confirmCNP);
