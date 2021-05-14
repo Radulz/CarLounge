@@ -10,7 +10,7 @@
 
 <StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.IndividualPRegistrationController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="421.0" style="-fx-background-color: #D1E4F9;">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="421.0" style="-fx-background-color: #D1E4F9;" stylesheets="@CSS/text_fieldCSS.css">
          <children>
             <Label alignment="CENTER" layoutX="152.0" layoutY="14.0" text="Individual">
                <font>
@@ -35,7 +35,7 @@
             <TextField fx:id="email" layoutX="161.0" layoutY="78.0" prefHeight="25.0" prefWidth="219.0" promptText="e.g. E-mail@provder.com" />
             <PasswordField fx:id="password" layoutX="161.0" layoutY="326.0" prefHeight="25.0" prefWidth="219.0" />
             <PasswordField fx:id="confirmPassword" layoutX="161.0" layoutY="439.0" prefHeight="25.0" prefWidth="219.0" />
-            <Label alignment="CENTER" layoutX="195.0" layoutY="359.0" text="*Password must contain at least:&#10;*One upper case letter&#10;*One lower case letter&#10;*A number&#10;*8 characters" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="192.0" layoutY="351.0" text="*Password must contain at least:&#10;*One upper case letter&#10;*One lower case letter&#10;*A number&#10;*8 characters" textAlignment="CENTER">
                <font>
                   <Font size="11.0" />
                </font>

@@ -36,7 +36,7 @@
                         </Label>
                      </children>
                   </Pane>
-                  <TextField fx:id="activeListingField" alignment="CENTER" editable="false" layoutX="23.0" layoutY="33.0" prefHeight="29.0" prefWidth="536.0" />
+                  <TextField fx:id="activeListingField" alignment="CENTER" editable="false" layoutX="23.0" layoutY="33.0" prefHeight="29.0" prefWidth="536.0" style="-fx-background-radius: 50;" />
                   <Label contentDisplay="CENTER" layoutX="23.0" layoutY="95.0" prefHeight="17.0" prefWidth="123.0" text="Choose your rating:">
                      <font>
                         <Font size="14.0" />

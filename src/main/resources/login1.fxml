@@ -29,7 +29,7 @@
       </Pane>
    </left>
    <right>
-      <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: white;" stylesheets="@CSS/text_fieldCSS.css" BorderPane.alignment="CENTER">
          <children>
             <JFXButton fx:id="logInToAcc" buttonType="RAISED" layoutX="170.0" layoutY="301.0" onMouseClicked="#logIn" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="LOG IN" textFill="WHITE">
                <font>

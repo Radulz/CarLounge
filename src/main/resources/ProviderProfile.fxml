@@ -22,7 +22,7 @@
                 </Pane>
             </top>
             <center>
-                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+                <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" stylesheets="@CSS/text_fieldCSS.css" BorderPane.alignment="CENTER">
                     <children>
                   <ImageView fitHeight="89.0" fitWidth="250.0" layoutX="197.0" layoutY="341.0" pickOnBounds="true" preserveRatio="true">
                      <image>

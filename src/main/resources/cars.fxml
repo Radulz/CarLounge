@@ -27,7 +27,7 @@
                <children>
                   <JFXButton fx:id="rent" buttonType="RAISED" layoutX="4.0" layoutY="195.0" onMouseClicked="#rentACar" prefHeight="33.0" prefWidth="147.0" style="-fx-background-color: #D1E4F9;" text="Rent it!">
                      <graphic>
-                        <TextField fx:id="noPlate" alignment="CENTER" prefHeight="25.0" prefWidth="82.0" promptText="E.g. AR15LLL" />
+                        <TextField fx:id="noPlate" alignment="CENTER" prefHeight="25.0" prefWidth="82.0" promptText="E.g. AR15LLL" style="-fx-background-radius: 50;" />
                      </graphic>
                   </JFXButton>
                   <Text fx:id="rentalMessage" layoutX="3.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="149.06640625" />
