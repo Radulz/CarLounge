@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
+import org.CarLounge.fis.exceptions.NoActiveRental;
 import org.CarLounge.fis.model.Listing;
 import org.CarLounge.fis.model.Provider;
 import org.CarLounge.fis.services.ListingService;
@@ -57,6 +58,7 @@ public class ActiveListingController implements Initializable {
     }
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        activeListingField.setText("");
         String username = ClientMenuController.getUsername();
         String s="";
         rb1.setToggleGroup(rb);
@@ -75,44 +77,49 @@ public class ActiveListingController implements Initializable {
         }
     }
 
+    public void checkNull(String text) throws NoActiveRental {
+        if(text == "") {
+            throw new NoActiveRental();
+        }
+    }
+
     public void completeListing(MouseEvent mouseEvent) {
         double value = 0;
 
-        if(rb1.isSelected()){
+        if (rb1.isSelected()) {
             value = 1;
-        }
-        else if(rb2.isSelected()){
+        } else if (rb2.isSelected()) {
             value = 2;
-        }
-        else if(rb3.isSelected()){
+        } else if (rb3.isSelected()) {
             value = 3;
-        }
-        else if(rb4.isSelected()){
+        } else if (rb4.isSelected()) {
             value = 4;
-        }
-        else if(rb5.isSelected()){
+        } else if (rb5.isSelected()) {
             value = 5;
         }
 
-        if(value != 0 && !activeListingField.getText().equals("")){
-            for(Provider p : ProviderService.ProviderRepository.find()){
-                if(p.getEmail().equals(providerEmail)){
-                    p.setFeedback(value);
-                    ProviderService.ProviderRepository.update(p);
+        try {
+            checkNull(activeListingField.getText());
+            if (value != 0) {
+                for (Provider p : ProviderService.ProviderRepository.find()) {
+                    if (p.getEmail().equals(providerEmail)) {
+                        p.setFeedback(value);
+                        ProviderService.ProviderRepository.update(p);
+                    }
                 }
             }
-        }
-        else if(!activeListingField.getText().equals("")){
-            completeText.setText("You can't submit a feedback if you don't have an active rental!");
-        }
 
-        completeListing.setCompleted(true);
-        ListingService.ListingRepository.update(completeListing);
-        if(value == 0){
-            completeText.setText("Listing marked as completed successfully!");
+            completeListing.setCompleted(true);
+            ListingService.ListingRepository.update(completeListing);
+
+            if (value == 0) {
+                completeText.setText("Listing marked as completed successfully!");
+            } else {
+                completeText.setText("Listing marked as completed successfully! Thank you for your feedback!");
+            }
         }
-        else{
-            completeText.setText("Listing marked as completed successfully! Thank you for your feedback!");
+        catch (NoActiveRental e) {
+            completeText.setText(e.getMessage());
         }
     }
 }
