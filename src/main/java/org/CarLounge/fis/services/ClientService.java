@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.chrono.Chronology;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import org.CarLounge.fis.exceptions.*;
@@ -23,11 +24,16 @@ public class ClientService {
     public static ObjectRepository<Client> ClientRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(FileSystemService.getPathToFile("Client.db").toFile())
                 .openOrCreate("client", "client");
 
         ClientRepository = database.getRepository(Client.class);
+    }
+
+    public static List<Client> getAllClients(){
+        return ClientRepository.find().toList();
     }
 
     private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws PasswordsDoesNotMatch, ConfirmPasswordFieldIsEmpty, PasswordDoesNotContainTheRequiredCharacters, PasswordFieldIsEmpty, MinimumAgeIsRequired, BirthDateIsNotADate, BirthDateFieldIsEmpty, LastNameFieldIsEmpty, FirstNameFieldIsEmpty, TextIsNotAValidEmail, EmailFieldIsEmpty, CnpIsMissing, CnpIsNotValid, CnpAlreadyExists {

@@ -6,11 +6,17 @@ import org.CarLounge.fis.model.Provider;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
+import java.util.List;
+
 import static java.lang.Integer.parseInt;
 
 public class ListingService {
 
     public static ObjectRepository<Listing> ListingRepository;
+
+    public static List<Listing> getAllListings(){
+        return ListingRepository.find().toList();
+    }
 
     private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price, String noPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber, CmcNotValid, FuelIsNotAccepted {
         if(make == ""){
@@ -127,6 +133,7 @@ public class ListingService {
     }
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(FileSystemService.getPathToFile("Listing.db").toFile())
                 .openOrCreate("cars", "cars");
