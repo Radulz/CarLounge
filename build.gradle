@@ -24,11 +24,17 @@ sourceCompatibility = 11
 targetCompatibility = 11
 
 dependencies {
+    implementation 'org.junit.jupiter:junit-jupiter:5.4.2'
     compile 'com.jfoenix:jfoenix:9.0.10'
+    testCompile "org.testfx:testfx-core:4.0.16-alpha"
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testCompile "org.testfx:testfx-junit5:4.0.16-alpha"
+    testCompile group: 'org.assertj', name: 'assertj-core', version: '3.13.2'
     implementation 'org.openjfx:javafx-controls:15.0.1'
     implementation 'org.openjfx:javafx-fxml:15.0.1'
     implementation 'org.dizitart:nitrite:3.4.3'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
 }
+
 
 mainClassName = 'org.CarLounge.fis.Main'
