@@ -1,4 +1,3 @@
-![JaCoCoCarLounge](https://user-images.githubusercontent.com/81571989/118413192-b1dfe980-b6a6-11eb-8e7d-e6b384587715.png)
 # CarLounge-CarRental_App
 CarLounge - our app is designed as a solution both to people who are seeking a private means of transport for a relatively short period of time and to those who are willing to put their vehicles at other people`s disposal.
 * [Java 15 or 16](https://www.oracle.com/java/technologies/javase-downloads.html)
@@ -92,20 +91,6 @@ Encrypting the passwords is done via the following 2 Java functions.
     }
 ```
 
-#### Nitrite Java
-Nitrite Java was used in the [ClientService.java](https://github.com/fis2021/CarLounge-CarRental_App/blob/main/src/main/java/org/CarLounge/fis/services/ClientService.java) (and all the other User-Type files), where we initialized a database, and a _Repository_ of User objects:
-```java
-    private static ObjectRepository<User> userRepository;
-
-    public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("registration-example.db").toFile())
-                .openOrCreate("test", "test");
-
-        userRepository = database.getRepository(User.class);
-    }
-```
-
 This Repository was further used to add new Clients (and Providers in their respective files), by using the **insert** method:
 ```java
     public static void addClient(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws UsernameAlreadyExistsException, PasswordDoesNotContainTheRequiredCharacters, EmailFieldIsEmpty, LastNameFieldIsEmpty, PasswordFieldIsEmpty, BirthDateFieldIsEmpty, FirstNameFieldIsEmpty, MinimumAgeIsRequired, PasswordsDoesNotMatch, TextIsNotAValidEmail, ConfirmPasswordFieldIsEmpty, BirthDateIsNotADate, CnpIsMissing, CnpIsNotValid, CnpAlreadyExists {
@@ -128,6 +113,9 @@ and to find all users, by using the find method:
         }
     }
 ```
+
+![JaCoCoCarLounge](https://user-images.githubusercontent.com/81571989/118413192-b1dfe980-b6a6-11eb-8e7d-e6b384587715.png)
+
 
 ## Resources
 To understand and learn more about **JavaFX**, you can take a look at some of the following links:
