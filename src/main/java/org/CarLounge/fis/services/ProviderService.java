@@ -14,17 +14,20 @@ import java.util.List;
 public class ProviderService {
 
     public static ObjectRepository<Provider> ProviderRepository;
+    private static Nitrite database;
 
     public static void initDatabase(){
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(FileSystemService.getPathToFile("Provider.db").toFile())
                 .openOrCreate("provider", "provider");
 
         ProviderRepository = database.getRepository(Provider.class);
     }
 
-
+    public static void closeDatabase(){
+        database.close();
+    }
 
     public static List<Provider> getAllProviders(){
         return ProviderRepository.find().toList();

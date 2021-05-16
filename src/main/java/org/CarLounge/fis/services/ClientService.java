@@ -22,16 +22,20 @@ import org.dizitart.no2.objects.ObjectRepository;
 public class ClientService {
 
     public static ObjectRepository<Client> ClientRepository;
+    private static Nitrite database;
 
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(FileSystemService.getPathToFile("Client.db").toFile())
                 .openOrCreate("client", "client");
 
         ClientRepository = database.getRepository(Client.class);
     }
 
+    public static void closeDatabase(){
+        database.close();
+    }
 
     public static List<Client> getAllClients(){
         return ClientRepository.find().toList();

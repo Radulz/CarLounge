@@ -12,6 +12,8 @@ import static java.lang.Integer.parseInt;
 
 public class ListingService {
 
+    private static Nitrite database;
+
     public static ObjectRepository<Listing> ListingRepository;
 
     public static List<Listing> getAllListings(){
@@ -134,11 +136,15 @@ public class ListingService {
 
     public static void initDatabase() {
         FileSystemService.initDirectory();
-        Nitrite database = Nitrite.builder()
+        database = Nitrite.builder()
                 .filePath(FileSystemService.getPathToFile("Listing.db").toFile())
                 .openOrCreate("cars", "cars");
 
         ListingRepository = database.getRepository(Listing.class);
+    }
+
+    public static void closeDatabase(){
+        database.close();
     }
 
     public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price, String numberPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber, CmcNotValid, FuelIsNotAccepted {

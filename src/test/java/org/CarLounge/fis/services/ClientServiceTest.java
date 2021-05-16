@@ -19,7 +19,7 @@ class ClientServiceTest {
     public static final String NUME_1 = "Nume1";
 
     @BeforeAll
-    static void beforeAll() throws Exception {
+    static void beforeAll(){
 
 
     }
@@ -38,7 +38,8 @@ class ClientServiceTest {
 
     @AfterEach
     void tearDown() {
-
+        ClientService.closeDatabase();
+        ProviderService.closeDatabase();
     }
 
    @Test
