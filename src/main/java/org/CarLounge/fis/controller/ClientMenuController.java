@@ -33,7 +33,7 @@ public class ClientMenuController implements Initializable {
     private StackPane contentArea;
 
     @FXML
-    private JFXButton logOutOfAcc, cars;
+    private JFXButton logOutOfAcc;
 
     private static String username;
 
@@ -54,19 +54,9 @@ public class ClientMenuController implements Initializable {
             System.exit(0);
         });
 
-        /*try {
-            Parent fxml = FXMLLoader.load(getClass().getResource("home.fxml"));
-            contentArea.getChildren().removeAll();
-            contentArea.getChildren().setAll(fxml);
-        } catch (IOException ex) {
-            Logger.getLogger(ClientMenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
-
-
         pane1.setVisible(false);
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5),pane1);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(0.5), pane1);
         fadeTransition.setFromValue(1);
         fadeTransition.setToValue(0);
         fadeTransition.play();
@@ -79,7 +69,7 @@ public class ClientMenuController implements Initializable {
 
             pane1.setVisible(true);
 
-            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
+            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5), pane1);
             fadeTransition1.setFromValue(0);
             fadeTransition1.setToValue(0.15);
             fadeTransition1.play();
@@ -90,7 +80,7 @@ public class ClientMenuController implements Initializable {
         });
 
         pane1.setOnMouseClicked(event -> {
-            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5),pane1);
+            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(0.5), pane1);
             fadeTransition1.setFromValue(0.15);
             fadeTransition1.setToValue(0);
             fadeTransition1.play();
@@ -105,13 +95,13 @@ public class ClientMenuController implements Initializable {
         });
     }
 
-    public void home(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
+    public void home(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("home.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
     }
 
-    public void cars(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
+    public void cars(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("cars.fxml"));
         Parent parent = loader.load();
@@ -122,14 +112,14 @@ public class ClientMenuController implements Initializable {
 
     }
 
-    public void ClientProfile(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
+    public void ClientProfile(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         Parent fxml = FXMLLoader.load(getClass().getClassLoader().getResource("ClientProfile.fxml"));
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(fxml);
 
     }
 
-    public void ActiveListing(javafx.scene.input.MouseEvent mouseEvent) throws IOException{
+    public void ActiveListing(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getClassLoader().getResource("ActiveListing.fxml"));
         Parent parent = loader.load();
@@ -139,9 +129,9 @@ public class ClientMenuController implements Initializable {
         contentArea.getChildren().setAll(parent);
     }
 
-    public void switchToLogIn(MouseEvent event) throws Exception{
+    public void switchToLogIn(MouseEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
-        Stage window = (Stage)logOutOfAcc.getScene().getWindow();
+        Stage window = (Stage) logOutOfAcc.getScene().getWindow();
         window.setScene(new Scene(root));
     }
 }

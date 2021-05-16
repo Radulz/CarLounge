@@ -91,9 +91,11 @@ public class IndividualPRegistrationController implements Initializable {
         }
         catch(BirthDateIsNotADate e){
             registrationMessage.setText(e.getMessage());
+            birthDate.clear();
         }
         catch(MinimumAgeIsRequired e){
             registrationMessage.setText(e.getMessage());
+            birthDate.clear();
         }
         catch(PhoneNumberIsMissing e){
             registrationMessage.setText(e.getMessage());
@@ -109,6 +111,7 @@ public class IndividualPRegistrationController implements Initializable {
         }
         catch (CnpAlreadyExists e) {
             registrationMessage.setText(e.getMessage());
+            cnp.clear();
         }
         catch(PasswordFieldIsEmpty e){
             registrationMessage.setText(e.getMessage());

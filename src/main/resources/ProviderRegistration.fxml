@@ -22,7 +22,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXButton fx:id="goToIndividual" buttonType="RAISED" focusTraversable="false" layoutX="61.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#switchToIndividual" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Individual">
+            <JFXButton fx:id="goToIndividual" id="choiceIndividual" buttonType="RAISED" focusTraversable="false" layoutX="61.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#switchToIndividual" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Individual">
                <font>
                   <Font size="15.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <JFXButton fx:id="goToLegal" buttonType="RAISED" focusTraversable="false" layoutX="245.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#switchToLegal" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Legal Person">
+            <JFXButton fx:id="goToLegal" id="choiceLegal" buttonType="RAISED" focusTraversable="false" layoutX="245.0" layoutY="142.0" mnemonicParsing="false" onMouseClicked="#switchToLegal" prefHeight="33.0" prefWidth="116.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Legal Person">
                <font>
                   <Font size="15.0" />
                </font>
