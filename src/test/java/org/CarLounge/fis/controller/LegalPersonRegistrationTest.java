@@ -147,5 +147,6 @@ class LegalPersonRegistrationTest {
         robot.clickOn("#LogInPassword");
         robot.write("4");
         robot.clickOn("#logIn");
+
     }
 }
