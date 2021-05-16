@@ -1,3 +1,4 @@
+![JaCoCoCarLounge](https://user-images.githubusercontent.com/81571989/118413192-b1dfe980-b6a6-11eb-8e7d-e6b384587715.png)
 # CarLounge-CarRental_App
 CarLounge - our app is designed as a solution both to people who are seeking a private means of transport for a relatively short period of time and to those who are willing to put their vehicles at other people`s disposal.
 * [Java 15 or 16](https://www.oracle.com/java/technologies/javase-downloads.html)
