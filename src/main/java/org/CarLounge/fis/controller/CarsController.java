@@ -84,7 +84,7 @@ public class CarsController {
     }
 
     public void checkFields(String noPlate) throws NumberPlateIsMissing, NumberPlateIsNotValid, NumberPlateExistence {
-        if(noPlate == ""){
+        if(noPlate.equals("")){
             throw new NumberPlateIsMissing();
         }
         else if(!isValidNoPlate(noPlate)){

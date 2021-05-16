@@ -78,7 +78,7 @@ public class ActiveListingController implements Initializable {
     }
 
     public void checkNull(String text) throws NoActiveRental {
-        if(text == "") {
+        if(text.equals("")) {
             throw new NoActiveRental();
         }
     }

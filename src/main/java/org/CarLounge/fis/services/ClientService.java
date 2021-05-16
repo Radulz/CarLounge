@@ -38,19 +38,19 @@ public class ClientService {
     }
 
     private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws PasswordsDoesNotMatch, ConfirmPasswordFieldIsEmpty, PasswordDoesNotContainTheRequiredCharacters, PasswordFieldIsEmpty, MinimumAgeIsRequired, BirthDateIsNotADate, BirthDateFieldIsEmpty, LastNameFieldIsEmpty, FirstNameFieldIsEmpty, TextIsNotAValidEmail, EmailFieldIsEmpty, CnpIsMissing, CnpIsNotValid, CnpAlreadyExists {
-        if(email == ""){
+        if(email.equals("")){
             throw new EmailFieldIsEmpty();
         }
         else if(!checkEmail(email)){
             throw new TextIsNotAValidEmail();
         }
-        else if(fName == ""){
+        else if(fName.equals("")){
             throw new FirstNameFieldIsEmpty();
         }
-        else if(lName == ""){
+        else if(lName.equals("")){
             throw new LastNameFieldIsEmpty();
         }
-        else if(bDate == ""){
+        else if(bDate.equals("")){
             throw new BirthDateFieldIsEmpty();
         }
         else if(!isValid(bDate)){
@@ -59,7 +59,7 @@ public class ClientService {
         else if(!checkDate(bDate)){
             throw new MinimumAgeIsRequired();
         }
-        else if(cnp == ""){
+        else if(cnp.equals("")){
             throw new CnpIsMissing();
         }
         else if(!checkCnpDoesNotAlreadyExist(cnp)) {
@@ -68,13 +68,13 @@ public class ClientService {
         else if(!isCNPValid(cnp)){
             throw new CnpIsNotValid();
         }
-        else if(password == ""){
+        else if(password.equals("")){
             throw new PasswordFieldIsEmpty();
         }
         else if(!checkPassword(password)){
             throw new PasswordDoesNotContainTheRequiredCharacters();
         }
-        else if(confirmPassword == ""){
+        else if(confirmPassword.equals("")){
             throw new ConfirmPasswordFieldIsEmpty();
         }
         else if(!password.equals(confirmPassword)){

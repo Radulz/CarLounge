@@ -83,7 +83,7 @@ public class ForgotPasswordController implements Initializable {
                 type = "Individual";
             }
         }
-        if(type == "") {
+        if(type.equals("")) {
             return false;
         }
         else {
@@ -93,7 +93,7 @@ public class ForgotPasswordController implements Initializable {
     }
 
     public static void checkEmailField(String email) throws EmailFieldIsEmpty, TextIsNotAValidEmail, AccountDoesNotExist {
-        if(email == ""){
+        if(email.equals("")){
             throw  new EmailFieldIsEmpty();
         }
         else if(!checkEmail(email)){
