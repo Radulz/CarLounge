@@ -7,55 +7,65 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane fx:id="contentArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.NewListingController">
-   <children>
-      <BorderPane prefHeight="454.0" prefWidth="583.0" style="-fx-background-color: #D1E4F9; -fx-border-color: #D1E4F9;">
-         <top>
-            <Pane prefHeight="32.0" prefWidth="581.0" style="-fx-background-color: #D1E4F9;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="14.0" layoutY="7.0" text="New Listing">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <FlowPane hgap="5.0" layoutX="559.0" layoutY="10.0" prefHeight="17.0" prefWidth="17.0" />
-               </children>
+<StackPane fx:id="contentArea" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="org.CarLounge.fis.controller.NewListingController">
+    <BorderPane prefHeight="454.0" prefWidth="583.0"
+                style="-fx-background-color: #D1E4F9; -fx-border-color: #D1E4F9;">
+        <top>
+            <Pane prefHeight="32.0" prefWidth="581.0" style="-fx-background-color: #D1E4F9;"
+                  BorderPane.alignment="CENTER">
+                <Label layoutX="14.0" layoutY="7.0" text="New Listing">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <FlowPane hgap="5.0" layoutX="559.0" layoutY="10.0" prefHeight="17.0" prefWidth="17.0"/>
             </Pane>
-         </top>
-         <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
-               <children>
-                  <Label layoutX="38.0" layoutY="42.0" text="Make" />
-                  <TextField fx:id="make" focusTraversable="false" layoutX="77.0" layoutY="38.0" prefHeight="25.0" prefWidth="93.0" />
-                  <Label layoutX="223.0" layoutY="269.0" text="Price" />
-                  <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="489.0" layoutY="381.0" onMouseClicked="#addCar" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50;" text="Add" />
-                  <JFXButton fx:id="switchToHome" buttonType="RAISED" focusTraversable="false" layoutX="14.0" layoutY="381.0" onMouseClicked="#home" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: #D1E4F9; -fx-background-radius: 50;" text="Cancel" />
-                  <Label layoutX="219.0" layoutY="42.0" text="Model" />
-                  <TextField fx:id="model" focusTraversable="false" layoutX="270.0" layoutY="38.0" prefHeight="25.0" prefWidth="93.0" />
-                  <Label layoutX="406.0" layoutY="42.0" text="Year" />
-                  <TextField fx:id="year" focusTraversable="false" layoutX="443.0" layoutY="38.0" prefHeight="25.0" prefWidth="93.0" />
-                  <Label layoutX="32.0" layoutY="109.0" text="Mileage" />
-                  <TextField fx:id="mileage" focusTraversable="false" layoutX="77.0" layoutY="105.0" prefHeight="25.0" prefWidth="93.0" />
-                  <Label layoutX="200.0" layoutY="109.0" text="Cub. Capacity" />
-                  <Label layoutX="407.0" layoutY="109.0" text="Fuel" />
-                  <TextField fx:id="cmc" focusTraversable="false" layoutX="282.0" layoutY="105.0" prefHeight="25.0" prefWidth="69.0" />
-                  <TextField fx:id="fuel" focusTraversable="false" layoutX="443.0" layoutY="105.0" prefHeight="25.0" prefWidth="93.0" />
-                  <Text fx:id="listingText" layoutX="71.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="439.13671875" />
-                  <TextField fx:id="price" alignment="CENTER" focusTraversable="false" layoutX="257.0" layoutY="265.0" prefHeight="25.0" prefWidth="120.0" promptText="€/Day" />
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="191.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Images/logo_lightblue.PNG" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="209.0" layoutY="189.0" prefHeight="17.0" prefWidth="55.0" text="No. Plate" />
-                  <TextField fx:id="noPlate" focusTraversable="false" layoutX="272.0" layoutY="185.0" prefHeight="25.0" prefWidth="89.0" promptText="E.g. AR10FIS" />
-               </children>
-               <stylesheets>
-                  <URL value="@CSS/text_fieldCSS.css" />
-                  <URL value="@CSS/focusCSS.css" />
-               </stylesheets>
+        </top>
+        <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;"
+                  BorderPane.alignment="CENTER">
+                <stylesheets>
+                    <URL value="@CSS/text_fieldCSS.css"/>
+                    <URL value="@CSS/focusCSS.css"/>
+                </stylesheets>
+                <Label layoutX="38.0" layoutY="42.0" text="Make"/>
+                <TextField fx:id="make" id="NewListingMake" focusTraversable="false" layoutX="77.0" layoutY="38.0" prefHeight="25.0"
+                           prefWidth="93.0"/>
+                <Label layoutX="223.0" layoutY="269.0" text="Price"/>
+                <JFXButton id="NewListingAdd" buttonType="RAISED" focusTraversable="false" layoutX="489.0" layoutY="381.0"
+                           onMouseClicked="#addCar" prefHeight="25.0" prefWidth="78.0"
+                           style="-fx-background-color: #D1E4F9; -fx-background-radius: 50;" text="Add"/>
+                <JFXButton fx:id="switchToHome" id="NewListingCancel" buttonType="RAISED" focusTraversable="false" layoutX="14.0"
+                           layoutY="381.0" onMouseClicked="#home" prefHeight="25.0" prefWidth="78.0"
+                           style="-fx-background-color: #D1E4F9; -fx-background-radius: 50;" text="Cancel"/>
+                <Label layoutX="219.0" layoutY="42.0" text="Model"/>
+                <TextField fx:id="model" id="NewListingModel" focusTraversable="false" layoutX="270.0" layoutY="38.0"
+                           prefHeight="25.0" prefWidth="93.0"/>
+                <Label layoutX="406.0" layoutY="42.0" text="Year"/>
+                <TextField fx:id="year" id="NewListingYear" focusTraversable="false" layoutX="443.0" layoutY="38.0"
+                           prefHeight="25.0" prefWidth="93.0"/>
+                <Label layoutX="32.0" layoutY="109.0" text="Mileage"/>
+                <TextField fx:id="mileage" id="NewListingMileage" focusTraversable="false" layoutX="77.0" layoutY="105.0"
+                           prefHeight="25.0" prefWidth="93.0"/>
+                <Label layoutX="200.0" layoutY="109.0" text="Cub. Capacity"/>
+                <Label layoutX="407.0" layoutY="109.0" text="Fuel"/>
+                <TextField fx:id="cmc" id="NewListingCmc" focusTraversable="false" layoutX="282.0" layoutY="105.0"
+                           prefHeight="25.0" prefWidth="69.0"/>
+                <TextField fx:id="fuel" id="NewListingFuel" focusTraversable="false" layoutX="443.0" layoutY="105.0"
+                           prefHeight="25.0" prefWidth="93.0"/>
+                <Text fx:id="listingText" id="NewListingMessage" layoutX="71.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      textAlignment="CENTER" wrappingWidth="439.13671875"/>
+                <TextField fx:id="price" id="NewListingPrice" alignment="CENTER" focusTraversable="false" layoutX="257.0"
+                           layoutY="265.0" prefHeight="25.0" prefWidth="120.0" promptText="€/Day"/>
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="191.0" layoutY="357.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <Image url="@Images/logo_lightblue.PNG"/>
+                </ImageView>
+                <Label layoutX="209.0" layoutY="189.0" prefHeight="17.0" prefWidth="55.0" text="No. Plate"/>
+                <TextField fx:id="noPlate" id="NewListingPlate" focusTraversable="false" layoutX="272.0" layoutY="185.0"
+                           prefHeight="25.0" prefWidth="89.0" promptText="E.g. AR10FIS"/>
             </Pane>
-         </center>
-      </BorderPane>
-   </children>
+        </center>
+    </BorderPane>
 </StackPane>

@@ -136,14 +136,17 @@ public class CarsController {
         catch(NumberPlateIsMissing e){
             rentalMessage.setText(e.getMessage());
             contactDetails.setText("");
+            noPlate.clear();
         }
         catch(NumberPlateIsNotValid e){
             rentalMessage.setText(e.getMessage());
             contactDetails.setText("");
+            noPlate.clear();
         }
         catch (NumberPlateExistence e){
             rentalMessage.setText(e.getMessage());
             contactDetails.setText("");
+            noPlate.clear();
         }
         catch (ActiveRentalAlreadyExists e){
             rentalMessage.setText(e.getMessage());
