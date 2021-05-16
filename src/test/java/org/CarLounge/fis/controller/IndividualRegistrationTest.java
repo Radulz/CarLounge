@@ -5,11 +5,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.CarLounge.fis.services.ClientService;
-import org.CarLounge.fis.services.IndividualProviderService;
-import org.CarLounge.fis.services.FileSystemService;
-import org.CarLounge.fis.services.ProviderService;
+import org.CarLounge.fis.services.*;
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -35,8 +33,13 @@ class IndividualRegistrationTest {
         ClientService.initDatabase();
         ProviderService.initDatabase();
     }
-
-    @Start
+    @AfterEach
+    void tearDown() {
+        ClientService.closeDatabase();
+        ProviderService.closeDatabase();
+        ListingService.closeDatabase();
+    }
+    /*@Start
     void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
         primaryStage.setTitle("CarLounge");
@@ -54,7 +57,7 @@ class IndividualRegistrationTest {
 
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
-    }
+    }*/
 
 
     @Test
@@ -166,5 +169,9 @@ class IndividualRegistrationTest {
         robot.clickOn("#LogInPassword");
         robot.write("4");
         robot.clickOn("#logIn");
+
+        robot.clickOn("#MenuButtonProvider");
+        Thread.sleep(2000);
+        robot.clickOn("#LogOutOfAccountProvider");
     }
 }

@@ -10,6 +10,7 @@ import org.CarLounge.fis.services.FileSystemService;
 import org.CarLounge.fis.services.ListingService;
 import org.CarLounge.fis.services.ProviderService;
 import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,8 +39,13 @@ class ProviderAllTest {
         ProviderService.initDatabase();
         ListingService.initDatabase();
     }
-
-    @Start
+    @AfterEach
+    void tearDown() {
+        ClientService.closeDatabase();
+        ProviderService.closeDatabase();
+        ListingService.closeDatabase();
+    }
+    /*@Start
     void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("login1.fxml"));
         primaryStage.setTitle("CarLounge");
@@ -57,7 +63,7 @@ class ProviderAllTest {
 
         primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
-    }
+    }*/
 
 
     @Test
