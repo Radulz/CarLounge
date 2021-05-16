@@ -17,19 +17,19 @@ import java.util.Objects;
 public class IndividualProviderService extends ProviderService {
 
     private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String phoneNo, String cnp) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, FirstNameFieldIsEmpty, LastNameFieldIsEmpty, BirthDateFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, MinimumAgeIsRequired, BirthDateIsNotADate, PhoneNumberIsMissing, InvalidPhoneNumber, CnpIsNotValid, CnpIsMissing, CnpAlreadyExists {
-        if(email == ""){
+        if(email.equals("")){
             throw new EmailFieldIsEmpty();
         }
         else if(!checkEmail(email)){
             throw new TextIsNotAValidEmail();
         }
-        else if(fName == ""){
+        else if(fName.equals("")){
             throw new FirstNameFieldIsEmpty();
         }
-        else if(lName == ""){
+        else if(lName.equals("")){
             throw new LastNameFieldIsEmpty();
         }
-        else if(bDate == ""){
+        else if(bDate.equals("")){
             throw new BirthDateFieldIsEmpty();
         }
         else if(!isValid(bDate)){
@@ -38,13 +38,13 @@ public class IndividualProviderService extends ProviderService {
         else if(!checkDate(bDate)){
             throw new MinimumAgeIsRequired();
         }
-        else if(phoneNo == ""){
+        else if(phoneNo.equals("")){
             throw new PhoneNumberIsMissing();
         }
         else if(!isValidPhoneNumber(phoneNo)){
             throw new InvalidPhoneNumber();
         }
-        else if(cnp == ""){
+        else if(cnp.equals("")){
             throw new CnpIsMissing();
         }
         else if(!isCNPValid(cnp)){
@@ -53,13 +53,13 @@ public class IndividualProviderService extends ProviderService {
         else if(!checkCnpDoesNotAlreadyExist(cnp)) {
             throw new CnpAlreadyExists(cnp);
         }
-        else if(password == ""){
+        else if(password.equals("")){
             throw new PasswordFieldIsEmpty();
         }
         else if(!checkPassword(password)){
             throw new PasswordDoesNotContainTheRequiredCharacters();
         }
-        else if(confirmPassword == ""){
+        else if(confirmPassword.equals("")){
             throw new ConfirmPasswordFieldIsEmpty();
         }
         else if(!password.equals(confirmPassword)){

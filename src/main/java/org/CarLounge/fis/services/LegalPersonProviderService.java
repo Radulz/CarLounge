@@ -23,37 +23,37 @@ public class LegalPersonProviderService extends ProviderService{
         return dtf.format(now);
     }
     private static void checkFields(String email, String password, String companyName, String address, String phone, String taxRegNo, String confirmPassword) throws EmailFieldIsEmpty, PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordsDoesNotMatch, PasswordDoesNotContainTheRequiredCharacters, TextIsNotAValidEmail, CompanyNameIsMissing, AddressIsMissing, PhoneNumberIsMissing, InvalidPhoneNumber, TaxRegNoIsMissing, TaxRegNoAlreadyExists{
-        if(email == ""){
+        if(email.equals("")){
             throw new EmailFieldIsEmpty();
         }
         else if(!checkEmail(email)){
             throw new TextIsNotAValidEmail();
         }
-        else if(password == ""){
+        else if(password.equals("")){
             throw new PasswordFieldIsEmpty();
         }
         else if(!checkPassword(password)){
             throw new PasswordDoesNotContainTheRequiredCharacters();
         }
-        else if(confirmPassword == ""){
+        else if(confirmPassword.equals("")){
             throw new ConfirmPasswordFieldIsEmpty();
         }
         else if(!password.equals(confirmPassword)){
             throw new PasswordsDoesNotMatch();
         }
-        else if(companyName == ""){
+        else if(companyName.equals("")){
             throw new CompanyNameIsMissing();
         }
-        else if(address == ""){
+        else if(address.equals("")){
             throw new AddressIsMissing();
         }
-        else if(phone == ""){
+        else if(phone.equals("")){
             throw new PhoneNumberIsMissing();
         }
         else if(!isValidPhoneNumber(phone)){
             throw new InvalidPhoneNumber();
         }
-        else if(taxRegNo == ""){
+        else if(taxRegNo.equals("")){
             throw new TaxRegNoIsMissing();
         }
         else if(!checkTaxRegNoDoesNotAlreadyExist(taxRegNo)){

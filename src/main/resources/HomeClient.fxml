@@ -14,7 +14,7 @@
                         <Image url="@Images/exit.png" />
                     </image>
                 </ImageView>
-                <ImageView fx:id="menu" fitHeight="46.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="menu" id="MenuButtonClient" fitHeight="46.0" fitWidth="32.0" layoutX="7.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Images/menu.png" />
                     </image>
@@ -91,27 +91,27 @@
             <children>
                 <VBox layoutY="14.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0" AnchorPane.bottomAnchor="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
                     <children>
-                        <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#home" prefHeight="38.0" prefWidth="179.0" text="Home">
+                        <JFXButton id="HomeClient" alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#home" prefHeight="38.0" prefWidth="179.0" text="Home">
                             <font>
                                 <Font size="16.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton fx:id="cars" alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#cars" prefHeight="38.0" prefWidth="179.0" text="Rent a car">
+                        <JFXButton fx:id="cars" id="CarsClient" alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#cars" prefHeight="38.0" prefWidth="179.0" text="Rent a car">
                             <font>
                                 <Font size="16.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#ActiveListing" prefHeight="38.0" prefWidth="179.0" text="Manage Rentals">
+                        <JFXButton id="ManageRentalsClient" alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#ActiveListing" prefHeight="38.0" prefWidth="179.0" text="Manage Rentals">
                             <font>
                                 <Font size="16.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#ClientProfile" prefHeight="38.0" prefWidth="179.0" text="My Profile">
+                        <JFXButton id="MyProfileClient" alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#ClientProfile" prefHeight="38.0" prefWidth="179.0" text="My Profile">
                             <font>
                                 <Font size="16.0" />
                             </font>
                         </JFXButton>
-                        <JFXButton fx:id="logOutOfAcc" alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#switchToLogIn" prefHeight="38.0" prefWidth="179.0" text="Log Out">
+                        <JFXButton id="LogOutOfAccountClient" fx:id="logOutOfAcc" alignment="BASELINE_LEFT" focusTraversable="false" onMouseClicked="#switchToLogIn" prefHeight="38.0" prefWidth="179.0" text="Log Out">
                             <font>
                                 <Font size="16.0" />
                             </font>

@@ -78,13 +78,13 @@ public class ChangePasswordController implements Initializable {
     }
 
     public static void checkFields(String pass, String confirmPass) throws PasswordFieldIsEmpty, ConfirmPasswordFieldIsEmpty, PasswordDoesNotContainTheRequiredCharacters, PasswordsDoesNotMatch {
-        if(pass == ""){
+        if(pass.equals("")){
             throw new PasswordFieldIsEmpty();
         }
         else if(!checkPassword(pass)){
             throw new PasswordDoesNotContainTheRequiredCharacters();
         }
-        else if(confirmPass == ""){
+        else if(confirmPass.equals("")){
             throw new ConfirmPasswordFieldIsEmpty();
         }
         else if(!pass.equals(confirmPass)){

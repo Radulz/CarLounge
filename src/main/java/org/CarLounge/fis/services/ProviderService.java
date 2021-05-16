@@ -9,18 +9,30 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 public class ProviderService {
 
     public static ObjectRepository<Provider> ProviderRepository;
+    private static Nitrite database;
 
     public static void initDatabase(){
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(FileSystemService.getPathToFile("Provider.db").toFile())
                 .openOrCreate("provider", "provider");
 
         ProviderRepository = database.getRepository(Provider.class);
     }
+
+    public static void closeDatabase(){
+        database.close();
+    }
+
+    public static List<Provider> getAllProviders(){
+        return ProviderRepository.find().toList();
+    }
+
     protected static boolean checkDate(String s) {
 
         String aux[] = s.split("/");

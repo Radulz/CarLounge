@@ -55,30 +55,35 @@ public class NewListingController {
         }
         catch(YearIsNotValid e){
             listingText.setText(e.getMessage());
+            year.clear();
         }
         catch(MileageIsMissing e){
             listingText.setText(e.getMessage());
         }
         catch(MileageIsNotValid e){
             listingText.setText(e.getMessage());
+            mileage.clear();
         }
         catch(CubicIsMissing e){
             listingText.setText(e.getMessage());
         }
         catch(CmcNotValid e){
             listingText.setText(e.getMessage());
+            cmc.clear();
         }
         catch(FuelIsMissing e){
             listingText.setText(e.getMessage());
         }
         catch (FuelIsNotAccepted e){
             listingText.setText(e.getMessage());
+            fuel.clear();
         }
         catch(NumberPlateIsMissing e){
             listingText.setText(e.getMessage());
         }
         catch(NumberPlateIsNotValid e){
             listingText.setText(e.getMessage());
+            noPlate.clear();
         }
         catch(ActiveListingAlreadyExists e){
             listingText.setText(e.getMessage());
@@ -88,6 +93,7 @@ public class NewListingController {
         }
         catch (PriceIsNotANumber e){
             listingText.setText(e.getMessage());
+            price.clear();
         }
     }
 

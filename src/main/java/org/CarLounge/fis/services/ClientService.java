@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.chrono.Chronology;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 import org.CarLounge.fis.exceptions.*;
@@ -21,29 +22,39 @@ import org.dizitart.no2.objects.ObjectRepository;
 public class ClientService {
 
     public static ObjectRepository<Client> ClientRepository;
+    private static Nitrite database;
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(FileSystemService.getPathToFile("Client.db").toFile())
                 .openOrCreate("client", "client");
 
         ClientRepository = database.getRepository(Client.class);
     }
 
+    public static void closeDatabase(){
+        database.close();
+    }
+
+    public static List<Client> getAllClients(){
+        return ClientRepository.find().toList();
+    }
+
     private static void checkFields(String email, String password, String fName, String lName, String bDate, String confirmPassword, String cnp) throws PasswordsDoesNotMatch, ConfirmPasswordFieldIsEmpty, PasswordDoesNotContainTheRequiredCharacters, PasswordFieldIsEmpty, MinimumAgeIsRequired, BirthDateIsNotADate, BirthDateFieldIsEmpty, LastNameFieldIsEmpty, FirstNameFieldIsEmpty, TextIsNotAValidEmail, EmailFieldIsEmpty, CnpIsMissing, CnpIsNotValid, CnpAlreadyExists {
-        if(email == ""){
+        if(email.equals("")){
             throw new EmailFieldIsEmpty();
         }
         else if(!checkEmail(email)){
             throw new TextIsNotAValidEmail();
         }
-        else if(fName == ""){
+        else if(fName.equals("")){
             throw new FirstNameFieldIsEmpty();
         }
-        else if(lName == ""){
+        else if(lName.equals("")){
             throw new LastNameFieldIsEmpty();
         }
-        else if(bDate == ""){
+        else if(bDate.equals("")){
             throw new BirthDateFieldIsEmpty();
         }
         else if(!isValid(bDate)){
@@ -52,7 +63,7 @@ public class ClientService {
         else if(!checkDate(bDate)){
             throw new MinimumAgeIsRequired();
         }
-        else if(cnp == ""){
+        else if(cnp.equals("")){
             throw new CnpIsMissing();
         }
         else if(!checkCnpDoesNotAlreadyExist(cnp)) {
@@ -61,13 +72,13 @@ public class ClientService {
         else if(!isCNPValid(cnp)){
             throw new CnpIsNotValid();
         }
-        else if(password == ""){
+        else if(password.equals("")){
             throw new PasswordFieldIsEmpty();
         }
         else if(!checkPassword(password)){
             throw new PasswordDoesNotContainTheRequiredCharacters();
         }
-        else if(confirmPassword == ""){
+        else if(confirmPassword.equals("")){
             throw new ConfirmPasswordFieldIsEmpty();
         }
         else if(!password.equals(confirmPassword)){
@@ -167,7 +178,7 @@ public class ClientService {
     }
 
 
-    public static void checkUserDoesNotAlreadyExist(String email) throws UsernameAlreadyExistsException {
+    private static void checkUserDoesNotAlreadyExist(String email) throws UsernameAlreadyExistsException {
         for (Client client : ClientRepository.find()) {
             if (Objects.equals(email, client.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
@@ -178,7 +189,7 @@ public class ClientService {
         }
     }
 
-    public static boolean checkCnpDoesNotAlreadyExist(String cnp) {
+    private static boolean checkCnpDoesNotAlreadyExist(String cnp) {
         for (Client client : ClientRepository.find()) {
             if (Objects.equals(cnp, client.getCNP()))
                 return false;

@@ -101,7 +101,7 @@ public class LogInController implements Initializable {
     }
 
     public static void checkCredentials(String user, String pass) throws CredentialsAreMissing{
-        if(user == "" || pass == ""){
+        if(user.equals("") || pass.equals("")){
             throw new CredentialsAreMissing();
         }
     }
@@ -123,7 +123,7 @@ public class LogInController implements Initializable {
                 }
             }
         }
-        if(accountClass == "") {
+        if(accountClass.equals("")) {
             throw new AccountDoesNotExist();
         }
         else {

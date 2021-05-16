@@ -56,7 +56,7 @@ public class CheckTaxRegNoController implements Initializable {
     }
 
     public static void checkTaxRegNo(String taxRegNo) throws TaxRegNoIsMissing, TaxRegNoDoesNotMatchEmail {
-        if(taxRegNo == ""){
+        if(taxRegNo.equals("")){
             throw new TaxRegNoIsMissing();
         }
         else if(!checkTaxRegNoExistence(taxRegNo)){

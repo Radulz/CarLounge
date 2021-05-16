@@ -6,44 +6,52 @@ import org.CarLounge.fis.model.Provider;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 
+import java.util.List;
+
 import static java.lang.Integer.parseInt;
 
 public class ListingService {
 
+    private static Nitrite database;
+
     public static ObjectRepository<Listing> ListingRepository;
 
+    public static List<Listing> getAllListings(){
+        return ListingRepository.find().toList();
+    }
+
     private static void checkFields(String make, String model, String year, String mileage, String cmc, String fuel, String price, String noPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber, CmcNotValid, FuelIsNotAccepted {
-        if(make == ""){
+        if(make.equals("")){
             throw new MakeIsMissing();
         }
-        else if(model == ""){
+        else if(model.equals("")){
             throw new ModelIsMissing();
         }
-        else if(year == ""){
+        else if(year.equals("")){
             throw new YearIsMissing();
         }
         else if(!yearValidation(year)){
             throw new YearIsNotValid();
         }
-        else if(mileage == ""){
+        else if(mileage.equals("")){
             throw new MileageIsMissing();
         }
         else if(!mileageValidation(mileage)){
             throw new MileageIsNotValid();
         }
-        else if(cmc == ""){
+        else if(cmc.equals("")){
             throw new CubicIsMissing();
         }
         else if(!isValidCmc(cmc)){
             throw new CmcNotValid();
         }
-        else if(fuel == ""){
+        else if(fuel.equals("")){
             throw new FuelIsMissing();
         }
         else if(!checkFuel(fuel)){
             throw new FuelIsNotAccepted();
         }
-        else if(noPlate == ""){
+        else if(noPlate.equals("")){
             throw new NumberPlateIsMissing();
         }
         else if(!isValidNoPlate(noPlate)){
@@ -52,7 +60,7 @@ public class ListingService {
         else if(!checkActiveListing(noPlate)){
             throw new ActiveListingAlreadyExists(noPlate);
         }
-        else if(price == ""){
+        else if(price.equals("")){
             throw new PriceIsMissing();
         }
         else if(!isNumeric(price)){
@@ -127,11 +135,16 @@ public class ListingService {
     }
 
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(FileSystemService.getPathToFile("Listing.db").toFile())
                 .openOrCreate("cars", "cars");
 
         ListingRepository = database.getRepository(Listing.class);
+    }
+
+    public static void closeDatabase(){
+        database.close();
     }
 
     public static void addListing(String clientEmail, String providerEmail, String make, String model, String year, String mileage, String cmc, String fuel, String price, String numberPlate) throws MakeIsMissing, ModelIsMissing, YearIsMissing, YearIsNotValid, MileageIsMissing, MileageIsNotValid, CubicIsMissing, FuelIsMissing, PriceIsMissing, NumberPlateIsMissing, NumberPlateIsNotValid, ActiveListingAlreadyExists, PriceIsNotANumber, CmcNotValid, FuelIsNotAccepted {

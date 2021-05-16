@@ -38,22 +38,22 @@ public class CarsController {
 
     private List<String> cars = new ArrayList<>();
 
-    public CarsController() {}
+    public CarsController() {
+    }
 
 
     public void setCarList() {
         String s;
-        String ratingMessage="";
+        String ratingMessage = "";
         assignCars();
-        for(Listing listing: ListingService.ListingRepository.find()) {
+        for (Listing listing : ListingService.ListingRepository.find()) {
             if (listing.getActive()) {
-                for(Provider p : ProviderService.ProviderRepository.find()){
-                    if(p.getEmail().equals(listing.getProviderEmail())){
-                        if(p.getFeedback()==0){
-                            ratingMessage="Unrated.";
-                        }
-                        else {
-                            ratingMessage=String.format("%.1f", p.getFeedback());
+                for (Provider p : ProviderService.ProviderRepository.find()) {
+                    if (p.getEmail().equals(listing.getProviderEmail())) {
+                        if (p.getFeedback() == 0) {
+                            ratingMessage = "Unrated.";
+                        } else {
+                            ratingMessage = String.format("%.1f", p.getFeedback());
                         }
                     }
                 }
@@ -64,18 +64,18 @@ public class CarsController {
 
     }
 
-    public void assignCars(){
-        for(Listing l : ListingService.ListingRepository.find()){
-            if(l.getActive()){
+    public void assignCars() {
+        for (Listing l : ListingService.ListingRepository.find()) {
+            if (l.getActive()) {
                 cars.add(l.getNumberPlate());
             }
         }
     }
 
-    public boolean checkExistence(String noPlate){
-        for(Listing l : ListingService.ListingRepository.find()){
-            if(l.getActive()){
-                if(l.getNumberPlate().equals(noPlate)){
+    public boolean checkExistence(String noPlate) {
+        for (Listing l : ListingService.ListingRepository.find()) {
+            if (l.getActive()) {
+                if (l.getNumberPlate().equals(noPlate)) {
                     return true;
                 }
             }
@@ -84,28 +84,26 @@ public class CarsController {
     }
 
     public void checkFields(String noPlate) throws NumberPlateIsMissing, NumberPlateIsNotValid, NumberPlateExistence {
-        if(noPlate == ""){
+        if (noPlate.equals("")) {
             throw new NumberPlateIsMissing();
-        }
-        else if(!isValidNoPlate(noPlate)){
+        } else if (!isValidNoPlate(noPlate)) {
             throw new NumberPlateIsNotValid();
-        }
-        else if(!checkExistence(noPlate)){
+        } else if (!checkExistence(noPlate)) {
             throw new NumberPlateExistence();
         }
     }
 
     public void checkActiveRentals(String client) throws ActiveRentalAlreadyExists {
-        for(Listing l : ListingService.ListingRepository.find()){
-            if(l.getClientEmail().equals(client) && !l.getCompleted()){
+        for (Listing l : ListingService.ListingRepository.find()) {
+            if (l.getClientEmail().equals(client) && !l.getCompleted()) {
                 throw new ActiveRentalAlreadyExists();
             }
         }
     }
 
-    private static boolean isValidNoPlate(String noPlate){
+    private static boolean isValidNoPlate(String noPlate) {
 
-        if(noPlate.length() < 7 || noPlate.length() > 8) {
+        if (noPlate.length() < 7 || noPlate.length() > 8) {
             return false;
         }
 
@@ -114,17 +112,17 @@ public class CarsController {
 
     public void rentACar(MouseEvent mouseEvent) {
         String number = noPlate.getText();
-        String useremail="", userphone="";
-        try{
+        String useremail = "", userphone = "";
+        try {
             checkFields(number);
             checkActiveRentals(ClientMenuController.getUsername());
-            for(Listing l : ListingService.ListingRepository.find()){
-                if(number.equals(l.getNumberPlate())){
+            for (Listing l : ListingService.ListingRepository.find()) {
+                if (number.equals(l.getNumberPlate())) {
                     l.setActive(false);
                     l.setClientEmail(ClientMenuController.getUsername());
                     ListingService.ListingRepository.update(l);
-                    useremail=l.getProviderEmail();
-                    userphone=l.getProviderPhone();
+                    useremail = l.getProviderEmail();
+                    userphone = l.getProviderPhone();
                 }
 
             }
@@ -132,20 +130,19 @@ public class CarsController {
             contactDetails.setText(String.format("Contact the provider\nfor more details\nemail: %s \nphone: %s", useremail, userphone));
             carList.getItems().clear();
             setCarList();
-        }
-        catch(NumberPlateIsMissing e){
+        } catch (NumberPlateIsMissing e) {
             rentalMessage.setText(e.getMessage());
             contactDetails.setText("");
-        }
-        catch(NumberPlateIsNotValid e){
+            noPlate.clear();
+        } catch (NumberPlateIsNotValid e) {
             rentalMessage.setText(e.getMessage());
             contactDetails.setText("");
-        }
-        catch (NumberPlateExistence e){
+            noPlate.clear();
+        } catch (NumberPlateExistence e) {
             rentalMessage.setText(e.getMessage());
             contactDetails.setText("");
-        }
-        catch (ActiveRentalAlreadyExists e){
+            noPlate.clear();
+        } catch (ActiveRentalAlreadyExists e) {
             rentalMessage.setText(e.getMessage());
             contactDetails.setText("");
         }

@@ -76,7 +76,7 @@ public class CheckCNPController implements Initializable {
     }
 
     private void checkIdentity(String cnp) throws CnpIsMissing, CnpIsNotValid, CnpDoesNotMatchEmail {
-        if(cnp == ""){
+        if(cnp.equals("")){
             throw new CnpIsMissing();
         }
         else if(!isCNPValid(cnp)){
