@@ -16,7 +16,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </Label>
-            <JFXButton fx:id="goToClientR" buttonType="RAISED" focusTraversable="false" layoutX="56.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#switchToClientR" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Client">
+            <JFXButton fx:id="goToClientR" id="choiceClient" buttonType="RAISED" focusTraversable="false" layoutX="56.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#switchToClientR" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Client">
                <font>
                   <Font size="14.0" />
                </font>
@@ -24,7 +24,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXButton fx:id="goToProviderR" buttonType="RAISED" focusTraversable="false" layoutX="268.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#switchToProviderR" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Provider">
+            <JFXButton fx:id="goToProviderR" id="choiceProvider" buttonType="RAISED" focusTraversable="false" layoutX="268.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#switchToProviderR" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 50px;" text="Provider">
                <font>
                   <Font size="14.0" />
                </font>

@@ -65,6 +65,7 @@ public class ClientRegistrationController implements  Initializable{
     }
 
     public void sendReg(MouseEvent mouseEvent) {
+
         try{
             ClientService.addClient(email.getText(), password.getText(), firstname.getText(), lastname.getText(), birthDate.getText(), confirmPassword.getText(), cnp.getText());
             registrationMessage.setText("Account created successfully!");
@@ -87,9 +88,11 @@ public class ClientRegistrationController implements  Initializable{
         }
         catch(BirthDateIsNotADate e){
             registrationMessage.setText(e.getMessage());
+            birthDate.clear();
         }
         catch(MinimumAgeIsRequired e){
             registrationMessage.setText(e.getMessage());
+            birthDate.clear();
         }
         catch(CnpIsMissing e){
             registrationMessage.setText(e.getMessage());
@@ -99,6 +102,7 @@ public class ClientRegistrationController implements  Initializable{
         }
         catch(CnpAlreadyExists e) {
             registrationMessage.setText(e.getMessage());
+            cnp.clear();
         }
         catch(PasswordFieldIsEmpty e){
             registrationMessage.setText(e.getMessage());
@@ -124,4 +128,5 @@ public class ClientRegistrationController implements  Initializable{
         Stage window = (Stage)logIn.getScene().getWindow();
         window.setScene(new Scene(root));
     }
+
 }
