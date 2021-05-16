@@ -21,6 +21,7 @@ class ListingServiceTest {
     void setUp() throws Exception{
         FileSystemService.APPLICATION_FOLDER = ".testingCarLoungeDatabases";
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
+        ListingService.initDatabase();
     }
 
     @AfterEach
@@ -31,7 +32,6 @@ class ListingServiceTest {
     @Test
     @DisplayName ("Listing database is initialized and there are no listings.")
     void testListingInitDB() {
-        ListingService.initDatabase();
         assertThat(ListingService.getAllListings()).isNotNull();
         assertThat(ListingService.getAllListings()).isEmpty();
     }

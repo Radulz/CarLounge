@@ -24,6 +24,7 @@ public class Main extends Application {
     double x, y = 0;
     @Override
     public void start(Stage primaryStage) throws Exception {
+        FileSystemService.initDirectory();
         ClientService.initDatabase();
         ProviderService.initDatabase();
         ListingService.initDatabase();

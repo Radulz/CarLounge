@@ -1,5 +1,6 @@
 package org.CarLounge.fis.controller;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -37,7 +38,7 @@ public class ClientRegistrationController implements  Initializable{
     @FXML
     public TextField birthDate;
     @FXML
-    public Button submit;
+    public JFXButton Submit;
     @FXML
     public Text registrationMessage;
     @FXML

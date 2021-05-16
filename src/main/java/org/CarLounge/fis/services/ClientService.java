@@ -32,6 +32,7 @@ public class ClientService {
         ClientRepository = database.getRepository(Client.class);
     }
 
+
     public static List<Client> getAllClients(){
         return ClientRepository.find().toList();
     }
@@ -173,7 +174,7 @@ public class ClientService {
     }
 
 
-    public static void checkUserDoesNotAlreadyExist(String email) throws UsernameAlreadyExistsException {
+    private static void checkUserDoesNotAlreadyExist(String email) throws UsernameAlreadyExistsException {
         for (Client client : ClientRepository.find()) {
             if (Objects.equals(email, client.getEmail()))
                 throw new UsernameAlreadyExistsException(email);
@@ -184,7 +185,7 @@ public class ClientService {
         }
     }
 
-    public static boolean checkCnpDoesNotAlreadyExist(String cnp) {
+    private static boolean checkCnpDoesNotAlreadyExist(String cnp) {
         for (Client client : ClientRepository.find()) {
             if (Objects.equals(cnp, client.getCNP()))
                 return false;

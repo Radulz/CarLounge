@@ -24,6 +24,8 @@ public class ProviderService {
         ProviderRepository = database.getRepository(Provider.class);
     }
 
+
+
     public static List<Provider> getAllProviders(){
         return ProviderRepository.find().toList();
     }
