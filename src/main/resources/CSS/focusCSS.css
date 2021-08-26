@@ -1,0 +1,3 @@
+.text-field, .password-field, .image-view, .hyperlink, .radio-button, .list-view {
+    -fx-focus-traversable: false;
+}

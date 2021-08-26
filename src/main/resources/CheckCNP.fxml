@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.CarLounge.fis.controller.CheckCNPController">
+    <left>
+        <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #0504aa;" BorderPane.alignment="CENTER">
+            <children>
+                <Label layoutX="62.0" layoutY="150.0" text="#00P" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Black" size="18.0" />
+                    </font>
+                </Label>
+                <Label layoutX="57.0" layoutY="175.0" text="CarLounge" textFill="WHITE">
+                    <font>
+                        <Font name="Arial Black" size="36.0" />
+                    </font>
+                </Label>
+                <Label layoutX="60.0" layoutY="218.0" prefHeight="44.0" prefWidth="225.0" text="Never fear, your password is here!" textFill="WHITE" wrapText="true">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Label>
+            </children>
+        </Pane>
+    </left>
+    <right>
+        <Pane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: white;" stylesheets="@CSS/text_fieldCSS.css" BorderPane.alignment="CENTER">
+            <children>
+                <JFXButton fx:id="next" buttonType="RAISED" focusTraversable="false" layoutX="170.0" layoutY="301.0" onMouseClicked="#switchToChangePass" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="NEXT" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </JFXButton>
+                <TextField fx:id="cnp" alignment="CENTER" layoutX="32.0" layoutY="191.0" prefHeight="30.0" prefWidth="238.0" promptText="Enter Identification Number" />
+                <ImageView fx:id="exit" fitHeight="24.0" fitWidth="22.0" layoutX="276.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/exit.png" />
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                    </cursor>
+                </ImageView>
+                <ImageView fitHeight="116.0" fitWidth="253.0" layoutX="41.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/Logo_blue.png" />
+                    </image>
+                </ImageView>
+                <JFXButton fx:id="cancel" buttonType="RAISED" focusTraversable="false" layoutX="34.0" layoutY="301.0" onMouseClicked="#switchToLogIn" prefHeight="33.0" prefWidth="100.0" style="-fx-background-color: #0504aa; -fx-background-radius: 50px;" text="CANCEL" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </JFXButton>
+                <Text fx:id="confirmMessage" fill="#fc0000" layoutX="39.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="231.13671875" />
+            <Label layoutX="53.0" layoutY="162.0" text="We need to confirm your identity">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+    </right>
+    <stylesheets>
+        <URL value="@CSS/loginCSS.css" />
+        <URL value="@CSS/focusCSS.css" />
+    </stylesheets>
+</BorderPane>
